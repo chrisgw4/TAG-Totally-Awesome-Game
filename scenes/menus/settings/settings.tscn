@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://bm2d0bao5nxrc"]
 
 [ext_resource type="Texture2D" uid="uid://psl17w840d10" path="res://assets/menus/settings/Settings_Background.png" id="1_glfl3"]
+[ext_resource type="Texture2D" uid="uid://bkefnlio2vari" path="res://assets/menus/settings/Settings.png" id="2_vm1q0"]
+[ext_resource type="Texture2D" uid="uid://okojt3eccv8c" path="res://assets/menus/settings/User_Name.png" id="3_2np4y"]
+[ext_resource type="Texture2D" uid="uid://8vdvjyqxd37" path="res://assets/menus/settings/Volume.png.png" id="4_csptx"]
+[ext_resource type="Theme" uid="uid://wbtern70lix0" path="res://pixelkiln_ui/ironvale/theme.tres" id="5_csptx"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="5_lf53u"]
 
 [node name="Settings" type="CanvasLayer" unique_id=876434316]
 
@@ -8,3 +13,45 @@
 position = Vector2(581.55554, 322)
 scale = Vector2(1.8111111, 1.8111111)
 texture = ExtResource("1_glfl3")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=857196161]
+offset_left = 67.0
+offset_top = -254.0
+offset_right = 795.0
+offset_bottom = 220.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_vm1q0")
+
+[node name="UserName" type="Sprite2D" parent="." unique_id=1240965374]
+position = Vector2(489, 430)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2np4y")
+
+[node name="Volume_png" type="Sprite2D" parent="." unique_id=1999778222]
+position = Vector2(909, 181)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_csptx")
+
+[node name="Label" type="Label" parent="." unique_id=734640434]
+offset_left = 841.0
+offset_top = 327.0
+offset_right = 999.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("5_lf53u")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=1422048817]
+offset_left = 743.0
+offset_top = 432.0
+offset_right = 916.0
+offset_bottom = 448.0
+scale = Vector2(2, 2)
+theme = ExtResource("5_csptx")
+
+[node name="VolumeSlider" type="HSlider" parent="." unique_id=1662179500]
+offset_left = 743.0
+offset_top = 356.0
+offset_right = 916.0
+offset_bottom = 372.0
+scale = Vector2(2, 2)
+theme = ExtResource("5_csptx")
