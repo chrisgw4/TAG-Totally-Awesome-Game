@@ -18,12 +18,18 @@ config/name="TAG Totally-Awesome-Game"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cl7ipgnq8m04j"
+
 [autoload]
 
 GDSync="*uid://cgo4kiocg4a4a"
 Firebase="*uid://cvb26atjckwlq"
 SceneHolder="*uid://vk67i7860nmy"
 Conductor="*uid://c5rvmkaorxynb"
+UserGlobalValues="*uid://b05emiupr7un7"
+LobbyGatherer="*uid://dab7oc4b0pjbo"
 
 [display]
 

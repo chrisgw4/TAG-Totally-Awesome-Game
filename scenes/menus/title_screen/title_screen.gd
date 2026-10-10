@@ -19,10 +19,20 @@ func _ready() -> void:
 	Conductor.beat.connect(_beat)
 	Conductor.play()
 	Conductor.finished.connect(_loop_music_player)
+	Conductor.bus = "Music"
+	start_button.mouse_entered.connect(_button_grow)
+	start_button.mouse_exited.connect(_button_shrink)
 
 func _beat(_pos) -> void:
 	bouncing_title._bounce()
-	
+
+
+func _button_grow() -> void:
+	start_button.scale = Vector2(1.15, 1.15)
+
+
+func _button_shrink() -> void:
+	start_button.scale = Vector2(1,1)
 
 
 func _loop_music_player() -> void:

@@ -2,25 +2,100 @@
 
 [ext_resource type="Script" uid="uid://d5ir56ccjlg0" path="res://scenes/menus/main_menu/main_menu.gd" id="1_kx65a"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="2_flk2s"]
-[ext_resource type="Texture2D" uid="uid://bn3pukawif7jn" path="res://assets/menus/Press_Start_BG.png" id="3_peecx"]
-[ext_resource type="Texture2D" uid="uid://dyaojxegf32rc" path="res://assets/menus/Press_Start.png" id="4_ub2bi"]
+[ext_resource type="PackedScene" uid="uid://c44b1w47fkll6" path="res://scenes/google_signin/sign_in_with_google.tscn" id="3_gm7d7"]
+[ext_resource type="AudioStream" uid="uid://b62cqw3lavog1" path="res://assets/music/main_menu/free_hideki_naganuma_bomb_rush_cyberfunk_sonic_cd_type_beat_MARKER.wav" id="4_peecx"]
 
-[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper")]
+[sub_resource type="Animation" id="Animation_peecx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ub2bi"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x31ro"]
+_data = {
+&"RESET": SubResource("Animation_peecx"),
+&"new_animation": SubResource("Animation_ub2bi")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper", "music_player", "color_rect", "play_button", "sign_in_google_button")]
 script = ExtResource("1_kx65a")
 screen_wiper = NodePath("ScreenWiper")
+music_player = NodePath("AudioStreamPlayer")
+color_rect = NodePath("CanvasLayer2/ColorRect")
+play_button = NodePath("CanvasLayer/Button")
+sign_in_google_button = NodePath("CanvasLayer/SignInWithGoogle")
 
-[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("2_flk2s")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1395212831]
+layer = 1000
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=57180967]
-z_index = 100
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=57180967]
 offset_right = 1234.0
 offset_bottom = 707.0
 color = Color(0, 0, 0, 1)
 
-[node name="PressStartBg" type="Sprite2D" parent="." unique_id=1995043400]
-position = Vector2(563, 404)
-texture = ExtResource("3_peecx")
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("2_flk2s")]
+layer = 999
 
-[node name="PressStart" type="Sprite2D" parent="." unique_id=1504209725]
-position = Vector2(549, 409)
-texture = ExtResource("4_ub2bi")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=587174126]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1345538472]
+offset_left = 542.0
+offset_top = 247.0
+offset_right = 583.0
+offset_bottom = 278.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1946921667]
+offset_left = 542.0
+offset_top = 288.0
+offset_right = 612.0
+offset_bottom = 319.0
+text = "Options"
+
+[node name="Button3" type="Button" parent="CanvasLayer" unique_id=324487065]
+offset_left = 542.0
+offset_top = 332.0
+offset_right = 584.0
+offset_bottom = 363.0
+text = "Quit"
+
+[node name="SignInWithGoogle" parent="CanvasLayer" unique_id=1340730178 instance=ExtResource("3_gm7d7")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -203.0
+offset_top = -43.0
+offset_right = -203.0
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=190300352]
+stream = ExtResource("4_peecx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=142817275]
+libraries/ = SubResource("AnimationLibrary_x31ro")

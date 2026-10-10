@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b75227nxj7gwc"]
+
+[ext_resource type="PackedScene" uid="uid://v48u3lqey6ia" path="res://scenes/lobby_menu/lobby_item.tscn" id="1_hqgs5"]
+[ext_resource type="Script" uid="uid://ghous4r1604i" path="res://scenes/lobby_menu/lobby_selector.gd" id="1_mqhlw"]
+[ext_resource type="PackedScene" uid="uid://bisfoqmletsas" path="res://scenes/gdsync_components/lobby_gatherer.tscn" id="3_hetbt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="LobbySelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_gatherer")]
+offset_right = 100.0
+offset_bottom = 415.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
+script = ExtResource("1_mqhlw")
+lobby_gatherer = NodePath("LobbyGatherer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=289602972]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=322965309]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LobbyItem" parent="ScrollContainer/VBoxContainer" unique_id=1651210949 instance=ExtResource("1_hqgs5")]
+layout_mode = 2
+
+[node name="LobbyItem2" parent="ScrollContainer/VBoxContainer" unique_id=390690273 instance=ExtResource("1_hqgs5")]
+layout_mode = 2
+
+[node name="LobbyGatherer" parent="." unique_id=602873561 instance=ExtResource("3_hetbt")]

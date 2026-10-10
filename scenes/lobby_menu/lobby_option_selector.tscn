@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bjnbrygpwo8vd"]
+
+[ext_resource type="Script" uid="uid://dq31imdu2nvdl" path="res://scenes/lobby_menu/lobby_option_selector.gd" id="1_33m65"]
+[ext_resource type="PackedScene" uid="uid://bnag7jxojv424" path="res://scenes/lobby_menu/lobby_menu_option.tscn" id="1_mk4cc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="LobbyOptionSelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_browser", "create_lobby", "join_lobby")]
+offset_right = 100.0
+offset_bottom = 415.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
+script = ExtResource("1_33m65")
+lobby_browser = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption")
+create_lobby = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption2")
+join_lobby = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=289602972]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=322965309]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LobbyMenuOption" parent="ScrollContainer/VBoxContainer" unique_id=841211064 instance=ExtResource("1_mk4cc")]
+layout_mode = 2
+label_text = "Lobby Browser"
+
+[node name="LobbyMenuOption2" parent="ScrollContainer/VBoxContainer" unique_id=683518773 instance=ExtResource("1_mk4cc")]
+layout_mode = 2
+label_text = "Create Lobby"
+
+[node name="LobbyMenuOption3" parent="ScrollContainer/VBoxContainer" unique_id=1803971514 instance=ExtResource("1_mk4cc")]
+layout_mode = 2
+label_text = "Join Lobby"

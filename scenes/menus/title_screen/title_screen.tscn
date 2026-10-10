@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8cpai044dgog" path="res://scenes/menus/title_screen/title_screen.gd" id="1_8ff8e"]
 [ext_resource type="PackedScene" uid="uid://bnhcj084g645c" path="res://scenes/menus/infinite_tile_scroll.tscn" id="1_qrqdf"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_byxgi"]
+[ext_resource type="Texture2D" uid="uid://bn3pukawif7jn" path="res://assets/menus/Press_Start_BG.png" id="4_00755"]
 [ext_resource type="Texture2D" uid="uid://dyaojxegf32rc" path="res://assets/menus/Press_Start.png" id="4_lksgi"]
 [ext_resource type="PackedScene" uid="uid://idx5h20qk3x" path="res://scenes/gdsync_components/multiplayer_connector.tscn" id="5_c8div"]
 [ext_resource type="PackedScene" uid="uid://6alm51n0vmt7" path="res://scenes/menus/toast_canvas.tscn" id="6_3osdd"]
@@ -29,8 +30,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -178.0
-offset_bottom = -178.0
+offset_top = -97.0
+offset_bottom = -97.0
+
+[node name="PressStartBg" type="Sprite2D" parent="CanvasLayer" unique_id=1578158680]
+position = Vector2(583, 510)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_00755")
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1490665876]
 anchors_preset = 8
@@ -39,11 +45,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -153.5
-offset_top = 35.0
+offset_top = 157.0
 offset_right = 153.5
-offset_bottom = 93.0
+offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("4_lksgi")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_byxgi")]
@@ -54,5 +61,6 @@ texture_normal = ExtResource("4_lksgi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1810602638]
 stream = ExtResource("7_a4kjy")
+bus = &"Music"
 
 [node name="IntroScene" parent="." unique_id=1137348644 instance=ExtResource("8_1g67v")]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bm2d0bao5nxrc"]
+
+[ext_resource type="Texture2D" uid="uid://psl17w840d10" path="res://assets/menus/settings/Settings_Background.png" id="1_glfl3"]
+
+[node name="Settings" type="CanvasLayer" unique_id=876434316]
+
+[node name="SettingsBackground" type="Sprite2D" parent="." unique_id=74324558]
+position = Vector2(581.55554, 322)
+scale = Vector2(1.8111111, 1.8111111)
+texture = ExtResource("1_glfl3")

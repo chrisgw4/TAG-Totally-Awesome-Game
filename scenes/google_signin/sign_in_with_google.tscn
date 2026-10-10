@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c44b1w47fkll6"]
+
+[ext_resource type="Script" uid="uid://cg0wie2nkpryk" path="res://scenes/google_signin/sign_in_with_google.gd" id="1_dy5ti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn7xo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy5ti"]
+bg_color = Color(1.5251294, 1.5251294, 1.5251294, 0.34117648)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inixa"]
+bg_color = Color(0.68623376, 0.68623376, 0.68623376, 0.34117648)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SignInWithGoogle" type="Control" unique_id=1340730178 node_paths=PackedStringArray("google_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dy5ti")
+google_button = NodePath("PanelContainer/Button")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1050465675]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cn7xo")
+
+[node name="Button" type="Button" parent="PanelContainer" unique_id=1188240792]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy5ti")
+theme_override_styles/hover = SubResource("StyleBoxFlat_inixa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=1751553486]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][img=32x32]res://assets/menus/google_icon.png[/img] Sign in with Google"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

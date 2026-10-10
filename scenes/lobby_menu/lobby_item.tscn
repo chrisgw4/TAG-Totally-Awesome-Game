@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://v48u3lqey6ia"]
+
+[ext_resource type="Script" uid="uid://cvlfie0ktmu3" path="res://scenes/lobby_menu/lobby_item.gd" id="1_0r08d"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_76a1m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwo23"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="LobbyItem" type="PanelContainer" unique_id=1651210949 node_paths=PackedStringArray("lobby_name_label", "player_count_label", "password_protected")]
+custom_minimum_size = Vector2(300, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bwo23")
+script = ExtResource("1_0r08d")
+lobby_name_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Label")
+player_count_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/Label2")
+password_protected = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1866825499]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1480865197]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=971079634]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1001150860]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1655441268]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_76a1m")
+text = "Super Long Lobby"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1894487716]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=1312593056]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_76a1m")
+text = "3/4"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1663289587]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=881440145]
+custom_minimum_size = Vector2(280, 16)
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_76a1m")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[img=16x16 color=#FFFFFF]res://assets/Lock.png[/img] Password Locked"

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1enlduu5xmnu" path="res://assets/menus/TAG_LOGO.png" id="1_u1u5e"]
 [ext_resource type="Texture2D" uid="uid://bevf8j201eahi" path="res://assets/menus/TAG_LOGO_BG.png" id="2_coemt"]
 [ext_resource type="Shader" uid="uid://htyopc1eej1s" path="res://scenes/drop_shadow.gdshader" id="3_dkc51"]
+[ext_resource type="Texture2D" uid="uid://cbab5g5id8oyu" path="res://assets/menus/Totally_Awesome_Game.png" id="5_o0hi6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o0hi6"]
 shader = ExtResource("3_dkc51")
@@ -27,7 +28,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(2, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_u1u5e"]
@@ -43,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
+"values": [Vector2(2.25, 2.25), Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_coemt"]
@@ -64,12 +65,20 @@ anim_player = NodePath("AnimationPlayer")
 
 [node name="TagLogoBg" type="Sprite2D" parent="." unique_id=1146184166]
 material = SubResource("ShaderMaterial_o0hi6")
-scale = Vector2(1.25, 1.25)
+position = Vector2(25.625, 0)
+scale = Vector2(2.25, 2.25)
 texture = ExtResource("2_coemt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1588011154]
 material = SubResource("ShaderMaterial_coemt")
+position = Vector2(25.625, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("1_u1u5e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1213684050]
 libraries/ = SubResource("AnimationLibrary_coemt")
+
+[node name="TotallyAwesomeGame" type="Sprite2D" parent="." unique_id=763958674]
+position = Vector2(-2, 122)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_o0hi6")

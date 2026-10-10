@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dyi7icmkkta6s"]
+
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_for0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anvxc"]
+bg_color = Color(0.9098043, 0.90980434, 0.9098043, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_710q2"]
+bg_color = Color(0.8800845, 0.8800844, 0.8800844, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.29543713, 0.71455765, 1, 0.82800007)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 2.0
+
+[node name="LobbyCreatorMenu" type="PanelContainer" unique_id=1983933455]
+custom_minimum_size = Vector2(300, 115)
+offset_right = 300.0
+offset_bottom = 94.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=284512873]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=322965309]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1689300193]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=546017241]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=492863603]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_for0l")
+theme_override_font_sizes/font_size = 14
+text = "Lobby Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1888668186]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="LobbyLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=589429291]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_for0l")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_anvxc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_710q2")
+text = "1234567890ABCDEF"
+alignment = 1
+max_length = 16
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=626783363]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1306573411]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer3" unique_id=1338277783]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_for0l")
+theme_override_font_sizes/font_size = 14
+text = "Password?"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2007752105]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer4" unique_id=1016417615]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_for0l")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_anvxc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_710q2")
+text = "1234567890ABCDEF"
+alignment = 1
+max_length = 16
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1854031874]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1896523568]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_for0l")
+text = "Cancel"
+
+[node name="CreateButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=270316140]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_for0l")
+text = "Create"

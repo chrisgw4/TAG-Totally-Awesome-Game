@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bisfoqmletsas"]
+
+[ext_resource type="Script" uid="uid://dab7oc4b0pjbo" path="res://scenes/gdsync_components/lobby_gatherer.gd" id="1_ku1xp"]
+
+[node name="LobbyGatherer" type="Node" unique_id=602873561]
+script = ExtResource("1_ku1xp")
