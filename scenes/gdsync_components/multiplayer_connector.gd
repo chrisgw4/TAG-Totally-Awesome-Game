@@ -20,7 +20,7 @@ func _connection_success() -> void:
 
 
 func _connection_failed(error:int) -> void:
-	print("Connected Successfully")
+	print("Connected Not Successfully")
 	gdsync_connection_failed.emit(error)
 	match(error):
 		ENUMS.CONNECTION_FAILED.INVALID_PUBLIC_KEY:
