@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://cm5arrkffeal7"]
 
-[node name="TitleScreen" type="Node2D" unique_id=1961741829]
+[ext_resource type="Script" uid="uid://8cpai044dgog" path="res://scenes/menus/title_screen/title_screen.gd" id="1_8ff8e"]
+[ext_resource type="PackedScene" uid="uid://bnhcj084g645c" path="res://scenes/menus/infinite_tile_scroll.tscn" id="1_qrqdf"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_byxgi"]
+[ext_resource type="Texture2D" uid="uid://dyaojxegf32rc" path="res://assets/menus/Press_Start.png" id="4_lksgi"]
+[ext_resource type="PackedScene" uid="uid://idx5h20qk3x" path="res://scenes/gdsync_components/multiplayer_connector.tscn" id="5_c8div"]
+[ext_resource type="PackedScene" uid="uid://6alm51n0vmt7" path="res://scenes/menus/toast_canvas.tscn" id="6_3osdd"]
+
+[node name="TitleScreen" type="Node2D" unique_id=1961741829 node_paths=PackedStringArray("start_button", "multiplayer_connector", "toast_canvas", "screen_wiper")]
+script = ExtResource("1_8ff8e")
+start_button = NodePath("CanvasLayer/TextureButton")
+multiplayer_connector = NodePath("MultiplayerConnector")
+toast_canvas = NodePath("ToastCanvas")
+screen_wiper = NodePath("ScreenWiper")
+
+[node name="InfiniteTileScroll" parent="." unique_id=1883197413 instance=ExtResource("1_qrqdf")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=862936498]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1490665876]
+offset_left = 417.0
+offset_top = 326.0
+offset_right = 724.0
+offset_bottom = 384.0
+texture_normal = ExtResource("4_lksgi")
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_byxgi")]
+
+[node name="MultiplayerConnector" parent="." unique_id=517243958 instance=ExtResource("5_c8div")]
+
+[node name="ToastCanvas" parent="." unique_id=1780600741 instance=ExtResource("6_3osdd")]

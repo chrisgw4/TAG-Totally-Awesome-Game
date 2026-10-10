@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://chg0em4s5gf5q"]
+
+[ext_resource type="Script" uid="uid://brvjruagbr5tl" path="res://scenes/menus/toast.gd" id="1_7koyj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
+bg_color = Color(0.08745768, 0.087457694, 0.087457635, 0.40392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[node name="Toast" type="PanelContainer" unique_id=1860347998 node_paths=PackedStringArray("label")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
+script = ExtResource("1_7koyj")
+label = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=79137577]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=947337678]
+layout_mode = 2
+text = "Connecting to Multiplayer..."

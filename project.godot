@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 
 GDSync="*uid://cgo4kiocg4a4a"
 Firebase="*uid://cvb26atjckwlq"
+SceneHolder="*uid://vk67i7860nmy"
 
 [display]
 

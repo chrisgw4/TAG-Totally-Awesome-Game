@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b0tjdgjpkrcqe"]
+
+[ext_resource type="Script" uid="uid://d5ir56ccjlg0" path="res://scenes/menus/main_menu/main_menu.gd" id="1_kx65a"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="2_flk2s"]
+[ext_resource type="Texture2D" uid="uid://bn3pukawif7jn" path="res://assets/menus/Press_Start_BG.png" id="3_peecx"]
+[ext_resource type="Texture2D" uid="uid://dyaojxegf32rc" path="res://assets/menus/Press_Start.png" id="4_ub2bi"]
+
+[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper")]
+script = ExtResource("1_kx65a")
+screen_wiper = NodePath("ScreenWiper")
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("2_flk2s")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=57180967]
+z_index = 100
+offset_right = 1234.0
+offset_bottom = 707.0
+color = Color(0, 0, 0, 1)
+
+[node name="PressStartBg" type="Sprite2D" parent="." unique_id=1995043400]
+position = Vector2(563, 404)
+texture = ExtResource("3_peecx")
+
+[node name="PressStart" type="Sprite2D" parent="." unique_id=1504209725]
+position = Vector2(549, 409)
+texture = ExtResource("4_ub2bi")

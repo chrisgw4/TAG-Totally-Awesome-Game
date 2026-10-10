@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://6alm51n0vmt7"]
+
+[ext_resource type="PackedScene" uid="uid://chg0em4s5gf5q" path="res://scenes/menus/toast.tscn" id="1_nrh72"]
+[ext_resource type="Script" uid="uid://4sglfhallkjg" path="res://scenes/menus/toast_canvas.gd" id="1_pj0b7"]
+
+[sub_resource type="Animation" id="Animation_h2v30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toast:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(234, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toast:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 651)]
+}
+
+[sub_resource type="Animation" id="Animation_pj0b7"]
+resource_name = "bottom_left_rise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toast:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(234, 40), Vector2(234, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toast:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 648), Vector2(3, 605)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2v30"]
+_data = {
+&"RESET": SubResource("Animation_h2v30"),
+&"bottom_left_rise": SubResource("Animation_pj0b7")
+}
+
+[node name="ToastCanvas" type="CanvasLayer" unique_id=1780600741 node_paths=PackedStringArray("toast", "animation_player")]
+script = ExtResource("1_pj0b7")
+toast = NodePath("Toast")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Toast" parent="." unique_id=1860347998 instance=ExtResource("1_nrh72")]
+offset_left = 3.0
+offset_top = 651.0
+offset_right = 237.0
+offset_bottom = 691.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1150935476]
+libraries/ = SubResource("AnimationLibrary_h2v30")
