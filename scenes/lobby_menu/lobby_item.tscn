@@ -2,17 +2,26 @@
 
 [ext_resource type="Script" uid="uid://cvlfie0ktmu3" path="res://scenes/lobby_menu/lobby_item.gd" id="1_0r08d"]
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_76a1m"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_svru3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwo23"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="LobbyItem" type="PanelContainer" unique_id=1651210949 node_paths=PackedStringArray("lobby_name_label", "player_count_label", "password_protected")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r08d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svru3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="LobbyItem" type="PanelContainer" unique_id=1651210949 node_paths=PackedStringArray("lobby_name_label", "player_count_label", "password_protected", "button", "screen_wiper")]
 custom_minimum_size = Vector2(300, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_bwo23")
 script = ExtResource("1_0r08d")
 lobby_name_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/Label")
 player_count_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/Label2")
 password_protected = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel")
+button = NodePath("Button")
+screen_wiper = NodePath("ScreenWiper")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1866825499]
 layout_mode = 2
@@ -59,3 +68,10 @@ theme_override_fonts/normal_font = ExtResource("1_76a1m")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[img=16x16 color=#FFFFFF]res://assets/Lock.png[/img] Password Locked"
+
+[node name="Button" type="Button" parent="." unique_id=1932120536]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r08d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svru3")
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_svru3")]

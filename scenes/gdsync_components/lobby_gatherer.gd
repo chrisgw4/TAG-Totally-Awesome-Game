@@ -3,6 +3,7 @@ extends Node
 
 var current_lobbies:Array
 
+signal lobbies_sorted(lobbies:Array)
 
 func _ready() -> void:
 	if not GDSync.is_active():
@@ -32,3 +33,5 @@ func _sort_lobbies(lobbies:Array) -> void:
 			continue
 		
 		sorted_lobby_array.append(lobby)
+	
+	lobbies_sorted.emit(sorted_lobby_array)

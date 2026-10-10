@@ -7,12 +7,13 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="LobbySelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_gatherer")]
+[node name="LobbySelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_gatherer", "item_container")]
 offset_right = 100.0
 offset_bottom = 415.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
 script = ExtResource("1_mqhlw")
 lobby_gatherer = NodePath("LobbyGatherer")
+item_container = NodePath("ScrollContainer/VBoxContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=289602972]
 layout_mode = 2

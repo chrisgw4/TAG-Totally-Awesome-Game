@@ -7,6 +7,8 @@ extends Node2D
 
 @export var color_rect:ColorRect
 
+var main_menu_scene:PackedScene = load("res://scenes/menus/main_menu/main_menu.tscn")
+
 func _ready() -> void:
 	leave_button.pressed.connect(_leave_lobby)
 	screen_wiper.start_loading.connect(_complete_scene_switch)
@@ -25,4 +27,4 @@ func _leave_lobby() -> void:
 	
 
 func _complete_scene_switch() -> void:
-	SceneHolder.change_scene_to.emit(preload("res://scenes/menus/main_menu/main_menu.tscn"), self)
+	SceneHolder.change_scene_to.emit(main_menu_scene, self)
