@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vgmwjol426m7"]
+
+[ext_resource type="Script" uid="uid://bylq13dxs8xu6" path="res://scenes/gdsync_components/lobby_joiner.gd" id="1_626g0"]
+
+[node name="LobbyJoiner" type="Node" unique_id=1509211714]
+script = ExtResource("1_626g0")

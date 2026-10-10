@@ -7,5 +7,6 @@ func _ready() -> void:
 	
 
 func _change_scene_to(scene:PackedScene, object) -> void:
-	object.queue_free()
+	if object:
+		object.queue_free()
 	add_child(scene.instantiate())

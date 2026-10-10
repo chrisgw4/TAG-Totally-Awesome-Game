@@ -30,6 +30,7 @@ SceneHolder="*uid://vk67i7860nmy"
 Conductor="*uid://c5rvmkaorxynb"
 UserGlobalValues="*uid://b05emiupr7un7"
 LobbyGatherer="*uid://dab7oc4b0pjbo"
+LobbyJoiner="*uid://vgmwjol426m7"
 
 [display]
 

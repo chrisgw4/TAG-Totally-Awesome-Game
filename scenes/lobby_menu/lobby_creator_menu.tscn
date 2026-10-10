@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1sgd7of1182i" path="res://scenes/lobby_menu/lobby_creator_menu.gd" id="1_1fyfy"]
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_for0l"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_kv742"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(1, 1, 1, 1)
@@ -28,7 +29,7 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 expand_margin_left = 2.0
 
-[node name="LobbyCreatorMenu" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("create_button", "cancel_button", "lobby_line_edit", "password_line_edit")]
+[node name="LobbyCreatorMenu" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("create_button", "cancel_button", "lobby_line_edit", "password_line_edit", "screen_wiper")]
 custom_minimum_size = Vector2(300, 115)
 offset_right = 300.0
 offset_bottom = 94.0
@@ -38,6 +39,7 @@ create_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/CreateBut
 cancel_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/CancelButton")
 lobby_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/LobbyLineEdit")
 password_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer4/PasswordLineEdit")
+screen_wiper = NodePath("ScreenWiper")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=284512873]
 layout_mode = 2
@@ -130,3 +132,5 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_for0l")
 text = "Create"
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_kv742")]
