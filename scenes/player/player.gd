@@ -10,6 +10,8 @@ class_name player
 @export var jump_component:JumpComponent
 @export var gravity_component:GravityComponent
 
+var was_in_air = false
+
 func _ready() -> void:
 	GDSync.connect_gdsync_owner_changed(self, owner_changed)
 	owner_changed(GDSync.get_gdsync_owner(self)) # apply the current owner immediately
@@ -17,6 +19,7 @@ func _ready() -> void:
 	anim_sprite.play_synced("idle")
 	
 	input_component.movement_inputs.connect(movement_component._accelerate_in_direction)
+	input_component.grinding_inputs.connect(movement_component._accelerate_in_direction_with_accel)
 	input_component.jump_input.connect(jump_component._calculate_jump)
 	jump_component.change_gravity_scale.connect(gravity_component._change_gravity_scale)
 	jump_component.jump.connect(movement_component.force_velocity_y)
@@ -36,6 +39,13 @@ const JUMP_VELOCITY := -450.0
 func _physics_process(delta: float) -> void:
 	if not GDSync.is_gdsync_owner(self):
 		return
+	if not is_on_floor():
+		was_in_air = true
+	elif was_in_air and is_on_floor():
+		was_in_air = false
+		anim_sprite.play_synced("land")
+		
+		
 	
 	pass
 	#if not is_on_floor():
@@ -53,10 +63,24 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x > 0:
 		anim_sprite.flip_h = false
 	
-	if abs(velocity.x) > 0.2:
+	if get_collision_mask_value(3) != true and is_on_floor() == false:
+			anim_sprite.play_synced("hurt")
+	elif abs(velocity.x) > 0.2 and input_component.grinding == true:
+		anim_sprite.play_synced("grind")
+	elif abs(velocity.x) > 0.2 and is_on_floor():
+		if anim_sprite.animation == "land" :
+			await anim_sprite.animation_finished
 		anim_sprite.play_synced("run")
-	else:
+	elif is_on_floor() and anim_sprite.animation == "land":
+		await anim_sprite.animation_finished
 		anim_sprite.play_synced("idle")
+	elif is_on_floor():
+		anim_sprite.play_synced("idle")
+	elif velocity.y < 0 and is_on_floor()==false:
+		anim_sprite.play_synced("jump")
+	else:
+		anim_sprite.play_synced("fall")
+	
 	
 	#move_and_slide()
 	

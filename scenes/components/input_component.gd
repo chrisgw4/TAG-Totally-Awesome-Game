@@ -3,12 +3,18 @@ class_name InputComponent
 
 
 signal movement_inputs(direction:Vector2, delta:float)
+signal grinding_inputs(acceleration:Vector2,direction:Vector2, delta:float)
 signal tag_input(is_pressed:bool)
 signal jump_input(dir:Vector2, is_pressed:bool)
 signal dash_inputs(direction:Vector2)
 signal drill_inputs(direction:Vector2)
 signal super_drill_inputs(direction:Vector2)
 signal all_inputs(move_dir:Vector2, jump_dir:Vector2, is_jump_pressed:bool, dash_dir:Vector2, drill_dir:Vector2)
+
+
+var grinding = false
+var apply_grind_boost = false
+var grind_boost = 1.3
 
 var disabled_inputs:bool = false:
 	set(new_val):
@@ -29,8 +35,10 @@ func _enable_inputs() -> void:
 
 # Get inputs during each physics process frame
 func _physics_process(delta: float) -> void:
+	if not GDSync.is_gdsync_owner(get_parent()):
+		return
 	# Get the direction of the characters input
-	var dir:Vector2 = Vector2(Input.get_action_strength("game_move_right")-Input.get_action_strength("game_move_left"), 0).normalized()
+	var dir = Vector2(Input.get_action_strength("game_move_right")-Input.get_action_strength("game_move_left"), 0).normalized()
 	
 	# --- NEW: Update the last facing direction ---
 	if dir.x != 0:
@@ -49,7 +57,18 @@ func _physics_process(delta: float) -> void:
 	
 	
 	jump_input.emit(jump_direction, is_jump_pressed)
-	movement_inputs.emit(dir, delta)
+	
+	if grinding == false:
+		movement_inputs.emit(dir, delta)
+	if grinding == true and abs(get_parent().velocity.x) < 10:
+		get_parent().set_collision_mask_value(3,false)
+		
+		
+	elif apply_grind_boost == true:
+		grinding_inputs.emit(Vector2(-0.3,0), Vector2(get_parent().velocity.x*grind_boost,0), delta)
+		apply_grind_boost = false
+	else:
+		grinding_inputs.emit(Vector2(-0.3,0), Vector2(get_parent().velocity.x,0), delta)
 	
 	if Input.is_action_pressed("tag"):
 		is_tag_pressed = true
@@ -88,3 +107,16 @@ func turn_vector_into_8_directions(vec:Vector2) -> Vector2:
 		vec.y = half
 	
 	return vec
+
+
+func _on_grind_detector_body_entered(body: Node2D) -> void:
+	grinding = true
+	apply_grind_boost = true
+
+
+
+func _on_grind_detector_body_exited(body: Node2D) -> void:
+	grinding = false
+	get_parent().set_collision_mask_value(3,true)
+	
+	

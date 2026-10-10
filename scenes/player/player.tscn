@@ -3,9 +3,14 @@
 [ext_resource type="Script" uid="uid://lysd0ahcjirb" path="res://scenes/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://mpt08dx7uje" path="res://assets/player/player_idle.png" id="2_qek5x"]
 [ext_resource type="Texture2D" uid="uid://csywv718tinw" path="res://assets/player/run.png" id="3_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://dnpgyfxfiitgm" path="res://assets/player/grind.png" id="3_gx1jg"]
 [ext_resource type="Script" uid="uid://dqpkvnosbpdvd" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimatedSprite2D.gd" id="3_hqtel"]
 [ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://sksswcmr2ic1" path="res://assets/player/jump.png" id="3_je7p5"]
+[ext_resource type="Texture2D" uid="uid://bqvvjkl7ew88q" path="res://assets/player/fall.png" id="4_fm80t"]
+[ext_resource type="Texture2D" uid="uid://pugin74unfhg" path="res://assets/player/hurt.png" id="4_ugbui"]
 [ext_resource type="PackedScene" uid="uid://dxclr2mjdivfx" path="res://scenes/components/gravity_component.tscn" id="5_dw050"]
+[ext_resource type="Texture2D" uid="uid://dfipr0b4gg5ls" path="res://assets/player/land.png" id="5_fm80t"]
 [ext_resource type="PackedScene" uid="uid://df8id4wkcp6q" path="res://scenes/components/jump_component.tscn" id="6_b26j0"]
 [ext_resource type="PackedScene" uid="uid://dqp5bgps30vvg" path="res://scenes/components/movement_component.tscn" id="7_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://b34ldb1ryno6p" path="res://scenes/components/input_component.tscn" id="8_nvl01"]
@@ -66,6 +71,30 @@ region = Rect2(448, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_fm80t")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gx1jg")
+}],
+"loop": 1,
+"name": &"grind",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ugbui")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5gtgg")
 }, {
 "duration": 1.0,
@@ -79,6 +108,22 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_je7p5")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fm80t")
+}],
+"loop": 0,
+"name": &"land",
 "speed": 5.0
 }, {
 "frames": [{
@@ -115,8 +160,12 @@ animations = [{
 radius = 16.0
 height = 60.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aisgp"]
+size = Vector2(19, 5.75)
+
 [node name="Player" type="CharacterBody2D" unique_id=1121984624 node_paths=PackedStringArray("camera", "anim_sprite", "input_component", "movement_component", "jump_component", "gravity_component")]
 collision_layer = 0
+collision_mask = 5
 script = ExtResource("1_onrkg")
 camera = NodePath("Camera2D")
 anim_sprite = NodePath("AnimatedSprite2D")
@@ -131,7 +180,7 @@ shape = SubResource("CapsuleShape2D_ugbui")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038606627]
 position = Vector2(-6.7762636e-21, 2.3841858e-07)
 sprite_frames = SubResource("SpriteFrames_88vfu")
-animation = &"run"
+animation = &"fall"
 script = ExtResource("3_hqtel")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
@@ -177,3 +226,15 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tag_detector" unique_id=1080411625]
 shape = SubResource("CapsuleShape2D_aisgp")
+
+[node name="GrindDetector" type="Area2D" parent="." unique_id=320007859]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrindDetector" unique_id=1153304978]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_aisgp")
+
+[connection signal="jump" from="JumpComponent" to="." method="_on_jump_component_jump"]
+[connection signal="body_entered" from="GrindDetector" to="InputComponent" method="_on_grind_detector_body_entered"]
+[connection signal="body_exited" from="GrindDetector" to="InputComponent" method="_on_grind_detector_body_exited"]

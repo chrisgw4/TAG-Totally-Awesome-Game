@@ -125,6 +125,8 @@ func _accelerate_in_direction_with_accel(acceleration:Vector2, dir:Vector2, delt
 		return
 	if dir != Vector2.ZERO:
 		velocity += dir * acceleration * delta
+		
+		
 	else:
 		velocity = velocity.lerp(Vector2(0, velocity.y), friction)
 
@@ -139,3 +141,8 @@ func _disable_vel_x_clamp(_value = 0) -> void:
 
 func _enable_vel_x_clamp() -> void:
 	prevent_vel_x_clamp = false
+
+
+
+	
+	

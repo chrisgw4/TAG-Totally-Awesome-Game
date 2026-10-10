@@ -61,6 +61,5 @@ texture_normal = ExtResource("4_lksgi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1810602638]
 stream = ExtResource("7_a4kjy")
-bus = &"Music"
 
 [node name="IntroScene" parent="." unique_id=1137348644 instance=ExtResource("8_1g67v")]
