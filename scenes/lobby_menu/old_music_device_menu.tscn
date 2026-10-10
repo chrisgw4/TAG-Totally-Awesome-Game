@@ -25,9 +25,9 @@ offset_bottom = 297.0
 
 [node name="FlowContainer" type="FlowContainer" parent="." unique_id=700245420]
 offset_left = 426.0
-offset_top = 87.0
+offset_top = 86.0
 offset_right = 726.0
-offset_bottom = 287.0
+offset_bottom = 286.0
 
 [node name="LobbyOptionSelector" parent="FlowContainer" unique_id=1983933455 instance=ExtResource("1_usm8w")]
 layout_mode = 2

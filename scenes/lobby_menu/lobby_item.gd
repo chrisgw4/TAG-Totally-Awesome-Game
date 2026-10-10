@@ -8,6 +8,8 @@ class_name LobbyItem
 @export var button:Button
 @export var screen_wiper:ScreenWiper
 
+signal lobby_selected()
+
 func set_values(lobby_name:String, player_count:int, player_limit:int, has_password:bool) -> void:
 	lobby_name_label.text = lobby_name
 	player_count_label.text = str(player_count) + "/" + str(2)
@@ -32,10 +34,12 @@ func _join_lobby() -> void:
 
 
 func _lobby_joined(lobby_name:String) -> void:
-	screen_wiper.wipe_screen()
+	#screen_wiper.wipe_screen()
+	pass
 
 func _finish_loading_new_scene() -> void:
-	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_in_game/lobby_scene.tscn"), self)
+	#SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_in_game/lobby_scene.tscn"), get_parent().get_parent())
+	pass
 
 
 func _change_blue() -> void:

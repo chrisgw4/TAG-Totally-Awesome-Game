@@ -25,11 +25,16 @@ func _cancel() -> void:
 func _join_created_lobby(lobby_name:String) -> void:
 	GDSync.lobby_join(lobby_line_edit.text, password_line_edit.text)
 
+
 func _created_lobby_joined(lobby_name:String) -> void:
-	screen_wiper.wipe_screen()
+	#screen_wiper.wipe_screen()
+	pass
+
 
 func _finish_loading_new_scene() -> void:
-	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_in_game/lobby_scene.tscn"), self)
+	#SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_in_game/lobby_scene.tscn"), self)
+	pass
+
 
 func _create() -> void:
 	if lobby_line_edit.text.length() <= 3:
