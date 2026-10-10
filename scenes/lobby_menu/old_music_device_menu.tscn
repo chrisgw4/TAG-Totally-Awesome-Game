@@ -3,17 +3,19 @@
 [ext_resource type="Script" uid="uid://c7umlacrj51pi" path="res://scenes/lobby_menu/old_music_device_menu.gd" id="1_sfg4r"]
 [ext_resource type="PackedScene" uid="uid://bjnbrygpwo8vd" path="res://scenes/lobby_menu/lobby_option_selector.tscn" id="1_usm8w"]
 [ext_resource type="Texture2D" uid="uid://dab6wdplws8uw" path="res://assets/menus/City.png" id="2_sl0fq"]
-[ext_resource type="Texture2D" uid="uid://w7b5rvtdwtvb" path="res://assets/menus/ipod146.png" id="3_aerwu"]
+[ext_resource type="Texture2D" uid="uid://d26g8g08c51hp" path="res://assets/menus/menudevice.png" id="4_5uuut"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_dpkku"]
+[ext_resource type="AudioStream" uid="uid://d167ygkm5tqsq" path="res://assets/music/lobby/free_jet_set_radio_x_bobby_brown_type_beat_gulfing.wav" id="6_5uuut"]
 
-[node name="OldMusicDeviceMenu" type="CanvasLayer" unique_id=319420344 node_paths=PackedStringArray("box_container", "color_rect", "screen_wiper")]
+[node name="OldMusicDeviceMenu" type="CanvasLayer" unique_id=319420344 node_paths=PackedStringArray("box_container", "color_rect", "screen_wiper", "music_player")]
 script = ExtResource("1_sfg4r")
 box_container = NodePath("FlowContainer")
 color_rect = NodePath("ColorRect2")
 screen_wiper = NodePath("ScreenWiper")
+music_player = NodePath("AudioStreamPlayer")
 
 [node name="City" type="Sprite2D" parent="." unique_id=910566239]
-position = Vector2(557, 332)
+position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_sl0fq")
 
@@ -33,13 +35,19 @@ offset_bottom = 286.0
 layout_mode = 2
 
 [node name="Ipod146" type="Sprite2D" parent="." unique_id=631113308]
-position = Vector2(576, 361.5)
-scale = Vector2(6.25, 6.25)
-texture = ExtResource("3_aerwu")
+position = Vector2(576, 361)
+scale = Vector2(6.24, 6.24)
+texture = ExtResource("4_5uuut")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_dpkku")]
+layer = 3
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=493128550]
 offset_right = 1186.0
 offset_bottom = 675.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1450346726]
+stream = ExtResource("6_5uuut")
+volume_db = -1.0
+bus = &"Music"

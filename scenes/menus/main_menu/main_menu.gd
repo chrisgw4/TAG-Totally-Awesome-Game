@@ -36,7 +36,13 @@ func _play_pressed() -> void:
 	
 	screen_wiper.wipe_screen()
 	
-	await screen_wiper.start_loading
+	var tween = create_tween()
+	tween.tween_property(music_player, "volume_linear", 0, 1)
+	tween.play()
+	
+	#await screen_wiper.start_loading
+	await tween.finished
+	music_player.stop()
 	
 	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_menu/old_music_device_menu.tscn"), self)
 

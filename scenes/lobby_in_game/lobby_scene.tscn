@@ -24,15 +24,9 @@ player_scene = ExtResource("2_aqpyx")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1798577836]
-visible = false
-offset_right = 1167.0
-offset_bottom = 662.0
-color = Color(0, 0, 0, 1)
-
 [node name="Ipod146" type="Sprite2D" parent="." unique_id=536887957]
 position = Vector2(965, 628)
-scale = Vector2(6.25, 6.25)
+scale = Vector2(6.24, 6.24)
 texture = ExtResource("6_kciln")
 
 [node name="LobbyMenuDevice" parent="." unique_id=566977133 instance=ExtResource("8_r4pfh")]
@@ -40,3 +34,9 @@ offset_left = 815.0
 offset_top = 353.0
 offset_right = 1115.0
 offset_bottom = 553.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1798577836]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 1187.0
+offset_bottom = 658.0
+color = Color(0, 0, 0, 1)

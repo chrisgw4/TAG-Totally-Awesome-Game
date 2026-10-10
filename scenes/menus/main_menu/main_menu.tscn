@@ -96,6 +96,7 @@ grow_vertical = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=190300352]
 stream = ExtResource("4_peecx")
+bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=142817275]
 libraries/ = SubResource("AnimationLibrary_x31ro")

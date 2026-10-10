@@ -12,7 +12,7 @@ func _ready() -> void:
 	lobby_browser.clicked.connect(_change_to_lobby_browser)
 	create_lobby.clicked.connect(_change_to_create_lobby)
 	join_lobby.clicked.connect(_change_to_join_lobby)
-	back_button.clicked.connect(_change_to_main_menu)
+	back_button.clicked.connect(get_parent().get_parent()._change_to_main_menu)
 
 
 func _change_to_lobby_browser() -> void:
