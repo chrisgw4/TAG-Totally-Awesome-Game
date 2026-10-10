@@ -6,5 +6,8 @@
 **/.DS_Store
 **/._.DS_Store
 
+.env
+**/.env
+
 # GD-Sync API keys. Never commit these.
 addons/GD-Sync/keys.cfg
