@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+# GD-Sync API keys. Never commit these.
+addons/GD-Sync/keys.cfg
