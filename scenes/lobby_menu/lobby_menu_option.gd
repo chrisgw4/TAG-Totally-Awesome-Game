@@ -4,7 +4,10 @@ class_name LobbyMenuOption
 @export var label:Label
 @export var arrow:Label
 
-@export var label_text:String
+@export var label_text:String:
+	set(new_text):
+		label_text = new_text
+		label.text = label_text
 
 @export var button:Button
 

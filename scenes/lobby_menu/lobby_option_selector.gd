@@ -22,7 +22,7 @@ func _change_to_create_lobby() -> void:
 	get_parent().get_parent().change_scene_to.emit(preload("res://scenes/lobby_menu/lobby_creator_menu.tscn"), self)
 
 func _change_to_join_lobby() -> void:
-	pass
+	get_parent().get_parent().change_scene_to.emit(preload("res://scenes/lobby_menu/lobby_joiner_menu.tscn"), self)
 
 func _change_to_main_menu() -> void:
 	

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cl13dgvgc3sx7"]
+
+[ext_resource type="Script" uid="uid://dag2hho3sd8jh" path="res://scenes/lobby_menu/lobby_joiner_menu.gd" id="1_7uxim"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_ce60e"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="2_7uxim"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anvxc"]
+bg_color = Color(0.9098043, 0.90980434, 0.9098043, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_710q2"]
+bg_color = Color(0.8800845, 0.8800844, 0.8800844, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.29543713, 0.71455765, 1, 0.82800007)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 2.0
+
+[node name="LobbyJoinerMenu" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("join_button", "cancel_button", "lobby_line_edit", "password_line_edit", "screen_wiper")]
+custom_minimum_size = Vector2(300, 115)
+offset_right = 319.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
+script = ExtResource("1_7uxim")
+join_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/JoinButton")
+cancel_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/CancelButton")
+lobby_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2/LobbyLineEdit")
+password_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer4/PasswordLineEdit")
+screen_wiper = NodePath("ScreenWiper")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=284512873]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=322965309]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1689300193]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=546017241]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=492863603]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ce60e")
+theme_override_font_sizes/font_size = 12
+text = "Lobby Name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1888668186]
+layout_mode = 2
+alignment = 2
+
+[node name="LobbyLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=589429291]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.25490198, 0.25490198, 0.25490198, 0.6)
+theme_override_fonts/font = ExtResource("1_ce60e")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_anvxc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_710q2")
+placeholder_text = "Lobby Name"
+alignment = 1
+max_length = 16
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=626783363]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1306573411]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer3" unique_id=1338277783]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ce60e")
+theme_override_font_sizes/font_size = 13
+text = "Password?"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2007752105]
+layout_mode = 2
+alignment = 1
+
+[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer4" unique_id=1016417615]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.2556593, 0.2556586, 0.25565875, 0.6)
+theme_override_fonts/font = ExtResource("1_ce60e")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_anvxc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_710q2")
+placeholder_text = "Password123"
+alignment = 1
+max_length = 16
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1854031874]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1234323783]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ce60e")
+text = "Cancel"
+
+[node name="JoinButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=270316140]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ce60e")
+text = "Join"
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("2_7uxim")]

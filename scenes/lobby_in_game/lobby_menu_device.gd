@@ -6,6 +6,7 @@ var lobby_menu_option_scene:PackedScene = preload("res://scenes/lobby_menu/lobby
 @export var lobby_menu_options:Array[LobbyMenuOption]
 @export var leave_lobby_option:LobbyMenuOption
 @export var view_players_option:LobbyMenuOption
+@export var none_option:LobbyMenuOption
 @export var start_game_option:LobbyMenuOption
 
 signal leave_lobby()
@@ -25,6 +26,8 @@ func _ready() -> void:
 	GDSync.client_left.connect(_remove_client)
 	
 	view_players_option.clicked.connect(_request_view_player_list)
+	
+	none_option.label_text = "Lobby: " + current_lobby
 
 
 func _hide_options() -> void:
