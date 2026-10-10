@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chg0em4s5gf5q"]
 
 [ext_resource type="Script" uid="uid://brvjruagbr5tl" path="res://scenes/menus/toast.gd" id="1_7koyj"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="2_jolcr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(0.08745768, 0.087457694, 0.087457635, 0.40392157)
@@ -24,4 +25,5 @@ theme_override_constants/margin_right = 10
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=947337678]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jolcr")
 text = "Connecting to Multiplayer..."

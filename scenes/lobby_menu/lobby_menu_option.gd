@@ -13,11 +13,11 @@ signal clicked()
 func _ready() -> void:
 	label.text = label_text
 	
-	focus_entered.connect(_change_blue)
-	mouse_entered.connect(_change_blue)
+	button.focus_entered.connect(_change_blue)
+	button.mouse_entered.connect(_change_blue)
 	
-	mouse_exited.connect(_change_white)
-	focus_exited.connect(_change_white)
+	button.mouse_exited.connect(_change_white)
+	button.focus_exited.connect(_change_white)
 	
 	button.pressed.connect(_clicked)
 

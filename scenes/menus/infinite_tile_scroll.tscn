@@ -4151,6 +4151,7 @@ sources/0 = SubResource("TileSetAtlasSource_0fe6w")
 [node name="InfiniteTileScroll" type="Parallax2D" unique_id=1883197413]
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-40, 0)
+repeat_times = 3
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1457118727]
 offset_right = 1152.0

@@ -9,6 +9,15 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxjff"]
 bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aedco"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tkyk"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48ihq"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxaa6"]
 content_margin_left = 10.0
 
@@ -30,6 +39,9 @@ layout_mode = 0
 offset_right = 300.0
 offset_bottom = 50.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kxjff")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aedco")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8tkyk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_48ihq")
 
 [node name="Label" type="Label" parent="." unique_id=1287196838]
 layout_mode = 0

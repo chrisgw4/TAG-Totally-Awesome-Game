@@ -12,10 +12,10 @@ func _ready() -> void:
 
 
 func _change_to_lobby_browser() -> void:
-	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_menu/lobby_selector.tscn"), self)
+	get_parent().get_parent().change_scene_to.emit(preload("res://scenes/lobby_menu/lobby_selector.tscn"), self)
 
 func _change_to_create_lobby() -> void:
-	pass
+	get_parent().get_parent().change_scene_to.emit(preload("res://scenes/lobby_menu/lobby_creator_menu.tscn"), self)
 
 func _change_to_join_lobby() -> void:
 	pass

@@ -32,7 +32,7 @@ func _loop_music() -> void:
 func _play_pressed() -> void:
 	sign_in_google_button._sign_in_anonymously()
 	
-	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_menu/lobby_option_selector.tscn"), self)
+	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_menu/old_music_device_menu.tscn"), self)
 
 
 
