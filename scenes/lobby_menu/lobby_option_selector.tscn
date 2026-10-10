@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dq31imdu2nvdl" path="res://scenes/lobby_menu/lobby_option_selector.gd" id="1_33m65"]
 [ext_resource type="PackedScene" uid="uid://bnag7jxojv424" path="res://scenes/lobby_menu/lobby_menu_option.tscn" id="1_mk4cc"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_qjctb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="LobbyOptionSelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_browser", "create_lobby", "join_lobby")]
+[node name="LobbyOptionSelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_browser", "create_lobby", "join_lobby", "back_button", "screen_wiper")]
+custom_minimum_size = Vector2(0, 200)
 offset_right = 100.0
 offset_bottom = 415.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
@@ -14,6 +16,8 @@ script = ExtResource("1_33m65")
 lobby_browser = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption")
 create_lobby = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption2")
 join_lobby = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption3")
+back_button = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption4")
+screen_wiper = NodePath("ScreenWiper")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=289602972]
 layout_mode = 2
@@ -34,3 +38,9 @@ label_text = "Create Lobby"
 [node name="LobbyMenuOption3" parent="ScrollContainer/VBoxContainer" unique_id=1803971514 instance=ExtResource("1_mk4cc")]
 layout_mode = 2
 label_text = "Join Lobby"
+
+[node name="LobbyMenuOption4" parent="ScrollContainer/VBoxContainer" unique_id=1282180711 instance=ExtResource("1_mk4cc")]
+layout_mode = 2
+label_text = "Back"
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_qjctb")]

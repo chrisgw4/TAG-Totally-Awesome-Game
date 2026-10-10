@@ -13,6 +13,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svru3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl0fq"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
 [node name="LobbyItem" type="PanelContainer" unique_id=1651210949 node_paths=PackedStringArray("lobby_name_label", "player_count_label", "password_protected", "button", "screen_wiper")]
 custom_minimum_size = Vector2(300, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_bwo23")
@@ -73,5 +76,6 @@ text = "[img=16x16 color=#FFFFFF]res://assets/Lock.png[/img] Password Locked"
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_0r08d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_svru3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sl0fq")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_svru3")]

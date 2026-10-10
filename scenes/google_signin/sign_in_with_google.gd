@@ -22,11 +22,10 @@ func _ready():
 	Firebase.Auth.signup_failed.connect(_on_login_failed)
 	# Tries to load a saved session and refresh its token
 	Firebase.Auth.check_auth_file()
-	
 	if OS.has_feature("web"):
-		google_button.hide()
+		hide()
 	else:
-		google_button.show()
+		show()
 
 
 func _sign_in_anonymously() -> void:
@@ -52,6 +51,7 @@ func _on_login_succeeded(auth: Dictionary):
 
 func _on_login_failed(code, message):
 	print("Login failed: ", code, " ", message)
+	Firebase.Auth.login_anonymous()
 
 
 func _doc_exists(doc) -> bool:

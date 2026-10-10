@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://vk67i7860nmy" path="res://scenes/menus/scene_holder.gd" id="1_aedco"]
 [ext_resource type="PackedScene" uid="uid://cm5arrkffeal7" path="res://scenes/menus/title_screen/title_screen.tscn" id="1_c61o0"]
 
-[node name="SceneHolder" type="CanvasLayer" unique_id=1477567529]
+[node name="SceneHolder" type="CanvasLayer" unique_id=1477567529 node_paths=PackedStringArray("screen_wiper")]
 layer = 0
 follow_viewport_enabled = true
 script = ExtResource("1_aedco")
+screen_wiper = NodePath("")
 
 [node name="TitleScreen" parent="." unique_id=1961741829 instance=ExtResource("1_c61o0")]

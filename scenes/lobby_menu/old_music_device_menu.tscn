@@ -2,24 +2,44 @@
 
 [ext_resource type="Script" uid="uid://c7umlacrj51pi" path="res://scenes/lobby_menu/old_music_device_menu.gd" id="1_sfg4r"]
 [ext_resource type="PackedScene" uid="uid://bjnbrygpwo8vd" path="res://scenes/lobby_menu/lobby_option_selector.tscn" id="1_usm8w"]
+[ext_resource type="Texture2D" uid="uid://dab6wdplws8uw" path="res://assets/menus/City.png" id="2_sl0fq"]
+[ext_resource type="Texture2D" uid="uid://w7b5rvtdwtvb" path="res://assets/menus/ipod146.png" id="3_aerwu"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_dpkku"]
 
-[node name="OldMusicDeviceMenu" type="CanvasLayer" unique_id=319420344 node_paths=PackedStringArray("box_container")]
+[node name="OldMusicDeviceMenu" type="CanvasLayer" unique_id=319420344 node_paths=PackedStringArray("box_container", "color_rect", "screen_wiper")]
 script = ExtResource("1_sfg4r")
-box_container = NodePath("BoxContainer")
+box_container = NodePath("FlowContainer")
+color_rect = NodePath("ColorRect2")
+screen_wiper = NodePath("ScreenWiper")
 
-[node name="BoxContainer" type="BoxContainer" parent="." unique_id=739205110]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -250.0
-offset_right = 150.0
-offset_bottom = 250.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+[node name="City" type="Sprite2D" parent="." unique_id=910566239]
+position = Vector2(557, 332)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_sl0fq")
 
-[node name="LobbyOptionSelector" parent="BoxContainer" unique_id=1983933455 instance=ExtResource("1_usm8w")]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=115278635]
+offset_left = 410.0
+offset_top = 68.0
+offset_right = 732.0
+offset_bottom = 297.0
+
+[node name="FlowContainer" type="FlowContainer" parent="." unique_id=700245420]
+offset_left = 426.0
+offset_top = 87.0
+offset_right = 726.0
+offset_bottom = 287.0
+
+[node name="LobbyOptionSelector" parent="FlowContainer" unique_id=1983933455 instance=ExtResource("1_usm8w")]
 layout_mode = 2
+
+[node name="Ipod146" type="Sprite2D" parent="." unique_id=631113308]
+position = Vector2(576, 361.5)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("3_aerwu")
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_dpkku")]
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=493128550]
+offset_right = 1186.0
+offset_bottom = 675.0
+color = Color(0, 0, 0, 1)

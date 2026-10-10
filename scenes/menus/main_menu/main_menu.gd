@@ -30,7 +30,13 @@ func _loop_music() -> void:
 
 
 func _play_pressed() -> void:
-	sign_in_google_button._sign_in_anonymously()
+	if not sign_in_google_button.logged_in:
+		sign_in_google_button._sign_in_anonymously()
+		await Firebase.Auth.login_succeeded
+	
+	screen_wiper.wipe_screen()
+	
+	await screen_wiper.start_loading
 	
 	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_menu/old_music_device_menu.tscn"), self)
 

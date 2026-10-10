@@ -8,6 +8,7 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="LobbySelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_gatherer", "item_container")]
+custom_minimum_size = Vector2(0, 200)
 offset_right = 100.0
 offset_bottom = 415.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
