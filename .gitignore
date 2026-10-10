@@ -11,3 +11,4 @@
 
 # GD-Sync API keys. Never commit these.
 addons/GD-Sync/keys.cfg
+addons/godot-firebase/env
