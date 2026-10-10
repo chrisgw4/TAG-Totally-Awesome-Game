@@ -13,6 +13,7 @@ func _ready() -> void:
 	#start_button.pressed.connect(_start_sync)
 	start_button.pressed.connect(_fade_to_change_scene)
 	GDSync.connected.connect(_change_scene_to_main_menu)
+	GDSync.connection_failed.connect(_undo_wipe)
 	pass
 
 
@@ -21,6 +22,10 @@ func _fade_to_change_scene() -> void:
 	#screen_wiper.start_loading.connect(_change_scene_to_main_menu)
 	screen_wiper.start_loading.connect(_start_sync)
 
+func _undo_wipe(_error:int) -> void:
+	toast_canvas.show_toast_for_time("Failed to connect to Multiplayer.", 2)
+	screen_wiper.clear_screen_wipe()
+	
 
 func _change_scene_to_main_menu() -> void:
 	print("here")

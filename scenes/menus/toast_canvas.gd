@@ -7,16 +7,27 @@ class_name ToastCanvas
 
 @export var animation_player:AnimationPlayer
 
+@export var timer:Timer
+
 signal toast_hidden()
 
 func _ready() -> void:
-	pass
+	timer.timeout.connect(_hide_toast)
 
 func set_toast_data(text:String) -> void:
-	pass
+	toast._set_text(text)
+
+func show_toast_for_time(text:String, time:float=1) -> void:
+	set_toast_data(text)
+	
+	timer.start(time)
+	
+	if location == "bottom_left":
+		animation_player.play("bottom_left_rise")
 
 func show_toast(text:String) -> void:
 	set_toast_data(text)
+	timer.stop()
 	
 	if location == "bottom_left":
 		animation_player.play("bottom_left_rise")

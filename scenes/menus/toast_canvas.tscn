@@ -63,10 +63,11 @@ _data = {
 &"bottom_left_rise": SubResource("Animation_pj0b7")
 }
 
-[node name="ToastCanvas" type="CanvasLayer" unique_id=1780600741 node_paths=PackedStringArray("toast", "animation_player")]
+[node name="ToastCanvas" type="CanvasLayer" unique_id=1780600741 node_paths=PackedStringArray("toast", "animation_player", "timer")]
 script = ExtResource("1_pj0b7")
 toast = NodePath("Toast")
 animation_player = NodePath("AnimationPlayer")
+timer = NodePath("Timer")
 
 [node name="Toast" parent="." unique_id=1860347998 instance=ExtResource("1_nrh72")]
 offset_left = 3.0
@@ -76,3 +77,6 @@ offset_bottom = 691.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1150935476]
 libraries/ = SubResource("AnimationLibrary_h2v30")
+
+[node name="Timer" type="Timer" parent="." unique_id=1483000927]
+one_shot = true
