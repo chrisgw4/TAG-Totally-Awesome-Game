@@ -9,12 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://b26id76firsbp" path="res://assets/music/intro_song/THE_BIG_PAYBACK.wav" id="7_a4kjy"]
 [ext_resource type="PackedScene" uid="uid://bs73amixrfgni" path="res://scenes/menus/title_screen/intro_scene.tscn" id="8_1g67v"]
 
-[node name="TitleScreen" type="Node2D" unique_id=1961741829 node_paths=PackedStringArray("start_button", "multiplayer_connector", "toast_canvas", "screen_wiper")]
+[node name="TitleScreen" type="Node2D" unique_id=1961741829 node_paths=PackedStringArray("start_button", "multiplayer_connector", "toast_canvas", "screen_wiper", "music_player")]
 script = ExtResource("1_8ff8e")
 start_button = NodePath("CanvasLayer/TextureButton")
 multiplayer_connector = NodePath("MultiplayerConnector")
 toast_canvas = NodePath("ToastCanvas")
 screen_wiper = NodePath("ScreenWiper")
+music_player = NodePath("AudioStreamPlayer")
 
 [node name="InfiniteTileScroll" parent="." unique_id=1883197413 instance=ExtResource("1_qrqdf")]
 

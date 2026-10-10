@@ -7,12 +7,19 @@ extends Node2D
 
 @export var main_menu_scene:PackedScene = preload("res://scenes/menus/main_menu/main_menu.tscn")
 
+@export var music_player:AudioStreamPlayer
+
 signal change_scene_to(scene:PackedScene, object:Node)
 
 func _ready() -> void:
 	start_button.pressed.connect(_fade_to_change_scene)
 	GDSync.connected.connect(_change_scene_to_main_menu)
 	GDSync.connection_failed.connect(_undo_wipe)
+	music_player.finished.connect(_loop_music_player)
+
+
+func _loop_music_player() -> void:
+	music_player.play()
 
 
 func _fade_to_change_scene() -> void:
