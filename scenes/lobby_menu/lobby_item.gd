@@ -16,6 +16,7 @@ func set_values(lobby_name:String, player_count:int, player_limit:int, has_passw
 	lobby_name_label.text = lobby_name
 	player_count_label.text = str(player_count) + "/" + str(2)
 	password_protected.visible = has_password
+	password_input.visible = has_password
 
 func _ready() -> void:
 	button.mouse_entered.connect(_change_blue)

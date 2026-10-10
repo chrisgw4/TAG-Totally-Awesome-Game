@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cjwx0w7k0bk30"]
+
+[ext_resource type="PackedScene" uid="uid://bnag7jxojv424" path="res://scenes/lobby_menu/lobby_menu_option.tscn" id="1_r81v6"]
+[ext_resource type="Script" uid="uid://cna300s7vk5d3" path="res://scenes/lobby_in_game/lobby_menu_device.gd" id="1_wugyn"]
+
+[node name="LobbyMenuDevice" type="VBoxContainer" unique_id=566977133 node_paths=PackedStringArray("lobby_menu_options", "leave_lobby_option", "view_players_option", "start_game_option")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_wugyn")
+lobby_menu_options = [NodePath("LobbyMenuOption"), NodePath("LobbyMenuOption2"), NodePath("LobbyMenuOption3"), NodePath("LobbyMenuOption4")]
+leave_lobby_option = NodePath("LobbyMenuOption")
+view_players_option = NodePath("LobbyMenuOption2")
+start_game_option = NodePath("LobbyMenuOption4")
+
+[node name="LobbyMenuOption" parent="." unique_id=841211064 instance=ExtResource("1_r81v6")]
+layout_mode = 2
+label_text = "Leave Lobby"
+
+[node name="LobbyMenuOption2" parent="." unique_id=494137092 instance=ExtResource("1_r81v6")]
+layout_mode = 2
+label_text = "Player List"
+
+[node name="LobbyMenuOption3" parent="." unique_id=1796627352 instance=ExtResource("1_r81v6")]
+layout_mode = 2
+
+[node name="LobbyMenuOption4" parent="." unique_id=534068480 instance=ExtResource("1_r81v6")]
+layout_mode = 2
+label_text = "Start Game"

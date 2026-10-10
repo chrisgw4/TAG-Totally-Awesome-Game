@@ -5,21 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://ec1sckwoeyqp" path="res://scenes/player/player.tscn" id="2_aqpyx"]
 [ext_resource type="TileSet" uid="uid://cj82b1h6e8jn" path="res://scenes/levels/city.tres" id="3_7lh35"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_ao73u"]
+[ext_resource type="Texture2D" uid="uid://w7b5rvtdwtvb" path="res://assets/menus/ipod146.png" id="6_kciln"]
+[ext_resource type="PackedScene" uid="uid://cjwx0w7k0bk30" path="res://scenes/lobby_in_game/lobby_menu_device.tscn" id="8_r4pfh"]
 
-[node name="LobbyScene" type="Node2D" unique_id=1110645861 node_paths=PackedStringArray("leave_button", "screen_wiper", "color_rect")]
+[node name="LobbyScene" type="Node2D" unique_id=1110645861 node_paths=PackedStringArray("screen_wiper", "color_rect", "lobby_menu_device")]
 script = ExtResource("1_6rjt2")
-leave_button = NodePath("Button")
 screen_wiper = NodePath("ScreenWiper")
 color_rect = NodePath("ColorRect")
+lobby_menu_device = NodePath("LobbyMenuDevice")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2072642907]
 tile_map_data = PackedByteArray("AAAAAA0AAAAcABsAAAAAAA4AAAAcABwAAAABAA0AAAAdABsAAAABAA4AAAAdABwAAAACAA0AAAAeABsAAAACAA4AAAAeABwAAAADAA0AAAAfABsAAAADAA4AAAAfABwAAAAEAA0AAAAgABsAAAAEAA4AAAAgABwAAAAFAA0AAAAhABsAAAAFAA4AAAAhABwAAAAGAA0AAAAiABsAAAAGAA4AAAAiABwAAAAHAA0AAAAjABsAAAAHAA4AAAAjABwAAAAIAA0AAAAkABsAAAAIAA4AAAAkABwAAAAJAA0AAAAlABsAAAAJAA4AAAAlABwAAAAKAA0AAAAmABsAAAAKAA4AAAAmABwAAAALAA0AAAAnABsAAAALAA4AAAAnABwAAAAMAA0AAAAoABsAAAAMAA4AAAAoABwAAAANAA0AAAApABsAAAANAA4AAAApABwAAAAOAA0AAAAqABsAAAAOAA4AAAAqABwAAAAPAA0AAAArABsAAAAPAA4AAAArABwAAAAQAA0AAAAsABsAAAAQAA4AAAAsABwAAAARAA0AAAAtABsAAAARAA4AAAAtABwAAAASAA0AAAAcABsAAAASAA4AAAAcABwAAAATAA0AAAAdABsAAAATAA4AAAAdABwAAAAUAA0AAAAeABsAAAAUAA4AAAAeABwAAAAVAA0AAAAfABsAAAAVAA4AAAAfABwAAAAWAA0AAAAgABsAAAAWAA4AAAAgABwAAAAXAA0AAAAhABsAAAAXAA4AAAAhABwAAAAYAA0AAAAiABsAAAAYAA4AAAAiABwAAAAZAA0AAAAjABsAAAAZAA4AAAAjABwAAAAaAA0AAAAkABsAAAAaAA4AAAAkABwAAAAbAA0AAAAlABsAAAAbAA4AAAAlABwAAAAcAA0AAAAmABsAAAAcAA4AAAAmABwAAAAdAA0AAAAnABsAAAAdAA4AAAAnABwAAAAeAA0AAAAoABsAAAAeAA4AAAAoABwAAAAfAA0AAAApABsAAAAfAA4AAAApABwAAAAgAA0AAAAqABsAAAAgAA4AAAAqABwAAAAhAA0AAAArABsAAAAhAA4AAAArABwAAAAiAA0AAAAsABsAAAAiAA4AAAAsABwAAAAjAA0AAAAtABsAAAAjAA4AAAAtABwAAAA=")
 tile_set = ExtResource("3_7lh35")
-
-[node name="Button" type="Button" parent="." unique_id=938124205]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Leave Lobby"
 
 [node name="PlayerSpawner" type="Node2D" parent="." unique_id=1387506056]
 script = ExtResource("2_7lh35")
@@ -28,6 +25,18 @@ player_scene = ExtResource("2_aqpyx")
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1798577836]
+visible = false
 offset_right = 1167.0
 offset_bottom = 662.0
 color = Color(0, 0, 0, 1)
+
+[node name="Ipod146" type="Sprite2D" parent="." unique_id=536887957]
+position = Vector2(965, 628)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("6_kciln")
+
+[node name="LobbyMenuDevice" parent="." unique_id=566977133 instance=ExtResource("8_r4pfh")]
+offset_left = 815.0
+offset_top = 353.0
+offset_right = 1115.0
+offset_bottom = 553.0
