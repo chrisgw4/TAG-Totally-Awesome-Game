@@ -24,6 +24,12 @@ player_scene = ExtResource("2_aqpyx")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2066416112]
+offset_left = 812.0
+offset_top = 347.0
+offset_right = 1120.0
+offset_bottom = 567.0
+
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1422862606]
 offset_left = 815.0
 offset_top = 353.0

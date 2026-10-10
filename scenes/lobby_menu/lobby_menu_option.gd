@@ -13,6 +13,11 @@ class_name LobbyMenuOption
 
 signal clicked()
 
+@export var hide_arrow:bool = false:
+	set(new_value):
+		hide_arrow = new_value
+		arrow.visible = not hide_arrow
+
 func _ready() -> void:
 	label.text = label_text
 	
@@ -30,7 +35,7 @@ func _clicked() -> void:
 func _change_blue() -> void:
 	self_modulate = Color("0094E1")
 	label.set("theme_override_colors/font_color", Color.WHITE)
-	arrow.show()
+	arrow.visible = not hide_arrow
 	#label.add_theme_color_override("font_color", Color.WHITE)
 
 func _change_white() -> void:

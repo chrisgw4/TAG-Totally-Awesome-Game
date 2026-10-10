@@ -14,7 +14,7 @@ signal lobby_selected()
 
 func set_values(lobby_name:String, player_count:int, player_limit:int, has_password:bool) -> void:
 	lobby_name_label.text = lobby_name
-	player_count_label.text = str(player_count) + "/" + str(2)
+	player_count_label.text = str(player_count) + "/" + str(player_limit)
 	password_protected.visible = has_password
 	password_input.visible = has_password
 

@@ -24,6 +24,7 @@ label_text = "Player List"
 
 [node name="None" parent="." unique_id=1796627352 instance=ExtResource("1_r81v6")]
 layout_mode = 2
+hide_arrow = true
 
 [node name="Start" parent="." unique_id=534068480 instance=ExtResource("1_r81v6")]
 layout_mode = 2

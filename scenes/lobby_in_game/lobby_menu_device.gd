@@ -27,6 +27,8 @@ func _ready() -> void:
 	
 	view_players_option.clicked.connect(_request_view_player_list)
 	
+	current_lobby = GDSync.lobby_get_name()
+	
 	none_option.label_text = "Lobby: " + current_lobby
 
 
@@ -62,6 +64,7 @@ func _request_view_player_list() -> void:
 		temp.label_text = str(GDSync.player_get_username(i, "Guest2"))
 		add_child(temp)
 		temp.name = "remove"
+		temp.hide_arrow = true
 
 
 func _add_client(client_id:int) -> void:
