@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://bm2d0bao5nxrc"]
 
+[ext_resource type="Script" uid="uid://hrj2uysih510" path="res://scenes/menus/settings/settings.gd" id="1_7r86w"]
 [ext_resource type="Texture2D" uid="uid://psl17w840d10" path="res://assets/menus/settings/Settings_Background.png" id="1_glfl3"]
 [ext_resource type="Texture2D" uid="uid://bkefnlio2vari" path="res://assets/menus/settings/Settings.png" id="2_vm1q0"]
 [ext_resource type="Texture2D" uid="uid://okojt3eccv8c" path="res://assets/menus/settings/User_Name.png" id="3_2np4y"]
 [ext_resource type="Texture2D" uid="uid://8vdvjyqxd37" path="res://assets/menus/settings/Volume.png.png" id="4_csptx"]
 [ext_resource type="Theme" uid="uid://wbtern70lix0" path="res://pixelkiln_ui/ironvale/theme.tres" id="5_csptx"]
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="5_lf53u"]
+[ext_resource type="FontFile" uid="uid://dlsvmwlkxxxb0" path="res://assets/font/RaseBasic.otf" id="8_psei7"]
 
 [node name="Settings" type="CanvasLayer" unique_id=876434316]
+script = ExtResource("1_7r86w")
 
 [node name="SettingsBackground" type="Sprite2D" parent="." unique_id=74324558]
 position = Vector2(581.55554, 322)
@@ -15,10 +18,10 @@ scale = Vector2(1.8111111, 1.8111111)
 texture = ExtResource("1_glfl3")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=857196161]
-offset_left = 67.0
-offset_top = -254.0
-offset_right = 795.0
-offset_bottom = 220.0
+offset_left = 23.0
+offset_top = 36.0
+offset_right = 751.0
+offset_bottom = 510.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_vm1q0")
 
@@ -32,26 +35,53 @@ position = Vector2(909, 181)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_csptx")
 
-[node name="Label" type="Label" parent="." unique_id=734640434]
+[node name="Label (Music)" type="Label" parent="." unique_id=734640434]
 offset_left = 841.0
 offset_top = 327.0
 offset_right = 999.0
 offset_bottom = 357.0
 theme_override_fonts/font = ExtResource("5_lf53u")
 text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Label (Effects)" type="Label" parent="." unique_id=1008364814]
+offset_left = 840.0
+offset_top = 403.0
+offset_right = 998.0
+offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("5_lf53u")
+text = "SFX Volume"
+horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="." unique_id=1422048817]
-offset_left = 743.0
-offset_top = 432.0
-offset_right = 916.0
-offset_bottom = 448.0
-scale = Vector2(2, 2)
-theme = ExtResource("5_csptx")
-
-[node name="VolumeSlider" type="HSlider" parent="." unique_id=1662179500]
 offset_left = 743.0
 offset_top = 356.0
 offset_right = 916.0
 offset_bottom = 372.0
 scale = Vector2(2, 2)
 theme = ExtResource("5_csptx")
+max_value = 1.0
+step = 0.01
+
+[node name="EffectsSlider" type="HSlider" parent="." unique_id=1662179500]
+offset_left = 743.0
+offset_top = 432.0
+offset_right = 916.0
+offset_bottom = 448.0
+scale = Vector2(2, 2)
+theme = ExtResource("5_csptx")
+max_value = 1.0
+step = 0.01
+
+[node name="TextEdit" type="LineEdit" parent="." unique_id=1678500854]
+offset_left = 398.0
+offset_top = 433.0
+offset_right = 617.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("8_psei7")
+placeholder_text = "insert name"
+
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="EffectsSlider" to="." method="_on_effects_slider_value_changed"]
+[connection signal="focus_exited" from="TextEdit" to="." method="_on_text_edit_focus_exited"]
+[connection signal="text_submitted" from="TextEdit" to="." method="_on_text_edit_text_submitted"]
