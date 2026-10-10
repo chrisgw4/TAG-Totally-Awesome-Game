@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="LobbySelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_gatherer", "item_container", "back_menu_option")]
+[node name="LobbySelector" type="PanelContainer" unique_id=1983933455 node_paths=PackedStringArray("lobby_gatherer", "item_container", "back_menu_option", "refresh_menu_option", "timer")]
 custom_minimum_size = Vector2(0, 200)
 offset_right = 100.0
 offset_bottom = 415.0
@@ -17,6 +17,8 @@ script = ExtResource("1_mqhlw")
 lobby_gatherer = NodePath("LobbyGatherer")
 item_container = NodePath("ScrollContainer/VBoxContainer")
 back_menu_option = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption")
+refresh_menu_option = NodePath("ScrollContainer/VBoxContainer/LobbyMenuOption2")
+timer = NodePath("Timer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=289602972]
 layout_mode = 2
@@ -30,6 +32,10 @@ theme_override_constants/separation = 0
 layout_mode = 2
 label_text = "Back"
 
+[node name="LobbyMenuOption2" parent="ScrollContainer/VBoxContainer" unique_id=638643378 instance=ExtResource("3_nvpk2")]
+layout_mode = 2
+label_text = "Refresh"
+
 [node name="LobbyItem" parent="ScrollContainer/VBoxContainer" unique_id=1651210949 instance=ExtResource("1_hqgs5")]
 visible = false
 layout_mode = 2
@@ -39,3 +45,6 @@ visible = false
 layout_mode = 2
 
 [node name="LobbyGatherer" parent="." unique_id=602873561 instance=ExtResource("3_hetbt")]
+
+[node name="Timer" type="Timer" parent="." unique_id=475938221]
+wait_time = 10.0

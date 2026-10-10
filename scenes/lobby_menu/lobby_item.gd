@@ -8,6 +8,8 @@ class_name LobbyItem
 @export var button:Button
 @export var screen_wiper:ScreenWiper
 
+@export var password_input:LineEdit
+
 signal lobby_selected()
 
 func set_values(lobby_name:String, player_count:int, player_limit:int, has_password:bool) -> void:
@@ -27,10 +29,10 @@ func _ready() -> void:
 	screen_wiper.start_loading.connect(_finish_loading_new_scene)
 
 func _join_lobby() -> void:
-	if password_protected.visible:
+	if password_protected.visible and password_input.text.length() <= 0:
 		return
 	
-	GDSync.lobby_join(lobby_name_label.text)
+	GDSync.lobby_join(lobby_name_label.text, password_input.text)
 
 
 func _lobby_joined(lobby_name:String) -> void:
