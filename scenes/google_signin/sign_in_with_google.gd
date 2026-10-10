@@ -60,6 +60,7 @@ func _doc_exists(doc) -> bool:
 
 func _load_player_data(doc: FirestoreDocument):
 	UserGlobalValues.username = doc.get_value("display_name")
+	
 
 
 func create_document(auth: Dictionary) -> void:
@@ -67,6 +68,7 @@ func create_document(auth: Dictionary) -> void:
 	var is_guest: bool = auth.get("email", "") == ""   # guests have no email
 	
 	UserGlobalValues.uid = uid
+	
 	
 	var users: FirestoreCollection = Firebase.Firestore.collection("Users")
 

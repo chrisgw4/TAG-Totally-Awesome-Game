@@ -8,22 +8,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 script = ExtResource("1_wugyn")
-lobby_menu_options = [NodePath("LobbyMenuOption"), NodePath("LobbyMenuOption2"), NodePath("LobbyMenuOption3"), NodePath("LobbyMenuOption4")]
-leave_lobby_option = NodePath("LobbyMenuOption")
-view_players_option = NodePath("LobbyMenuOption2")
-start_game_option = NodePath("LobbyMenuOption4")
+lobby_menu_options = [NodePath("Leave"), NodePath("Player"), NodePath("None"), NodePath("Start")]
+leave_lobby_option = NodePath("Leave")
+view_players_option = NodePath("Player")
+start_game_option = NodePath("Start")
 
-[node name="LobbyMenuOption" parent="." unique_id=841211064 instance=ExtResource("1_r81v6")]
+[node name="Leave" parent="." unique_id=841211064 instance=ExtResource("1_r81v6")]
 layout_mode = 2
 label_text = "Leave Lobby"
 
-[node name="LobbyMenuOption2" parent="." unique_id=494137092 instance=ExtResource("1_r81v6")]
+[node name="Player" parent="." unique_id=494137092 instance=ExtResource("1_r81v6")]
 layout_mode = 2
 label_text = "Player List"
 
-[node name="LobbyMenuOption3" parent="." unique_id=1796627352 instance=ExtResource("1_r81v6")]
+[node name="None" parent="." unique_id=1796627352 instance=ExtResource("1_r81v6")]
 layout_mode = 2
 
-[node name="LobbyMenuOption4" parent="." unique_id=534068480 instance=ExtResource("1_r81v6")]
+[node name="Start" parent="." unique_id=534068480 instance=ExtResource("1_r81v6")]
 layout_mode = 2
 label_text = "Start Game"
