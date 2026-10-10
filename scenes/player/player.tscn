@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lysd0ahcjirb" path="res://scenes/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://mpt08dx7uje" path="res://assets/player/player_idle.png" id="2_qek5x"]
+[ext_resource type="Texture2D" uid="uid://csywv718tinw" path="res://assets/player/run.png" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://dqpkvnosbpdvd" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimatedSprite2D.gd" id="3_hqtel"]
 [ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://dxclr2mjdivfx" path="res://scenes/components/gravity_component.tscn" id="5_dw050"]
@@ -30,20 +31,36 @@ atlas = ExtResource("2_qek5x")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx1jg"]
-atlas = ExtResource("2_qek5x")
+atlas = ExtResource("3_5gtgg")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugbui"]
-atlas = ExtResource("2_qek5x")
+atlas = ExtResource("3_5gtgg")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcs02"]
-atlas = ExtResource("2_qek5x")
+atlas = ExtResource("3_5gtgg")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myrg7"]
-atlas = ExtResource("2_qek5x")
+atlas = ExtResource("3_5gtgg")
 region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvlxm"]
+atlas = ExtResource("3_5gtgg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf5tr"]
+atlas = ExtResource("3_5gtgg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgqa7"]
+atlas = ExtResource("3_5gtgg")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydkj"]
+atlas = ExtResource("3_5gtgg")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_88vfu"]
 animations = [{
@@ -76,6 +93,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_myrg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvlxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgqa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydkj")
 }],
 "loop": 1,
 "name": &"run",
@@ -102,7 +131,7 @@ shape = SubResource("CapsuleShape2D_ugbui")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038606627]
 position = Vector2(-6.7762636e-21, 2.3841858e-07)
 sprite_frames = SubResource("SpriteFrames_88vfu")
-animation = &"idle"
+animation = &"run"
 script = ExtResource("3_hqtel")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 

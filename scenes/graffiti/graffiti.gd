@@ -1,10 +1,11 @@
 extends Node2D
 @export var ui_element: AnimatedSprite2D
+@export var graffiti_image: SynchronizedAnimatedSprite2D
 var tagable = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	graffiti_image.play("nograf")
 	ui_element.play("arrow")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,7 +23,8 @@ func is_tagable(state: bool):
 	
 func tag(is_pressed: bool):
 	if is_pressed:
-		print("Ello Govna")
+		graffiti_image.animation = "tags"
+		graffiti_image.frame = randi_range(0, graffiti_image.sprite_frames.get_frame_count("tags"))
 	
 
 

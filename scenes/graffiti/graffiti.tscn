@@ -2,7 +2,29 @@
 
 [ext_resource type="Script" uid="uid://b0e6lsjt547rm" path="res://scenes/graffiti/graffiti.gd" id="1_b7atg"]
 [ext_resource type="Texture2D" uid="uid://c5fiu1q3cnse5" path="res://assets/simple_symbols_2.png" id="2_risvo"]
+[ext_resource type="Texture2D" uid="uid://nul6o30nvbls" path="res://assets/tag_test.png" id="2_x7ok1"]
+[ext_resource type="Texture2D" uid="uid://hvw0uef5ked1" path="res://assets/tag_test2.png" id="3_aayd5"]
 [ext_resource type="Texture2D" uid="uid://cpfxp5ki7lbxe" path="res://assets/key_sprites/E.png" id="3_x7ok1"]
+[ext_resource type="Script" uid="uid://dqpkvnosbpdvd" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimatedSprite2D.gd" id="4_q702q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd63a"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"nograf",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7ok1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aayd5")
+}],
+"loop": 1,
+"name": &"tags",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aisgp"]
 size = Vector2(96, 96)
@@ -53,13 +75,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element")]
+[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element", "graffiti_image")]
+z_index = -1
 script = ExtResource("1_b7atg")
 ui_element = NodePath("Ui_Element")
+graffiti_image = NodePath("Graffiti_Image")
 
-[node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1075716651]
-position = Vector2(0, -37)
-scale = Vector2(0.935, 0.935)
+[node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1891622210]
+position = Vector2(0, 1)
+scale = Vector2(0.395, 0.395)
+sprite_frames = SubResource("SpriteFrames_gd63a")
+animation = &"nograf"
+script = ExtResource("4_q702q")
+metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=642054358]
 collision_layer = 0
@@ -73,7 +101,6 @@ position = Vector2(0, -37)
 scale = Vector2(0.935, 0.935)
 sprite_frames = SubResource("SpriteFrames_aisgp")
 animation = &"key"
-frame_progress = 0.88814235
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
