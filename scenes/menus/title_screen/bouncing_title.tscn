@@ -1,53 +1,74 @@
 [gd_scene format=3 uid="uid://dy2kkw6l3tevw"]
 
+[ext_resource type="Script" uid="uid://b1wdes58p6nkk" path="res://scenes/menus/title_screen/bouncing_title.gd" id="1_7g22g"]
 [ext_resource type="Texture2D" uid="uid://c1enlduu5xmnu" path="res://assets/menus/TAG_LOGO.png" id="1_u1u5e"]
+[ext_resource type="Texture2D" uid="uid://bevf8j201eahi" path="res://assets/menus/TAG_LOGO_BG.png" id="2_coemt"]
+[ext_resource type="Shader" uid="uid://htyopc1eej1s" path="res://scenes/drop_shadow.gdshader" id="3_dkc51"]
 
-[sub_resource type="Animation" id="Animation_u1u5e"]
-resource_name = "Bounce"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, 0)]
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0hi6"]
+shader = ExtResource("3_dkc51")
+shader_parameter/drop_shadow_color = Color(0, 0, 0.74509805, 0.25490198)
+shader_parameter/shadow_offset = Vector2(0.02, 0.04)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_coemt"]
+shader = ExtResource("3_dkc51")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(0, 0.02)
 
 [sub_resource type="Animation" id="Animation_7g22g"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u1u5e"]
+resource_name = "bounce"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_coemt"]
 _data = {
-&"Bounce": SubResource("Animation_u1u5e"),
-&"RESET": SubResource("Animation_7g22g")
+&"RESET": SubResource("Animation_7g22g"),
+&"bounce": SubResource("Animation_u1u5e")
 }
 
-[node name="BouncingTitle" type="Control" unique_id=757859038]
+[node name="BouncingTitle" type="Control" unique_id=757859038 node_paths=PackedStringArray("anim_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7g22g")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="TagLogoBg" type="Sprite2D" parent="." unique_id=1146184166]
+material = SubResource("ShaderMaterial_o0hi6")
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_coemt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1588011154]
+material = SubResource("ShaderMaterial_coemt")
 texture = ExtResource("1_u1u5e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1213684050]

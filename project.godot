@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 GDSync="*uid://cgo4kiocg4a4a"
 Firebase="*uid://cvb26atjckwlq"
 SceneHolder="*uid://vk67i7860nmy"
+Conductor="*uid://c5rvmkaorxynb"
 
 [display]
 
@@ -31,7 +32,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GD-Sync/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
+enabled=PackedStringArray("res://addons/GD-Sync/plugin.cfg", "res://addons/conductor/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
 
 [input]
 
