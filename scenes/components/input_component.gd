@@ -3,6 +3,7 @@ class_name InputComponent
 
 
 signal movement_inputs(direction:Vector2, delta:float)
+signal tag_input(is_pressed:bool)
 signal jump_input(dir:Vector2, is_pressed:bool)
 signal dash_inputs(direction:Vector2)
 signal drill_inputs(direction:Vector2)
@@ -37,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	# ---------------------------------------------
 	
 	var is_jump_pressed:bool = false
+	var is_tag_pressed:bool = false
 	var jump_direction:Vector2 = Vector2.ZERO
 	var dash_dir:Vector2 = Vector2.ZERO
 	var super_drill_dir:Vector2 = Vector2.ZERO
@@ -48,6 +50,12 @@ func _physics_process(delta: float) -> void:
 	
 	jump_input.emit(jump_direction, is_jump_pressed)
 	movement_inputs.emit(dir, delta)
+	
+	if Input.is_action_pressed("tag"):
+		is_tag_pressed = true
+	
+	tag_input.emit(is_tag_pressed)
+	
 	
 
 

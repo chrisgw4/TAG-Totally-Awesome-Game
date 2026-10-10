@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cgknoxj5hgvp5"]
+
+[ext_resource type="Script" uid="uid://b0e6lsjt547rm" path="res://scenes/graffiti/graffiti.gd" id="1_b7atg"]
+[ext_resource type="Texture2D" uid="uid://c5fiu1q3cnse5" path="res://assets/simple_symbols_2.png" id="2_risvo"]
+[ext_resource type="Texture2D" uid="uid://cpfxp5ki7lbxe" path="res://assets/key_sprites/E.png" id="3_x7ok1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aisgp"]
+size = Vector2(96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aayd5"]
+atlas = ExtResource("2_risvo")
+region = Rect2(480, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q702q"]
+atlas = ExtResource("2_risvo")
+region = Rect2(496, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn051"]
+atlas = ExtResource("3_x7ok1")
+region = Rect2(0, 0, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84xwv"]
+atlas = ExtResource("3_x7ok1")
+region = Rect2(19, 0, 19, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aisgp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aayd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q702q")
+}],
+"loop": 1,
+"name": &"arrow",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn051")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84xwv")
+}],
+"loop": 1,
+"name": &"key",
+"speed": 5.0
+}]
+
+[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element")]
+script = ExtResource("1_b7atg")
+ui_element = NodePath("Ui_Element")
+
+[node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1075716651]
+position = Vector2(0, -37)
+scale = Vector2(0.935, 0.935)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=642054358]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=49994116]
+shape = SubResource("RectangleShape2D_aisgp")
+
+[node name="Ui_Element" type="AnimatedSprite2D" parent="." unique_id=1652386177]
+position = Vector2(0, -37)
+scale = Vector2(0.935, 0.935)
+sprite_frames = SubResource("SpriteFrames_aisgp")
+animation = &"key"
+frame_progress = 0.88814235
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
