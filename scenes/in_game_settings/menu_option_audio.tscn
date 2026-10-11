@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://c42d3udxbrr6d"]
+
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_hvgo4"]
+[ext_resource type="Script" uid="uid://dwjpncpgum7mv" path="res://scenes/in_game_settings/menu_option_audio.gd" id="1_moseg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxjff"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aedco"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tkyk"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48ihq"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxaa6"]
+content_margin_left = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxjff"]
+content_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moseg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okbbs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80wub"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsbpe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgdff"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srckp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MenuOptionAudio" type="Panel" unique_id=841211064 node_paths=PackedStringArray("label", "left_button", "right_button")]
+custom_minimum_size = Vector2(300, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wyu8n")
+script = ExtResource("1_moseg")
+label = NodePath("Label")
+left_button = NodePath("Button2")
+right_button = NodePath("Button3")
+label_text = "Music"
+
+[node name="Button" type="Button" parent="." unique_id=1757287355]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kxjff")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aedco")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8tkyk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_48ihq")
+
+[node name="Label" type="Label" parent="." unique_id=1287196838]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hvgo4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bxaa6")
+text = "Lobby List"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1154711371]
+visible = false
+layout_mode = 0
+offset_right = 299.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_hvgo4")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kxjff")
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="." unique_id=247382431]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 11.0
+offset_right = 182.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.5803922, 0.88235295, 1)
+theme_override_fonts/font = ExtResource("1_hvgo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_moseg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_okbbs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_80wub")
+text = "<"
+
+[node name="Button3" type="Button" parent="." unique_id=498974387]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 11.0
+offset_right = 284.0
+offset_bottom = 42.0
+rotation = 3.1415927
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.5803922, 0.88235295, 1)
+theme_override_fonts/font = ExtResource("1_hvgo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tsbpe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tgdff")
+theme_override_styles/hover = SubResource("StyleBoxFlat_srckp")
+text = "<"
+
+[node name="Label3" type="Label" parent="." unique_id=789184078]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 0
+offset_left = 198.0
+offset_top = 12.0
+offset_right = 258.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_hvgo4")
+text = "100%"
+horizontal_alignment = 1
