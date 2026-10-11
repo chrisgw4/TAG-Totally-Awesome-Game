@@ -114,4 +114,4 @@ song_names = Array[String](["fresh game (lobby mix)"])
 song_artists = Array[String](["meldawg4real"])
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
-layer = 4000
+layer = 100000
