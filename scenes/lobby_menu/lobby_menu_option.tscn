@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4v0h80xd2wkm" path="res://scenes/lobby_menu/lobby_menu_option.gd" id="1_bxaa6"]
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="2_kxjff"]
+[ext_resource type="AudioStream" uid="uid://b8ei2br7u887h" path="res://assets/sfx/mp3_hover.mp3" id="3_tuolc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(1, 1, 1, 1)
@@ -63,3 +64,8 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_kxjff")
 text = ">"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=1395422655]
+stream = ExtResource("3_tuolc")
+volume_db = 11.0
+bus = &"SFX"

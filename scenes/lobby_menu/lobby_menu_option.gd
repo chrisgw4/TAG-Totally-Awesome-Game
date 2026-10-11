@@ -30,6 +30,7 @@ func _ready() -> void:
 	button.pressed.connect(_clicked)
 
 func _clicked() -> void:
+	$ClickPlayer.play()
 	clicked.emit()
 
 func _change_blue() -> void:

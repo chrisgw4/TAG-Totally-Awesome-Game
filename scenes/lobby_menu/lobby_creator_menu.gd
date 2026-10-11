@@ -24,12 +24,10 @@ func _cancel() -> void:
 
 
 func _join_created_lobby(lobby_name:String) -> void:
-	$ClickPlayer.play()
 	GDSync.lobby_join(lobby_line_edit.text, password_line_edit.text)
 
 
 func _created_lobby_joined(lobby_name:String) -> void:
-	$ClickPlayer.play()
 	#screen_wiper.wipe_screen()
 	pass
 
