@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bbc24c1aknghu" path="res://assets/music/lobby/fresh game 3 2.wav" id="8_vp5r7"]
 [ext_resource type="Texture2D" uid="uid://d26g8g08c51hp" path="res://assets/menus/menudevice.png" id="9_pw88w"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="11_eqecj"]
+[ext_resource type="AudioStream" uid="uid://b8ei2br7u887h" path="res://assets/sfx/mp3_hover.mp3" id="12_tisi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyu8n"]
 size = Vector2(22, 828)
@@ -73,6 +74,9 @@ horizontal_scroll_mode = 0
 [node name="LobbyMenuDevice" parent="ScrollContainer" unique_id=566977133 instance=ExtResource("8_r4pfh")]
 layout_mode = 2
 
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="ScrollContainer/LobbyMenuDevice" unique_id=1257267651]
+stream = ExtResource("12_tisi5")
+
 [node name="Ipod146" type="Sprite2D" parent="." unique_id=536887957]
 z_index = 5
 position = Vector2(965, 627.00006)
@@ -115,3 +119,6 @@ song_artists = Array[String](["meldawg4real"])
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
 layer = 100000
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=907779159]
+stream = ExtResource("12_tisi5")

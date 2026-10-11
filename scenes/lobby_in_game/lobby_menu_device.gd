@@ -83,15 +83,18 @@ func _start_game() -> void:
 
 
 func _hide_options() -> void:
+	$ClickPlayer.play()
 	for option in lobby_menu_options:
 		option.hide()
 
 func _show_options() -> void:
+	$ClickPlayer.play()
 	for option in lobby_menu_options:
 		option.show()
 		#await get_tree().create_timer(0.1).timeout
 
 func _remove_players() -> void:
+	$ClickPlayer.play()
 	for child in get_children():
 		#print("NAME ", child.name)
 		if "remove" in child.name:
@@ -100,6 +103,7 @@ func _remove_players() -> void:
 
 
 func _request_view_player_list() -> void:
+	$ClickPlayer.play()
 	_hide_options()
 	_refresh_players()
 	
@@ -136,11 +140,13 @@ func _on_lobby_joined(_lobby_name: String) -> void:
 	_refresh_players()
 
 func _refresh_players() -> void:
+	$ClickPlayer.play()
 	current_players.clear()
 	for id in GDSync.lobby_get_all_clients():
 		current_players.append(id)
 
 func _request_leave_lobby() -> void:
+	$ClickPlayer.play()
 	leave_lobby.emit()
 
 

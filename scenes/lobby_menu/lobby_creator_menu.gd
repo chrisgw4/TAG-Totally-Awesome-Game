@@ -19,6 +19,7 @@ func _ready() -> void:
 
 
 func _cancel() -> void:
+	$ClickPlayer.play()
 	get_parent().get_parent().change_scene_to.emit(load("res://scenes/lobby_menu/lobby_option_selector.tscn"), self)
 
 
@@ -37,6 +38,7 @@ func _finish_loading_new_scene() -> void:
 
 
 func _create() -> void:
+	$ClickPlayer.play()
 	if lobby_line_edit.text.length() <= 3:
 		return
 	

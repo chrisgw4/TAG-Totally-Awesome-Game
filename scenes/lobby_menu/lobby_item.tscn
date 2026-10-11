@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_76a1m"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_svru3"]
 [ext_resource type="Theme" uid="uid://wbtern70lix0" path="res://pixelkiln_ui/ironvale/theme.tres" id="3_tv1vf"]
+[ext_resource type="AudioStream" uid="uid://b8ei2br7u887h" path="res://assets/sfx/mp3_hover.mp3" id="5_grp83"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwo23"]
 bg_color = Color(1, 1, 1, 1)
@@ -96,3 +97,7 @@ theme_override_font_sizes/font_size = 10
 placeholder_text = "Password Input"
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_svru3")]
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=142616157]
+stream = ExtResource("5_grp83")
+volume_db = 11.254
