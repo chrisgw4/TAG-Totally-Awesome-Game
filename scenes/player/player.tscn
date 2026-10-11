@@ -614,7 +614,7 @@ shape = SubResource("CapsuleShape2D_ugbui")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038606627]
 position = Vector2(-6.7762636e-21, -0.99999976)
 sprite_frames = SubResource("SpriteFrames_88vfu")
-animation = &"Yellowland"
+animation = &"Bluejump"
 script = ExtResource("3_hqtel")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
@@ -689,6 +689,7 @@ metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 
 [node name="HopOnRailStream" type="AudioStreamPlayer2D" parent="." unique_id=1883941509]
 stream = ExtResource("19_lgqa7")
+volume_db = -2.716
 script = ExtResource("15_fcs02")
 metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 

@@ -30,6 +30,7 @@ func tag(is_pressed: bool):
 	if is_pressed:
 		graffiti_image.animation = "tags"
 		graffiti_image.frame = randi_range(0, graffiti_image.sprite_frames.get_frame_count("tags"))
+		$SprayStream.play_synced()
 		color = parent.team
 		e_key.play("default")
 		ui_element.play_synced(color)
