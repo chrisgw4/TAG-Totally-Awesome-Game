@@ -54,7 +54,9 @@ func tag(is_pressed: bool):
 	if is_pressed and color != parent.team:
 		graffiti_image.animation = "tags"
 		e_key.hide()
-		has_been_tagged = true
+		if has_been_tagged == false:
+			GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)
+			has_been_tagged = true
 		var temp_array = team_tags[parent.team].duplicate()
 		if temp_array.has(graffiti_image.frame):
 			temp_array.erase(graffiti_image.frame)
