@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3t06cdxd3xy6"
+path="res://.godot/imported/Hideki Naganuma x Tomoya Ohtani x SA2 Knuckles Type Beat - Patterns (prod. Hydraa & @prodwebster).mp3-e539cb4d71f4571ac116404a8782bc08.mp3str"
+
+[deps]
+
+source_file="res://assets/music/game/Hideki Naganuma x Tomoya Ohtani x SA2 Knuckles Type Beat - Patterns (prod. Hydraa & @prodwebster).mp3"
+dest_files=["res://.godot/imported/Hideki Naganuma x Tomoya Ohtani x SA2 Knuckles Type Beat - Patterns (prod. Hydraa & @prodwebster).mp3-e539cb4d71f4571ac116404a8782bc08.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
