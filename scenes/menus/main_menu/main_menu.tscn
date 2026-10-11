@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bgq5xbh03k4s0" path="res://scenes/menus/main_menu/main_menu_handler.gd" id="9_627ab"]
 [ext_resource type="BitMap" uid="uid://cylfhft6ygoxo" path="res://assets/menus/3_panels/panel_0_bit.png" id="11_qwqm5"]
 [ext_resource type="BitMap" uid="uid://ba4v6hemecsr" path="res://assets/menus/3_panels/panel_1_bit.png" id="12_88r3n"]
+[ext_resource type="Texture2D" uid="uid://16h331bcrh7a" path="res://assets/City3.png" id="13_88r3n"]
 [ext_resource type="BitMap" uid="uid://bs2ir61swe1n7" path="res://assets/menus/3_panels/panel_2_bit.png" id="14_3nv00"]
 
 [sub_resource type="Animation" id="Animation_peecx"]
@@ -92,6 +93,15 @@ music_player = NodePath("AudioStreamPlayer")
 color_rect = NodePath("CanvasLayer2/ColorRect")
 sign_in_google_button = NodePath("CanvasLayer/SignInWithGoogle")
 main_menu_holder = NodePath("MainMenuHandler")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=475773947]
+repeat_size = Vector2(1155, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="City3" type="Sprite2D" parent="Parallax2D" unique_id=13236683]
+position = Vector2(577.3333, 323.00003)
+scale = Vector2(0.6018519, 0.6018519)
+texture = ExtResource("13_88r3n")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1395212831]
 layer = 1000

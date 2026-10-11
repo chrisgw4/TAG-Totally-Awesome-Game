@@ -51,5 +51,5 @@ func fade_audio_in() -> void:
 	music_player.play()
 	
 	var tween = create_tween()
-	tween.tween_property(music_player, "volume_linear", 3, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(music_player, "volume_linear", 1.4, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
