@@ -15,10 +15,10 @@ var has_been_tagged:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#if GDSync.is_host():
-		#graffiti_image.play_synced("nograf")
-		#ui_element.play_synced(color)
-		#e_key.play("default")
+	if GDSync.is_host():
+		graffiti_image.play_synced("nograf")
+		ui_element.play_synced(color)
+		e_key.play("default")
 	pass
 
 @onready var blue_spray_paint_particles = $BlueSprayPaint
@@ -52,7 +52,6 @@ var team_tags:Dictionary[String, Array] = {
 	}
 
 
-signal tagged_first_time()
 
 func tag(is_pressed: bool):
 	if is_pressed and color != parent.team:
@@ -60,11 +59,6 @@ func tag(is_pressed: bool):
 		e_key.hide()
 		if not has_been_tagged:
 			has_been_tagged = true
-			#emit_signal("tagged_first_time")
-			#GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", 0) - 1)
-		#if has_been_tagged == false:
-			#GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)
-			#has_been_tagged = true
 		var temp_array = team_tags[parent.team].duplicate()
 		if temp_array.has(graffiti_image.frame):
 			temp_array.erase(graffiti_image.frame)
