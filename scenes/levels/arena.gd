@@ -13,10 +13,12 @@ func _ready() -> void:
 		var graffiti_count: int = get_children().filter(func(n): return n is Graffiti).size()
 		GDSync.lobby_set_data("Graffiti_Count", graffiti_count)
 		count = graffiti_count
+		$Timer.timeout.connect(_recount_graffiti)
+		$Timer.start()
 		
-		for n in get_children():
-			if n is Graffiti:
-				n.tagged_first_time.connect(_update_count)
+		#for n in get_children():
+			#if n is Graffiti:
+				#n.tagged_first_time.connect(_update_count)
 	
 	match_countdown.countdown_finished.connect(_enable_player_movements)
 	
@@ -26,12 +28,21 @@ func _ready() -> void:
 	$CanvasLayer/ColorRect.queue_free()
 	
 	$AudioPlayer._replay_song()
-	
-	
 
-func _update_count() -> void:
-	count -= clamp(1, 0, 100)
-	GDSync.lobby_set_data("Graffiti_Count", count)
+
+func _recount_graffiti() -> void:
+	count = 0
+	for n in get_children():
+		if n is Graffiti:
+			if not n.has_been_tagged:
+				count += 1
+	$Timer.start()
+	$Score._update_count(count)
+
+
+#func _update_count() -> void:
+	#count -= clamp(1, 0, 100)
+	#GDSync.lobby_set_data("Graffiti_Count", count)
 
 
 func _enable_player_movements() -> void:

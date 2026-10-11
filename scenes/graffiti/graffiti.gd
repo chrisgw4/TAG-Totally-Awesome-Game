@@ -60,7 +60,7 @@ func tag(is_pressed: bool):
 		e_key.hide()
 		if not has_been_tagged:
 			has_been_tagged = true
-			emit_signal("tagged_first_time")
+			#emit_signal("tagged_first_time")
 			#GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", 0) - 1)
 		#if has_been_tagged == false:
 			#GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)

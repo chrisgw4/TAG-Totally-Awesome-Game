@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://4jbks1siywkq" path="res://assets/music/game/hydraa x hideki naganuma x sonic dnb type beat - wasted (+ @JerezCookin ) - Hydraa (128k).mp3" id="13_ylwb8"]
 [ext_resource type="AudioStream" uid="uid://dvs7sx7vkmjhv" path="res://assets/music/game/hydraa x hideki naganuma x tomoya ohtani x uk garage x sa2 rouge jazz type beat espionage.mp3" id="14_gaio3"]
 [ext_resource type="PackedScene" uid="uid://do56b3tm88lvk" path="res://scenes/match_ui/match_countdown.tscn" id="18_278yd"]
+[ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="19_3qy7k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aisgp"]
 animations = [{
@@ -245,3 +246,17 @@ position = Vector2(115, -1082)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1272228035]
 libraries/ = SubResource("AnimationLibrary_qrxf6")
+
+[node name="Timer" type="Timer" parent="." unique_id=554425532]
+wait_time = 0.5
+
+[node name="PropertySynchronizer" type="Node" parent="." unique_id=1324189693]
+script = ExtResource("19_3qy7k")
+node_path = NodePath("..")
+properties = PackedStringArray("count")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"

@@ -3,8 +3,11 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-	GDSync.lobby_data_changed.connect(_update_white)
+	#GDSync.lobby_data_changed.connect(_update_white)
 
+
+func _update_count(new_value) -> void:
+	$White.text = str(new_value)
 
 func _update_white(_key, _value) -> void:
 	if _key == "Graffiti_Count":

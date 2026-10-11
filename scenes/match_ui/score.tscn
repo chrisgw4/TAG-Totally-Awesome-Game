@@ -163,7 +163,6 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer" type="Node" parent="." unique_id=1725964556]
 script = ExtResource("3_p3dxx")
-broadcast = 5
 node_path = NodePath("../White")
 properties = PackedStringArray("text")
 interpolated = false
