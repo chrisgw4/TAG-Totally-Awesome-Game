@@ -622,6 +622,9 @@ metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 position = Vector2(2, -68)
 enabled = false
 zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = -1225
+limit_right = 1950
 
 [node name="PropertySynchronizer" type="Node" parent="." unique_id=408313334]
 script = ExtResource("3_i3pqv")
