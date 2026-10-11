@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkt2xvsk4w754"
+path="res://.godot/imported/Hideki Naganuma x Bomb Rush Cyberfunk x Sonic Rush Type Beat- Kickflip [prod Hydraa & @Tokyocsupo].mp3-a3e6a9b4605743649a8ce1540429683e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/game/Hideki Naganuma x Bomb Rush Cyberfunk x Sonic Rush Type Beat- Kickflip [prod Hydraa & @Tokyocsupo].mp3"
+dest_files=["res://.godot/imported/Hideki Naganuma x Bomb Rush Cyberfunk x Sonic Rush Type Beat- Kickflip [prod Hydraa & @Tokyocsupo].mp3-a3e6a9b4605743649a8ce1540429683e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

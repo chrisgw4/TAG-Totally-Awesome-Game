@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds8on20u4f5n"
+path="res://.godot/imported/hydraa x hideki naganuma x mariko nanba x sonic rush type beat- Smooth Operator (Blazy Mix).mp3-48fc32f69b5de0cde44c44f82a9fa8eb.mp3str"
+
+[deps]
+
+source_file="res://assets/music/game/hydraa x hideki naganuma x mariko nanba x sonic rush type beat- Smooth Operator (Blazy Mix).mp3"
+dest_files=["res://.godot/imported/hydraa x hideki naganuma x mariko nanba x sonic rush type beat- Smooth Operator (Blazy Mix).mp3-48fc32f69b5de0cde44c44f82a9fa8eb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ybjcdqycod6d"
+path="res://.godot/imported/hydraa x hideki naganuma x kohta takahashi x y2k dnb type beat pinpoint ( + @glumboy ) - Hydraa (128k).mp3-37f35cb79aa71c22c2f247801704a45a.mp3str"
+
+[deps]
+
+source_file="res://assets/music/game/hydraa x hideki naganuma x kohta takahashi x y2k dnb type beat pinpoint ( + @glumboy ) - Hydraa (128k).mp3"
+dest_files=["res://.godot/imported/hydraa x hideki naganuma x kohta takahashi x y2k dnb type beat pinpoint ( + @glumboy ) - Hydraa (128k).mp3-37f35cb79aa71c22c2f247801704a45a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
