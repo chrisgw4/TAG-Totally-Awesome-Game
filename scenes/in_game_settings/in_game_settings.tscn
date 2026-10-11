@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://byk7o6r8htyis" path="res://scenes/in_game_settings/in_game_settings.gd" id="1_yw4bi"]
 [ext_resource type="PackedScene" uid="uid://bnag7jxojv424" path="res://scenes/lobby_menu/lobby_menu_option.tscn" id="4_bvf4x"]
 [ext_resource type="PackedScene" uid="uid://c42d3udxbrr6d" path="res://scenes/in_game_settings/menu_option_audio.tscn" id="4_lwx6s"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_bvf4x"]
 
 [sub_resource type="Animation" id="Animation_n17y8"]
 length = 0.001
@@ -30,6 +31,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScrollContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menudevice:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_yw4bi"]
@@ -73,17 +98,112 @@ tracks/2/keys = {
 "method": &"_hide_music_device"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScrollContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menudevice:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_lwx6s"]
+resource_name = "move_device_back"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menudevice:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(564, 542), Vector2(72, 659)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menudevice:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6.15, 6.15), Vector2(2, 2)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_show_music_device"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScrollContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menudevice:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lwx6s"]
 _data = {
 &"RESET": SubResource("Animation_n17y8"),
-&"move_device": SubResource("Animation_yw4bi")
+&"move_device": SubResource("Animation_yw4bi"),
+&"move_device_back": SubResource("Animation_lwx6s")
 }
 
-[node name="InGameSettings" type="CanvasLayer" unique_id=546195525]
+[node name="InGameSettings" type="CanvasLayer" unique_id=546195525 node_paths=PackedStringArray("leave_button", "close_button", "screen_wiper")]
 script = ExtResource("1_yw4bi")
+leave_button = NodePath("ScrollContainer/VBoxContainer/Leave")
+close_button = NodePath("ScrollContainer/VBoxContainer/Close")
+screen_wiper = NodePath("ScreenWiper")
 
 [node name="Menudevice" type="Sprite2D" parent="." unique_id=509900136]
+visible = false
 position = Vector2(72, 659)
 scale = Vector2(2, 2)
 texture = ExtResource("1_n17y8")
@@ -98,6 +218,7 @@ offset_bottom = -12.0
 libraries/ = SubResource("AnimationLibrary_lwx6s")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=349318601]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 offset_left = 416.0
 offset_top = 269.0
@@ -123,3 +244,6 @@ label_text = "SFX"
 [node name="Close" parent="ScrollContainer/VBoxContainer" unique_id=1282981670 instance=ExtResource("4_bvf4x")]
 layout_mode = 2
 label_text = "Close"
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_bvf4x")]
+layer = 2000
