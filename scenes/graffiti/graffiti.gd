@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	var parent = area.get_parent() as player
+	var parent = area.get_parent() as Player
 	is_tagable(true)
 	parent.input_component.tag_input.connect(tag)
 	ui_element.play("key")
@@ -30,7 +30,7 @@ func tag(is_pressed: bool):
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	var parent = area.get_parent() as player
+	var parent = area.get_parent() as Player
 	is_tagable(false)
 	parent.input_component.tag_input.disconnect(tag)
 	ui_element.play("arrow")

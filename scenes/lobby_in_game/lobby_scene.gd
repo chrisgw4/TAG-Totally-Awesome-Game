@@ -26,6 +26,8 @@ func _ready() -> void:
 	await get_tree().create_timer(0.2).timeout
 	color_rect.hide()
 	color_rect.queue_free()
+	
+
 
 
 func _leave_lobby() -> void:

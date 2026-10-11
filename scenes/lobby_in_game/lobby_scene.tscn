@@ -21,7 +21,7 @@ size = Vector2(20, 203.5)
 [node name="LobbyScene" type="Node2D" unique_id=1110645861 node_paths=PackedStringArray("screen_wiper", "color_rect", "lobby_menu_device", "music_player")]
 script = ExtResource("1_6rjt2")
 screen_wiper = NodePath("ScreenWiper")
-color_rect = NodePath("ColorRect")
+color_rect = NodePath("CanvasLayer/ColorRect")
 lobby_menu_device = NodePath("ScrollContainer/LobbyMenuDevice")
 music_player = NodePath("AudioPlayer")
 
@@ -58,6 +58,7 @@ script = ExtResource("2_7lh35")
 player_scene = ExtResource("2_aqpyx")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
+layer = 1000
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=2066416112]
 offset_left = 812.0
@@ -77,11 +78,15 @@ layout_mode = 2
 
 [node name="Ipod146" type="Sprite2D" parent="." unique_id=536887957]
 z_index = 5
-position = Vector2(965, 628)
-scale = Vector2(6.24, 6.24)
+position = Vector2(965, 627.00006)
+scale = Vector2(6.2, 6.2)
 texture = ExtResource("9_pw88w")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1798577836]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=136311695]
+layer = 2000
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1798577836]
+z_index = 1000
 custom_minimum_size = Vector2(100, 100)
 offset_right = 1187.0
 offset_bottom = 658.0

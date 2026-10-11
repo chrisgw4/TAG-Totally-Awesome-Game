@@ -40,6 +40,26 @@ func _clear_scene_tree(_lobby_name:String) -> void:
 	
 	await screen_wiper.start_loading
 	await tween.finished
+	
+	var teams:Array[String] = []
+	if GDSync.lobby_get_data("Purple") == false:
+		teams.append("Purple")
+	if GDSync.lobby_get_data("Red") == false:
+		teams.append("Red")
+	if GDSync.lobby_get_data("Yellow") == false:
+		teams.append("Yellow")
+	if GDSync.lobby_get_data("Blue") == false:
+		teams.append("Blue")
+	
+	print(teams)
+	var selected_team:String = teams.pick_random()
+	
+	
+	GDSync.lobby_set_data(selected_team, true)
+	GDSync.player_set_data("team", selected_team)
+	print("New Lobby Data", GDSync.lobby_get_all_data())
+	
+	
 	music_player.stop()
 	queue_free()
 	SceneHolder.change_scene_to.emit(preload("res://scenes/lobby_in_game/lobby_scene.tscn"), self)

@@ -3,24 +3,20 @@ extends Node2D
 # Do not forget to assign the player scene in the inspector
 @export var player_scene : PackedScene
 
+@export var player_teams:Array[String] = ["Blue", "Red", "Yellow", "Purple"]
+
 func _ready() -> void:
+	(get_tree().current_scene as CanvasLayer).follow_viewport_enabled = true
 	# Still listen for changes after the game has started
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
-	GDSync.client_joined.connect(_on_client_joined)
 	
 	# Everyone is already in the lobby, so spawn a player for each of them
 	for client_id in GDSync.lobby_get_all_clients():
 		spawn_player(client_id)
 
 
-func _on_client_joined(client_id: int) -> void:
-	if not GDSync.is_gdsync_owner(self):
-		return
-	GDSync.call_func_on(client_id, _set_state, [global_position])
 
-func _set_state(pos: Vector2) -> void:
-	global_position = pos
 
 
 func client_joined(client_id : int) -> void:
@@ -33,10 +29,13 @@ func spawn_player(client_id : int) -> void:
 	if has_node(str(client_id)):
 		return
 	
-	var player : Node2D = player_scene.instantiate()
+	var player : Player = player_scene.instantiate()
+	var team = GDSync.player_get_data(client_id, "team", "")
+	print("TEAM, ", team)
+	player.team = team
 	player.name = str(client_id)
 	add_child(player)
-	player.global_position = global_position + Vector2(40,0)
+	player.global_position = global_position
 	
 	# Every client sets ownership for every player, so ownership is
 	# consistent everywhere
