@@ -1,10 +1,18 @@
 extends Node2D
+class_name Graffiti
 @export var ui_element: SynchronizedAnimatedSprite2D
 @export var graffiti_image: SynchronizedAnimatedSprite2D
 @export var e_key: AnimatedSprite2D
 var tagable = false
 var parent
 var color = "noteam"
+
+var has_been_tagged:bool = false:
+	set(new_value):
+		if has_been_tagged == false:
+			has_been_tagged = new_value
+			GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	graffiti_image.play_synced("nograf")
@@ -31,11 +39,21 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 func is_tagable(state: bool):
 	tagable = state
-	
+
+
+var team_tags:Dictionary[String, Array] = {
+	"Blue":[0,1,2,3,4,5,6,7],
+	"Red":[0,1,2,3,4,5,8,9],
+	"Yellow":[0,1,2,3,4,5,10,11],
+	"Purple":[0,1,2,3,4,5,12,13],
+	}
+
+
 func tag(is_pressed: bool):
 	if is_pressed and color != parent.team:
 		graffiti_image.animation = "tags"
-		graffiti_image.frame = randi_range(0, graffiti_image.sprite_frames.get_frame_count("tags"))
+		has_been_tagged = true
+		graffiti_image.frame = team_tags[parent.team].pick_random()
 		$SprayStream.play_synced()
 		color = parent.team
 		if color == "Blue":
