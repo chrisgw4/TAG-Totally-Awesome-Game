@@ -763,7 +763,7 @@ func handle_critical_error(error : int) -> void:
 
 func set_variable_cached(request : Array) -> void:
 	if !session_controller.has_nodepath_from_index(request[ENUMS.VAR_DATA.NODE_PATH]):
-		logger.write_error("Set variable cached was called but the indexed NodePath was not found. <"+str(request[ENUMS.VAR_DATA.NODE_PATH]+">"))
+		logger.write_error("Set variable cached was called but the indexed NodePath was not found. <"+str(request[ENUMS.VAR_DATA.NODE_PATH])+">")
 		return
 	if !session_controller.has_name_from_index(request[ENUMS.VAR_DATA.NAME]):
 		logger.write_error("Set variable cached was called but the indexed name was not found. <"+str(request[ENUMS.VAR_DATA.NAME])+">")

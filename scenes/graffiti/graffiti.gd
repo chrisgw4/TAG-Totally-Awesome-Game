@@ -9,7 +9,7 @@ var color = "noteam"
 
 var has_been_tagged:bool = false:
 	set(new_value):
-		if has_been_tagged == false:
+		if has_been_tagged == false and new_value == true:
 			has_been_tagged = new_value
 			GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)
 
