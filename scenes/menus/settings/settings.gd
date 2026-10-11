@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export var screen_wiper:ScreenWiper
-@export var music_player:AudioStreamPlayer
+@export var music_player:AudioPlayer
 
 @export var back_button:TextureButton
 
@@ -14,7 +14,7 @@ var effects_index = AudioServer.get_bus_index("SFX")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	$AudioStreamPlayer.play()
+	music_player._replay_song()
 	screen_wiper.clear_screen_wipe()
 	
 	var tween = create_tween()
@@ -22,7 +22,7 @@ func _ready() -> void:
 	tween.tween_property(music_player, "volume_linear", 1, 1)
 	
 	await get_tree().create_timer(0.2).timeout
-	$ColorRect.queue_free()
+	$CanvasLayer.queue_free()
 	
 	
 	

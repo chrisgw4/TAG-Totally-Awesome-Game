@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://d26g8g08c51hp" path="res://assets/menus/menudevice.png" id="4_5uuut"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_dpkku"]
 [ext_resource type="AudioStream" uid="uid://d167ygkm5tqsq" path="res://assets/music/lobby/free_jet_set_radio_x_bobby_brown_type_beat_gulfing.wav" id="6_5uuut"]
+[ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="7_3nf50"]
 
 [node name="OldMusicDeviceMenu" type="CanvasLayer" unique_id=319420344 node_paths=PackedStringArray("box_container", "color_rect", "screen_wiper", "music_player")]
 script = ExtResource("1_sfg4r")
 box_container = NodePath("FlowContainer")
-color_rect = NodePath("ColorRect2")
+color_rect = NodePath("CanvasLayer/ColorRect2")
 screen_wiper = NodePath("ScreenWiper")
-music_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("AudioPlayer")
 
 [node name="City" type="Sprite2D" parent="." unique_id=910566239]
 position = Vector2(576, 324)
@@ -42,12 +43,16 @@ texture = ExtResource("4_5uuut")
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_dpkku")]
 layer = 3
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=493128550]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1748135529]
+layer = 100
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=493128550]
 offset_right = 1186.0
 offset_bottom = 675.0
 color = Color(0, 0, 0, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1450346726]
+[node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("7_3nf50")]
 stream = ExtResource("6_5uuut")
-volume_db = -1.0
-bus = &"Music"
+song_streams = Array[AudioStream]([ExtResource("6_5uuut")])
+song_names = Array[String](["gulfing"])
+song_artists = Array[String](["prod. ketsar"])

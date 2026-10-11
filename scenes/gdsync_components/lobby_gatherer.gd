@@ -19,7 +19,7 @@ func _get_public_lobbies() -> void:
 
 func _received_lobbies(lobbies:Array) -> void:
 	current_lobbies = lobbies
-	print(lobbies)
+	#print(lobbies)
 	_sort_lobbies(lobbies)
 
 
