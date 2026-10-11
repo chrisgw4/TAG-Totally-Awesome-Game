@@ -214,7 +214,8 @@ movement_component = NodePath("../MovementComponent")
 
 [node name="JumpComponent" parent="." unique_id=1859188675 node_paths=PackedStringArray("charcter_body") instance=ExtResource("6_b26j0")]
 charcter_body = NodePath("..")
-jump_speed = 400.0
+jump_speed = 375.0
+changed_gravity_scale = 0.85
 
 [node name="MovementComponent" parent="." unique_id=1356125417 node_paths=PackedStringArray("parent") instance=ExtResource("7_n7ghd")]
 accel = 200.0
