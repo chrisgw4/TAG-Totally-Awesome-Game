@@ -43,6 +43,7 @@ func _calculate_jump(dir:Vector2, is_pressed:bool) -> void:
 	# If the character is on the floor and jump is pressed
 	if can_still_jump and is_pressed:
 		emit_signal("jump", jump_speed*dir) # Jump into the air
+		get_parent().jump_stream.play_synced()
 		can_still_jump = false
 	# If the character is in the air and jump is pressed
 	elif not on_floor and is_pressed:
@@ -55,6 +56,7 @@ func _calculate_jump(dir:Vector2, is_pressed:bool) -> void:
 	if on_floor:
 		can_still_jump = true # Allow the character to be able to jump if they are on the floor
 		timer.stop() # Stop the timer so it doesn't cause an issue with stopping jumping
+				
 	elif not on_floor: # Check if the character is in the air
 		if timer.is_stopped() and can_still_jump: # Check if the timer is stopped and that character can still jump
 			timer.start(input_jump_delay) # Start the timer to turn off jumping after a time while character is falling
