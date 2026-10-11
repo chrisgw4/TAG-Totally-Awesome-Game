@@ -35,6 +35,7 @@ func _ready() -> void:
 
 
 func _swap_scene_to_main_menu() -> void:
+	$ClickPlayer.play()
 	screen_wiper.wipe_screen()
 	
 	var tween = create_tween()

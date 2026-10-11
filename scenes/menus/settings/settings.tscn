@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b62cqw3lavog1" path="res://assets/music/main_menu/free_hideki_naganuma_bomb_rush_cyberfunk_sonic_cd_type_beat_MARKER.wav" id="10_skl6q"]
 [ext_resource type="Texture2D" uid="uid://7376s1kts8sv" path="res://assets/menus/settings/BACK2.png" id="11_oj3ju"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="12_oj3ju"]
+[ext_resource type="AudioStream" uid="uid://ds6ui3f2t43td" path="res://assets/sfx/v2 vinyl.wav" id="13_xv57m"]
 
 [node name="Settings" type="CanvasLayer" unique_id=876434316 node_paths=PackedStringArray("screen_wiper", "music_player", "back_button")]
 script = ExtResource("1_7r86w")
@@ -117,6 +118,9 @@ z_index = 100
 offset_right = 1161.0
 offset_bottom = 649.0
 color = Color(0, 0, 0, 1)
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=238862941]
+stream = ExtResource("13_xv57m")
 
 [connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="EffectsSlider" to="." method="_on_effects_slider_value_changed"]

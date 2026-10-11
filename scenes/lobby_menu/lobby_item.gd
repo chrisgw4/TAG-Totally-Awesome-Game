@@ -30,6 +30,7 @@ func _ready() -> void:
 	screen_wiper.start_loading.connect(_finish_loading_new_scene)
 
 func _join_lobby() -> void:
+	$ClickPlayer.play()
 	if password_protected.visible and password_input.text.length() <= 0:
 		return
 	

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1sgd7of1182i" path="res://scenes/lobby_menu/lobby_creator_menu.gd" id="1_1fyfy"]
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_for0l"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="3_kv742"]
+[ext_resource type="AudioStream" uid="uid://b8ei2br7u887h" path="res://assets/sfx/mp3_hover.mp3" id="4_0bwho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyu8n"]
 bg_color = Color(1, 1, 1, 1)
@@ -134,3 +135,6 @@ theme_override_fonts/font = ExtResource("1_for0l")
 text = "Create"
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_kv742")]
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=1559977020]
+stream = ExtResource("4_0bwho")
