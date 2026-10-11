@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://e2ka1bbwy4fw" path="res://assets/game_end_assets/RedWin.png" id="12_prq4s"]
 [ext_resource type="Texture2D" uid="uid://c3fbhjnogqc6c" path="res://assets/game_end_assets/YellowWin.png" id="13_s7mou"]
 [ext_resource type="AudioStream" uid="uid://d1degib1hhsgi" path="res://assets/game_end_sounds/orchestral-hit.wav" id="14_xomxu"]
+[ext_resource type="Texture2D" uid="uid://7376s1kts8sv" path="res://assets/menus/settings/BACK2.png" id="15_f3oug"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="16_ldek4"]
 
 [sub_resource type="Animation" id="Animation_vd0pg"]
 length = 0.001
@@ -211,6 +213,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureButton:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(58, 459)]
+}
 
 [sub_resource type="Animation" id="Animation_s5ypq"]
 resource_name = "move_in"
@@ -262,6 +276,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureButton:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-417, 458), Vector2(58, 459)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_prq4s"]
@@ -553,7 +579,7 @@ offset_top = -225.0
 offset_right = 37.99997
 offset_bottom = -105.0
 scale = Vector2(2.5, 2.5)
-text = "logan georgi"
+text = "temp name"
 label_settings = ExtResource("1_vd0pg")
 
 [node name="Label2" type="Label" parent="Node2D" unique_id=1951390740]
@@ -574,3 +600,12 @@ bus = &"SFX"
 stream = ExtResource("3_k6eck")
 volume_db = 22.0
 bus = &"SFX"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=701703507]
+offset_left = 58.0
+offset_top = 459.0
+offset_right = 449.0
+offset_bottom = 637.0105
+texture_normal = ExtResource("15_f3oug")
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("16_ldek4")]

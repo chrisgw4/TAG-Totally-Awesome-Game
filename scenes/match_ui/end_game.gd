@@ -7,9 +7,19 @@ func _ready() -> void:
 	#_play_game_end()
 	pass
 	
+	$TextureButton.pressed.connect(_load_main_menu)
 	
 	
+
+
+func _load_main_menu() -> void:
+	var screen_wiper:ScreenWiper = $ScreenWiper
+	screen_wiper.wipe_screen()
 	
+	GDSync.lobby_leave()
+	await screen_wiper.start_loading
+	
+	SceneHolder.change_scene_to.emit(load("res://scenes/menus/main_menu/main_menu.tscn"), get_parent().get_parent())
 	
 
 func _play_game_end() -> void:
