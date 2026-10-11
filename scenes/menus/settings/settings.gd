@@ -67,4 +67,3 @@ func _on_effects_slider_value_changed(value: float) -> void:
 
 func _on_text_edit_text_submitted(new_text: String) -> void:
 	UserGlobalValues.username = $TextEdit.text
-	emit_signal("username_inserted")
