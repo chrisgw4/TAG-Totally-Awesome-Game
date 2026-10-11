@@ -38,17 +38,23 @@ func tag(is_pressed: bool):
 		$SprayStream.play_synced()
 		color = parent.team
 		if color == "Blue":
-			var score = parent.get_node("Score").get_node("Blue").text.to_int() + 1
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
 			parent.get_node("Score").get_node("Blue").text = str(score)
+			GDSync.player_set_data("score", score)
 		elif color == "Red":
-			var score = parent.get_node("Score").get_node("Red").text.to_int() + 1
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
 			parent.get_node("Score").get_node("Red").text = str(score)
+			GDSync.player_set_data("score", score)
 		elif color == "Purple":
-			var score = parent.get_node("Score").get_node("Purple").text.to_int() + 1
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
 			parent.get_node("Score").get_node("Purple").text = str(score)
+			GDSync.player_set_data("score", score)
 		else:
-			var score = parent.get_node("Score").get_node("Purple").text.to_int() + 1
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
 			parent.get_node("Score").get_node("Purple").text = str(score)
+			GDSync.player_set_data("score", score)
+		print("Score: ",GDSync.player_get_data(GDSync.get_client_id(), 'score', 0))
+		#GDSync.lobby_get_all_clients()
 		e_key.play("default")
 		ui_element.play_synced(color)
 		_spawn_particles(parent.team)
