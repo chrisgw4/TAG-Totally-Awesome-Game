@@ -268,6 +268,7 @@ e_key = NodePath("E_key")
 position = Vector2(0, 1)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_gd63a")
+animation = &"nograf"
 script = ExtResource("4_q702q")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
