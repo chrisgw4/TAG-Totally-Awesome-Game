@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://cj82b1h6e8jn" path="res://scenes/levels/city.tres" id="2_d2d03"]
 [ext_resource type="Script" uid="uid://cpkgy3yr2uipy" path="res://scenes/lobby_in_game/player_spawner.gd" id="4_d30w0"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="6_5cda3"]
+[ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="7_cp0g4"]
 
 [node name="Arena" type="CanvasLayer" unique_id=172168782]
 follow_viewport_enabled = true
@@ -69,3 +70,5 @@ offset_top = -744.0
 offset_right = 2044.0
 offset_bottom = 839.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("7_cp0g4")]
