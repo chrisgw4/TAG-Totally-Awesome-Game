@@ -250,11 +250,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element", "graffiti_image")]
+[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element", "graffiti_image", "e_key")]
 z_index = -1
 script = ExtResource("1_b7atg")
-ui_element = NodePath("")
+ui_element = NodePath("Ui_Element")
 graffiti_image = NodePath("Graffiti_Image")
+e_key = NodePath("E_key")
 
 [node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1891622210]
 position = Vector2(0, 1)
