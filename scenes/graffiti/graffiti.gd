@@ -75,7 +75,7 @@ func tag(is_pressed: bool):
 			GDSync.player_set_data("score", score)
 		else:
 			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
-			get_parent().get_node("Score").get_node("Purple").text = str(score)
+			get_parent().get_node("Score").get_node("Yellow").text = str(score)
 			GDSync.player_set_data("score", score)
 		print("Score: ",GDSync.player_get_data(GDSync.get_client_id(), 'score', 0))
 		#GDSync.lobby_get_all_clients()

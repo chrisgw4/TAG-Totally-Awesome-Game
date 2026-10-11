@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://cw6m5de0pkucv" path="res://scenes/match_ui/match_countdown.gd" id="1_8i0ad"]
 [ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_rfipm"]
 [ext_resource type="LabelSettings" uid="uid://hm62et4vsdwk" path="res://scenes/match_ui/ui_label.tres" id="3_thtj1"]
+[ext_resource type="AudioStream" uid="uid://jgvjy84rsc44" path="res://assets/countdown_sounds/THREE_BIT_CRUSHED.wav" id="4_emi7i"]
+[ext_resource type="AudioStream" uid="uid://lgludm0ltqnt" path="res://assets/countdown_sounds/TWO_BIT_CRUSHED.wav" id="5_gesol"]
+[ext_resource type="AudioStream" uid="uid://b3dpjccnowj1l" path="res://assets/countdown_sounds/ONE_BIT_CRUSHED.wav" id="6_c78nd"]
+[ext_resource type="AudioStream" uid="uid://djfmi16cxilxg" path="res://assets/countdown_sounds/TAG_BIT_CRUSHED.wav" id="7_ly3py"]
 
 [sub_resource type="Animation" id="Animation_8i0ad"]
 length = 0.001
@@ -71,3 +75,23 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=474035815]
 libraries/ = SubResource("AnimationLibrary_emi7i")
+
+[node name="Three" type="AudioStreamPlayer" parent="." unique_id=820176771]
+stream = ExtResource("4_emi7i")
+volume_db = 15.0
+bus = &"SFX"
+
+[node name="Two" type="AudioStreamPlayer" parent="." unique_id=748712964]
+stream = ExtResource("5_gesol")
+volume_db = 15.0
+bus = &"SFX"
+
+[node name="One" type="AudioStreamPlayer" parent="." unique_id=466872442]
+stream = ExtResource("6_c78nd")
+volume_db = 15.0
+bus = &"SFX"
+
+[node name="TAG" type="AudioStreamPlayer" parent="." unique_id=1252041335]
+stream = ExtResource("7_ly3py")
+volume_db = 15.0
+bus = &"SFX"
