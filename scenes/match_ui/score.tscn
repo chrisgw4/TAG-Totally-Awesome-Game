@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://giu2s63h8hil"]
+
+[ext_resource type="Script" uid="uid://dnxwqqo6xyrbb" path="res://scenes/match_ui/score.gd" id="1_fg2du"]
+[ext_resource type="LabelSettings" uid="uid://hm62et4vsdwk" path="res://scenes/match_ui/ui_label.tres" id="2_p3dxx"]
+[ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_p3dxx"]
+
+[node name="Score" type="CanvasLayer" unique_id=2013812686]
+script = ExtResource("1_fg2du")
+
+[node name="White" type="Label" parent="." unique_id=1070441593]
+offset_left = 639.0
+offset_top = 152.0
+offset_right = 783.0
+offset_bottom = 221.0
+text = "0"
+label_settings = ExtResource("2_p3dxx")
+
+[node name="Red" type="Label" parent="." unique_id=2052426249]
+offset_left = 751.0
+offset_top = 66.0
+offset_right = 861.0
+offset_bottom = 135.0
+text = "0"
+label_settings = ExtResource("2_p3dxx")
+
+[node name="Yellow" type="Label" parent="." unique_id=1528835917]
+offset_left = 874.0
+offset_top = 50.0
+offset_right = 984.0
+offset_bottom = 106.0
+text = "0"
+label_settings = ExtResource("2_p3dxx")
+
+[node name="Purple" type="Label" parent="." unique_id=1258152551]
+offset_left = 548.0
+offset_top = 64.0
+offset_right = 658.0
+offset_bottom = 133.0
+text = "0"
+label_settings = ExtResource("2_p3dxx")
+
+[node name="Blue" type="Label" parent="." unique_id=713494935]
+offset_left = 371.0
+offset_top = 33.0
+offset_right = 481.0
+offset_bottom = 89.0
+text = "0"
+label_settings = ExtResource("2_p3dxx")
+
+[node name="PropertySynchronizer3" type="Node" parent="." unique_id=2094980732]
+script = ExtResource("3_p3dxx")
+node_path = NodePath("../Yellow")
+properties = PackedStringArray("text")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="PropertySynchronizer2" type="Node" parent="." unique_id=181022927]
+script = ExtResource("3_p3dxx")
+node_path = NodePath("../Red")
+properties = PackedStringArray("text")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="PropertySynchronizer" type="Node" parent="." unique_id=1725964556]
+script = ExtResource("3_p3dxx")
+node_path = NodePath("../White")
+properties = PackedStringArray("text")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="PropertySynchronizer5" type="Node" parent="." unique_id=1963779840]
+script = ExtResource("3_p3dxx")
+node_path = NodePath("../Purple")
+properties = PackedStringArray("text")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="PropertySynchronizer4" type="Node" parent="." unique_id=350220399]
+script = ExtResource("3_p3dxx")
+node_path = NodePath("../Blue")
+properties = PackedStringArray("text")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
