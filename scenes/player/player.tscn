@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dqp5bgps30vvg" path="res://scenes/components/movement_component.tscn" id="7_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://b34ldb1ryno6p" path="res://scenes/components/input_component.tscn" id="8_nvl01"]
 [ext_resource type="Script" uid="uid://bktq6dqr2x8j5" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAudioStreamPlayer2D.gd" id="15_fcs02"]
+[ext_resource type="AudioStream" uid="uid://nm55gunnubww" path="res://assets/sfx/v2 jumpswoosh.wav" id="15_myrg7"]
+[ext_resource type="AudioStream" uid="uid://bfj48r8a72r72" path="res://assets/sfx/v68 landing sound.wav" id="17_uf5tr"]
+[ext_resource type="AudioStream" uid="uid://b4pjykr7ehw20" path="res://assets/sfx/grind rail.mp3" id="18_lgqa7"]
+[ext_resource type="AudioStream" uid="uid://c41asw6fdsyqy" path="res://assets/sfx/hop_on_rail.mp3" id="19_lgqa7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugbui"]
 radius = 16.0
@@ -164,7 +168,7 @@ height = 60.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aisgp"]
 size = Vector2(19, 5.75)
 
-[node name="Player" type="CharacterBody2D" unique_id=1121984624 node_paths=PackedStringArray("camera", "anim_sprite", "input_component", "movement_component", "jump_component", "gravity_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1121984624 node_paths=PackedStringArray("camera", "anim_sprite", "input_component", "movement_component", "jump_component", "gravity_component", "jump_stream", "grind_stream", "hoponrail_stream")]
 z_index = 4
 collision_layer = 0
 collision_mask = 5
@@ -175,6 +179,9 @@ input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 jump_component = NodePath("JumpComponent")
 gravity_component = NodePath("GravityComponent")
+jump_stream = NodePath("JumpStream")
+grind_stream = NodePath("GrindStream")
+hoponrail_stream = NodePath("HopOnRailStream")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1468290729]
 shape = SubResource("CapsuleShape2D_ugbui")
@@ -240,6 +247,23 @@ position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_aisgp")
 
 [node name="JumpStream" type="AudioStreamPlayer2D" parent="." unique_id=676500207]
+stream = ExtResource("15_myrg7")
+script = ExtResource("15_fcs02")
+metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
+
+[node name="LandStream" type="AudioStreamPlayer2D" parent="." unique_id=1973363917]
+stream = ExtResource("17_uf5tr")
+script = ExtResource("15_fcs02")
+metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
+
+[node name="GrindStream" type="AudioStreamPlayer2D" parent="." unique_id=2092367990]
+stream = ExtResource("18_lgqa7")
+volume_db = 5.045
+script = ExtResource("15_fcs02")
+metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
+
+[node name="HopOnRailStream" type="AudioStreamPlayer2D" parent="." unique_id=2044173353]
+stream = ExtResource("19_lgqa7")
 script = ExtResource("15_fcs02")
 metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 

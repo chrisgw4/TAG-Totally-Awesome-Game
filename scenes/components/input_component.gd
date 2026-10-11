@@ -111,12 +111,14 @@ func turn_vector_into_8_directions(vec:Vector2) -> Vector2:
 
 func _on_grind_detector_body_entered(body: Node2D) -> void:
 	grinding = true
+	get_parent().hoponrail_stream.play_synced()
 	apply_grind_boost = true
 
 
 
 func _on_grind_detector_body_exited(body: Node2D) -> void:
 	grinding = false
+	get_parent().grind_stream.stop()
 	get_parent().set_collision_mask_value(3,true)
 	
 	

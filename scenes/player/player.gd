@@ -9,7 +9,9 @@ class_name player
 @export var movement_component:MovementComponent
 @export var jump_component:JumpComponent
 @export var gravity_component:GravityComponent
-
+@export var jump_stream:SynchronizedAudioStreamPlayer2D #
+@export var grind_stream:SynchronizedAudioStreamPlayer2D
+@export var hoponrail_stream:SynchronizedAudioStreamPlayer2D
 var was_in_air = false
 
 func _ready() -> void:
@@ -44,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	elif was_in_air and is_on_floor():
 		was_in_air = false
 		anim_sprite.play_synced("land")
+		$LandStream.play_synced()
 		
 		
 	
@@ -67,6 +70,9 @@ func _physics_process(delta: float) -> void:
 			anim_sprite.play_synced("hurt")
 	elif abs(velocity.x) > 0.2 and input_component.grinding == true:
 		anim_sprite.play_synced("grind")
+		if !$GrindStream.is_playing():
+			$GrindStream.play_synced()
+
 	elif abs(velocity.x) > 0.2 and is_on_floor():
 		if anim_sprite.animation == "land" :
 			await anim_sprite.animation_finished
@@ -81,6 +87,9 @@ func _physics_process(delta: float) -> void:
 		anim_sprite.play_synced("idle")
 	elif velocity.y < 0 and is_on_floor()==false:
 		anim_sprite.play_synced("jump")
+		
+			
+		
 	else:
 		anim_sprite.play_synced("fall")
 	

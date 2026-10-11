@@ -43,6 +43,7 @@ func _calculate_jump(dir:Vector2, is_pressed:bool) -> void:
 	# If the character is on the floor and jump is pressed
 	if can_still_jump and is_pressed:
 		emit_signal("jump", jump_speed*dir) # Jump into the air
+		get_parent().jump_stream.play_synced() #
 		can_still_jump = false
 	# If the character is in the air and jump is pressed
 	elif not on_floor and is_pressed:
