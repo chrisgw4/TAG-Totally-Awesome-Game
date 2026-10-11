@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://do56b3tm88lvk"]
+
+[ext_resource type="Script" uid="uid://cw6m5de0pkucv" path="res://scenes/match_ui/match_countdown.gd" id="1_8i0ad"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="1_rfipm"]
+[ext_resource type="LabelSettings" uid="uid://hm62et4vsdwk" path="res://scenes/match_ui/ui_label.tres" id="3_thtj1"]
+
+[sub_resource type="Animation" id="Animation_8i0ad"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_thtj1"]
+resource_name = "fade"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emi7i"]
+_data = {
+&"RESET": SubResource("Animation_8i0ad"),
+&"fade": SubResource("Animation_thtj1")
+}
+
+[node name="MatchCountdown" type="CanvasLayer" unique_id=1718565142]
+script = ExtResource("1_8i0ad")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=723729221]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -60.0
+offset_right = 19.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=373405981]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rfipm")
+theme_override_font_sizes/font_size = 72
+text = "3"
+label_settings = ExtResource("3_thtj1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=474035815]
+libraries/ = SubResource("AnimationLibrary_emi7i")

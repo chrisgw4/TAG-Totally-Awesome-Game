@@ -377,5 +377,17 @@ extrapolated = false
 max_extrapolation_time = 0.2
 metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
+[node name="PropertySynchronizer7" type="Node" parent="." unique_id=609249672]
+script = ExtResource("6_q702q")
+broadcast = 5
+node_path = NodePath("../Ui_Element")
+properties = PackedStringArray("animation")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

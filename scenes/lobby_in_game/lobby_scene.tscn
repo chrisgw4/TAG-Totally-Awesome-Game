@@ -87,7 +87,6 @@ texture = ExtResource("9_pw88w")
 layer = 2000
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1798577836]
-visible = false
 z_index = 1000
 custom_minimum_size = Vector2(100, 100)
 offset_right = 1187.0
@@ -118,8 +117,8 @@ song_streams = Array[AudioStream]([ExtResource("8_vp5r7")])
 song_names = Array[String](["fresh game (lobby mix)"])
 song_artists = Array[String](["meldawg4real"])
 
-[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
-layer = 100000
-
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=907779159]
 stream = ExtResource("12_tisi5")
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
+layer = 100000

@@ -25,10 +25,6 @@ func _ready() -> void:
 @onready var purple_spray_paint_particles = $PurpleSprayPaint
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	parent = area.get_parent() as Player
@@ -57,8 +53,12 @@ var team_tags:Dictionary[String, Array] = {
 func tag(is_pressed: bool):
 	if is_pressed and color != parent.team:
 		graffiti_image.animation = "tags"
+		e_key.hide()
 		has_been_tagged = true
-		graffiti_image.frame = team_tags[parent.team].pick_random()
+		var temp_array = team_tags[parent.team].duplicate()
+		if temp_array.has(graffiti_image.frame):
+			temp_array.erase(graffiti_image.frame)
+		graffiti_image.frame = temp_array.pick_random()
 		$SprayStream.play_synced()
 		color = parent.team
 		if color == "Blue":

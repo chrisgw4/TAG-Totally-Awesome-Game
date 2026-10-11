@@ -72,6 +72,7 @@ _data = {
 }
 
 [node name="ScreenWiper" type="CanvasLayer" unique_id=2142754851]
+layer = 1000000
 script = ExtResource("1_xek3u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1633125509]
@@ -79,6 +80,7 @@ libraries/ = SubResource("AnimationLibrary_btmvs")
 
 [node name="LeftSide" type="Node2D" parent="." unique_id=1314206458]
 visible = false
+z_index = 1000
 position = Vector2(-4654, 0)
 
 [node name="ColorRect" type="ColorRect" parent="LeftSide" unique_id=1770758740]
@@ -99,6 +101,7 @@ texture = ExtResource("1_vymye")
 flip_h = true
 
 [node name="RightSide" type="Node2D" parent="." unique_id=1377251413]
+z_index = 1000
 position = Vector2(1152, 0)
 
 [node name="ColorRect" type="ColorRect" parent="RightSide" unique_id=881460428]

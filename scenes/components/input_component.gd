@@ -37,6 +37,9 @@ func _enable_inputs() -> void:
 func _physics_process(delta: float) -> void:
 	if not GDSync.is_gdsync_owner(get_parent()):
 		return
+	if disabled_inputs:
+		print("DISABLED INPUTS, ", disabled_inputs)
+		return
 	# Get the direction of the characters input
 	var dir = Vector2(Input.get_action_strength("game_move_right")-Input.get_action_strength("game_move_left"), 0).normalized()
 	
