@@ -73,7 +73,7 @@ func create_document(auth: Dictionary) -> void:
 	var users: FirestoreCollection = Firebase.Firestore.collection("Users")
 
 	var doc = await users.get_doc(uid)
-	print("get_doc result: ", doc)   # check this output the first time
+	#print("get_doc result: ", doc)   # check this output the first time
 
 	if _doc_exists(doc):
 		#print("Existing user, loading data")
@@ -103,5 +103,5 @@ func create_document(auth: Dictionary) -> void:
 		})
 		
 		#var task: = await users.update(uid, fields)
-		print("Created: ", new_doc)
+		#print("Created: ", new_doc)
 		_load_player_data(new_doc)

@@ -9,7 +9,7 @@ var main_menu_scene:PackedScene = load("res://scenes/menus/main_menu/main_menu.t
 
 @export var lobby_menu_device:LobbyMenuDevice
 
-@export var music_player:AudioStreamPlayer
+@export var music_player:AudioPlayer
 
 func _ready() -> void:
 	#leave_button.pressed.connect(_leave_lobby)
@@ -48,7 +48,7 @@ func _complete_scene_switch() -> void:
 
 
 func fade_audio_in() -> void:
-	music_player.play()
+	music_player._replay_song()
 	
 	var tween = create_tween()
 	tween.tween_property(music_player, "volume_linear", 1.4, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)

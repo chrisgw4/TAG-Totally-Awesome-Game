@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b26id76firsbp" path="res://assets/music/intro_song/THE_BIG_PAYBACK.wav" id="7_a4kjy"]
 [ext_resource type="PackedScene" uid="uid://bs73amixrfgni" path="res://scenes/menus/title_screen/intro_scene.tscn" id="8_1g67v"]
 [ext_resource type="PackedScene" uid="uid://dy2kkw6l3tevw" path="res://scenes/menus/title_screen/bouncing_title.tscn" id="9_1wpcv"]
+[ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="11_ul7sw"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1961741829 node_paths=PackedStringArray("start_button", "multiplayer_connector", "toast_canvas", "screen_wiper", "music_player", "bouncing_title")]
 script = ExtResource("1_8ff8e")
@@ -17,7 +18,7 @@ start_button = NodePath("CanvasLayer/TextureButton")
 multiplayer_connector = NodePath("MultiplayerConnector")
 toast_canvas = NodePath("ToastCanvas")
 screen_wiper = NodePath("ScreenWiper")
-music_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("AudioPlayer")
 bouncing_title = NodePath("CanvasLayer/BouncingTitle")
 
 [node name="InfiniteTileScroll" parent="." unique_id=1883197413 instance=ExtResource("1_qrqdf")]
@@ -54,6 +55,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("4_lksgi")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("3_byxgi")]
+layer = 20
 
 [node name="MultiplayerConnector" parent="." unique_id=517243958 instance=ExtResource("5_c8div")]
 
@@ -63,3 +65,9 @@ texture_normal = ExtResource("4_lksgi")
 stream = ExtResource("7_a4kjy")
 
 [node name="IntroScene" parent="." unique_id=1137348644 instance=ExtResource("8_1g67v")]
+
+[node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("11_ul7sw")]
+stream = ExtResource("7_a4kjy")
+song_streams = Array[AudioStream]([ExtResource("7_a4kjy")])
+song_names = Array[String](["THE BIG PAYBACK"])
+song_artists = Array[String](["prod. Ramsey V"])

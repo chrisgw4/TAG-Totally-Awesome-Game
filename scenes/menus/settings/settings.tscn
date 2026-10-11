@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="9_61g84"]
 [ext_resource type="AudioStream" uid="uid://b62cqw3lavog1" path="res://assets/music/main_menu/free_hideki_naganuma_bomb_rush_cyberfunk_sonic_cd_type_beat_MARKER.wav" id="10_skl6q"]
 [ext_resource type="Texture2D" uid="uid://7376s1kts8sv" path="res://assets/menus/settings/BACK2.png" id="11_oj3ju"]
+[ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="12_oj3ju"]
 
 [node name="Settings" type="CanvasLayer" unique_id=876434316 node_paths=PackedStringArray("screen_wiper", "music_player", "back_button")]
 script = ExtResource("1_7r86w")
 screen_wiper = NodePath("ScreenWiper")
-music_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("AudioPlayer")
 back_button = NodePath("TextureButton")
 
 [node name="SettingsBackground" type="Sprite2D" parent="." unique_id=74324558]
@@ -102,7 +103,17 @@ scale = Vector2(0.7, 0.7)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("11_oj3ju")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1839554201]
+[node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("12_oj3ju")]
+stream = ExtResource("10_skl6q")
+song_streams = Array[AudioStream]([ExtResource("10_skl6q")])
+song_names = Array[String](["JUST A DREAM"])
+song_artists = Array[String](["Prod. Ramsey V and Stellxr Beats"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1219088016]
+layer = 200
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1839554201]
+z_index = 100
 offset_right = 1161.0
 offset_bottom = 649.0
 color = Color(0, 0, 0, 1)

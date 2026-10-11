@@ -7,7 +7,7 @@ extends Node2D
 
 @export var main_menu_scene:PackedScene = preload("res://scenes/menus/main_menu/main_menu.tscn")
 
-@export var music_player:AudioStreamPlayer
+@export var music_player:AudioPlayer
 @export var bouncing_title:BouncingTitle
 
 func _ready() -> void:
@@ -15,6 +15,9 @@ func _ready() -> void:
 	GDSync.connected.connect(_change_scene_to_main_menu)
 	GDSync.connection_failed.connect(_undo_wipe)
 	music_player.finished.connect(_loop_music_player)
+	
+	MusicDisplayDevice.new_song.emit(music_player.song_names[0], music_player.song_artists[0])
+	
 	Conductor.set_song(music_player.stream, 114)
 	Conductor.beat.connect(_beat)
 	Conductor.play()
