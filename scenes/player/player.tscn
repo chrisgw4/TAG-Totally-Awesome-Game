@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://df8id4wkcp6q" path="res://scenes/components/jump_component.tscn" id="6_b26j0"]
 [ext_resource type="PackedScene" uid="uid://dqp5bgps30vvg" path="res://scenes/components/movement_component.tscn" id="7_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://b34ldb1ryno6p" path="res://scenes/components/input_component.tscn" id="8_nvl01"]
+[ext_resource type="Script" uid="uid://bktq6dqr2x8j5" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAudioStreamPlayer2D.gd" id="15_fcs02"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugbui"]
 radius = 16.0
@@ -237,6 +238,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrindDetector" unique_id=1153304978]
 position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_aisgp")
+
+[node name="JumpStream" type="AudioStreamPlayer2D" parent="." unique_id=676500207]
+script = ExtResource("15_fcs02")
+metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 
 [connection signal="jump" from="JumpComponent" to="." method="_on_jump_component_jump"]
 [connection signal="body_entered" from="GrindDetector" to="InputComponent" method="_on_grind_detector_body_entered"]
