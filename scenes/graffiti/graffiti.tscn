@@ -333,6 +333,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="SprayStream" type="AudioStreamPlayer2D" parent="." unique_id=540320866]
 stream = ExtResource("7_84xwv")
+volume_db = 14.0
 script = ExtResource("8_kk4mk")
 metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 
