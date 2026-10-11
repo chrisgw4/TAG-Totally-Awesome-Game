@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dvs7sx7vkmjhv" path="res://assets/music/game/hydraa x hideki naganuma x tomoya ohtani x uk garage x sa2 rouge jazz type beat espionage.mp3" id="14_gaio3"]
 [ext_resource type="PackedScene" uid="uid://do56b3tm88lvk" path="res://scenes/match_ui/match_countdown.tscn" id="18_278yd"]
 [ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="19_3qy7k"]
+[ext_resource type="PackedScene" uid="uid://ba1gjrkrceats" path="res://scenes/match_ui/end_game.tscn" id="20_qrxf6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aisgp"]
 animations = [{
@@ -260,3 +261,5 @@ extrapolation = null
 extrapolated = false
 max_extrapolation_time = 0.2
 metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="EndGame" parent="." unique_id=1809330347 instance=ExtResource("20_qrxf6")]
