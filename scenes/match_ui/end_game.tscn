@@ -606,6 +606,7 @@ offset_left = -445.0
 offset_top = 459.0
 offset_right = -54.0
 offset_bottom = 637.0105
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("15_f3oug")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("16_ldek4")]
