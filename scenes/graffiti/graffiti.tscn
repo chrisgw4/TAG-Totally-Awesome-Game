@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c5fiu1q3cnse5" path="res://assets/simple_symbols_2.png" id="2_risvo"]
 [ext_resource type="Texture2D" uid="uid://cpfxp5ki7lbxe" path="res://assets/key_sprites/E.png" id="3_x7ok1"]
 [ext_resource type="Script" uid="uid://dqpkvnosbpdvd" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimatedSprite2D.gd" id="4_q702q"]
+[ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="6_q702q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk4mk"]
 atlas = ExtResource("2_aayd5")
@@ -284,6 +285,30 @@ metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 position = Vector2(0, -37)
 scale = Vector2(0.935, 0.935)
 sprite_frames = SubResource("SpriteFrames_aayd5")
+
+[node name="PropertySynchronizer" type="Node" parent="." unique_id=1242356054]
+script = ExtResource("6_q702q")
+broadcast = 5
+node_path = NodePath("..")
+properties = PackedStringArray("color")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="PropertySynchronizer2" type="Node" parent="." unique_id=1481281810]
+script = ExtResource("6_q702q")
+broadcast = 5
+node_path = NodePath("../Graffiti_Image")
+properties = PackedStringArray("frame")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		grinding_inputs.emit(Vector2(-0.3,0), Vector2(get_parent().velocity.x,0), delta)
 	
-	if Input.is_action_pressed("tag"):
+	if Input.is_action_just_pressed("tag"):
 		is_tag_pressed = true
 	
 	tag_input.emit(is_tag_pressed)
