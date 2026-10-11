@@ -152,14 +152,6 @@ region = Rect2(480, 32, 16, 16)
 atlas = ExtResource("2_risvo")
 region = Rect2(496, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vn051"]
-atlas = ExtResource("3_x7ok1")
-region = Rect2(0, 0, 19, 21)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_84xwv"]
-atlas = ExtResource("3_x7ok1")
-region = Rect2(19, 0, 19, 21)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jx4sb"]
 atlas = ExtResource("2_risvo")
 region = Rect2(160, 16, 16, 16)
@@ -221,17 +213,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vn051")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_84xwv")
-}],
-"loop": 1,
-"name": &"key",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jx4sb")
 }, {
 "duration": 1.0,
@@ -242,17 +223,45 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element", "graffiti_image")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn051"]
+atlas = ExtResource("3_x7ok1")
+region = Rect2(0, 0, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84xwv"]
+atlas = ExtResource("3_x7ok1")
+region = Rect2(19, 0, 19, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aayd5"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn051")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84xwv")
+}],
+"loop": 1,
+"name": &"key",
+"speed": 5.0
+}]
+
+[node name="Graffiti" type="Node2D" unique_id=1716229077 node_paths=PackedStringArray("ui_element", "graffiti_image", "e_key")]
 z_index = -1
 script = ExtResource("1_b7atg")
 ui_element = NodePath("Ui_Element")
 graffiti_image = NodePath("Graffiti_Image")
+e_key = NodePath("E_key")
 
 [node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1891622210]
 position = Vector2(0, 1)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_gd63a")
-animation = &"nograf"
+animation = &"tags"
 script = ExtResource("4_q702q")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
@@ -263,11 +272,18 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=49994116]
 shape = SubResource("RectangleShape2D_aisgp")
 
-[node name="Ui_Element" type="AnimatedSprite2D" parent="." unique_id=1652386177]
+[node name="Ui_Element" type="AnimatedSprite2D" parent="." unique_id=634585613]
 position = Vector2(0, -37)
 scale = Vector2(0.935, 0.935)
 sprite_frames = SubResource("SpriteFrames_aisgp")
-animation = &"Yellow"
+animation = &"Blue"
+script = ExtResource("4_q702q")
+metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
+
+[node name="E_key" type="AnimatedSprite2D" parent="." unique_id=267159969]
+position = Vector2(0, -37)
+scale = Vector2(0.935, 0.935)
+sprite_frames = SubResource("SpriteFrames_aayd5")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
