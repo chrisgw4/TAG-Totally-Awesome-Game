@@ -24,7 +24,7 @@ func _load_main_menu() -> void:
 
 
 func _back_button_grow() -> void:
-	$TextureButton.scale = Vector2(1.15,1.15)
+	$TextureButton.scale = Vector2(1.1,1.1)
 
 func _back_button_shrink() -> void:
 	$TextureButton.scale = Vector2(1,1)
