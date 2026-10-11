@@ -8,7 +8,8 @@ func _ready() -> void:
 	pass
 	
 	$TextureButton.pressed.connect(_load_main_menu)
-	
+	$TextureButton.mouse_entered.connect(_back_button_grow)
+	$TextureButton.mouse_exited.connect(_back_button_shrink)
 	
 
 
@@ -20,7 +21,13 @@ func _load_main_menu() -> void:
 	await screen_wiper.start_loading
 	
 	SceneHolder.change_scene_to.emit(load("res://scenes/menus/main_menu/main_menu.tscn"), get_parent().get_parent())
-	
+
+
+func _back_button_grow() -> void:
+	$TextureButton.scale = Vector2(1.15,1.15)
+
+func _back_button_shrink() -> void:
+	$TextureButton.scale = Vector2(1,1)
 
 func _play_game_end() -> void:
 	$AnimationPlayer.play("slam")
