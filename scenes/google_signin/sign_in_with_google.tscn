@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c44b1w47fkll6"]
 
 [ext_resource type="Script" uid="uid://cg0wie2nkpryk" path="res://scenes/google_signin/sign_in_with_google.gd" id="1_dy5ti"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="2_cn7xo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn7xo"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -45,6 +46,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_inixa")
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=1751553486]
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_cn7xo")
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center][img=32x32]res://assets/menus/google_icon.png[/img] Sign in with Google"
 scroll_active = false

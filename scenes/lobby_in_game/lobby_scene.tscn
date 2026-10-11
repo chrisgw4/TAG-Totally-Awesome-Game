@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_ao73u"]
 [ext_resource type="Texture2D" uid="uid://w7b5rvtdwtvb" path="res://assets/menus/ipod146.png" id="6_kciln"]
 [ext_resource type="PackedScene" uid="uid://cjwx0w7k0bk30" path="res://scenes/lobby_in_game/lobby_menu_device.tscn" id="8_r4pfh"]
+[ext_resource type="AudioStream" uid="uid://c57ahbijccrey" path="res://assets/music/lobby/fresh game 3 2.wav" id="8_vp5r7"]
 
-[node name="LobbyScene" type="Node2D" unique_id=1110645861 node_paths=PackedStringArray("screen_wiper", "color_rect", "lobby_menu_device")]
+[node name="LobbyScene" type="Node2D" unique_id=1110645861 node_paths=PackedStringArray("screen_wiper", "color_rect", "lobby_menu_device", "music_player")]
 script = ExtResource("1_6rjt2")
 screen_wiper = NodePath("ScreenWiper")
 color_rect = NodePath("ColorRect")
 lobby_menu_device = NodePath("ScrollContainer/LobbyMenuDevice")
+music_player = NodePath("AudioStreamPlayer")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2072642907]
 tile_map_data = PackedByteArray("AAAAAA0AAAAcABsAAAAAAA4AAAAcABwAAAABAA0AAAAdABsAAAABAA4AAAAdABwAAAACAA0AAAAeABsAAAACAA4AAAAeABwAAAADAA0AAAAfABsAAAADAA4AAAAfABwAAAAEAA0AAAAgABsAAAAEAA4AAAAgABwAAAAFAA0AAAAhABsAAAAFAA4AAAAhABwAAAAGAA0AAAAiABsAAAAGAA4AAAAiABwAAAAHAA0AAAAjABsAAAAHAA4AAAAjABwAAAAIAA0AAAAkABsAAAAIAA4AAAAkABwAAAAJAA0AAAAlABsAAAAJAA4AAAAlABwAAAAKAA0AAAAmABsAAAAKAA4AAAAmABwAAAALAA0AAAAnABsAAAALAA4AAAAnABwAAAAMAA0AAAAoABsAAAAMAA4AAAAoABwAAAANAA0AAAApABsAAAANAA4AAAApABwAAAAOAA0AAAAqABsAAAAOAA4AAAAqABwAAAAPAA0AAAArABsAAAAPAA4AAAArABwAAAAQAA0AAAAsABsAAAAQAA4AAAAsABwAAAARAA0AAAAtABsAAAARAA4AAAAtABwAAAASAA0AAAAcABsAAAASAA4AAAAcABwAAAATAA0AAAAdABsAAAATAA4AAAAdABwAAAAUAA0AAAAeABsAAAAUAA4AAAAeABwAAAAVAA0AAAAfABsAAAAVAA4AAAAfABwAAAAWAA0AAAAgABsAAAAWAA4AAAAgABwAAAAXAA0AAAAhABsAAAAXAA4AAAAhABwAAAAYAA0AAAAiABsAAAAYAA4AAAAiABwAAAAZAA0AAAAjABsAAAAZAA4AAAAjABwAAAAaAA0AAAAkABsAAAAaAA4AAAAkABwAAAAbAA0AAAAlABsAAAAbAA4AAAAlABwAAAAcAA0AAAAmABsAAAAcAA4AAAAmABwAAAAdAA0AAAAnABsAAAAdAA4AAAAnABwAAAAeAA0AAAAoABsAAAAeAA4AAAAoABwAAAAfAA0AAAApABsAAAAfAA4AAAApABwAAAAgAA0AAAAqABsAAAAgAA4AAAAqABwAAAAhAA0AAAArABsAAAAhAA4AAAArABwAAAAiAA0AAAAsABsAAAAiAA4AAAAsABwAAAAjAA0AAAAtABsAAAAjAA4AAAAtABwAAAA=")
@@ -50,3 +52,8 @@ custom_minimum_size = Vector2(100, 100)
 offset_right = 1187.0
 offset_bottom = 658.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=248731483]
+stream = ExtResource("8_vp5r7")
+volume_db = 4.0
+bus = &"Music"

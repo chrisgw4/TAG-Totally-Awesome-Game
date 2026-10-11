@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cylfhft6ygoxo"
+path="res://.godot/imported/panel_0_bit.png-c6e146b931c331c4d1542398cce2e327.res"
+
+[deps]
+
+source_file="res://assets/menus/3_panels/panel_0_bit.png"
+dest_files=["res://.godot/imported/panel_0_bit.png-c6e146b931c331c4d1542398cce2e327.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

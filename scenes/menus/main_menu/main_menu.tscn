@@ -4,6 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="2_flk2s"]
 [ext_resource type="PackedScene" uid="uid://c44b1w47fkll6" path="res://scenes/google_signin/sign_in_with_google.tscn" id="3_gm7d7"]
 [ext_resource type="AudioStream" uid="uid://b62cqw3lavog1" path="res://assets/music/main_menu/free_hideki_naganuma_bomb_rush_cyberfunk_sonic_cd_type_beat_MARKER.wav" id="4_peecx"]
+[ext_resource type="Texture2D" uid="uid://crm1sw753r3g5" path="res://assets/menus/MM_PLAY.png" id="5_x31ro"]
+[ext_resource type="Texture2D" uid="uid://wj2b2rkkanxy" path="res://assets/menus/sign.png" id="6_0jpat"]
+[ext_resource type="Texture2D" uid="uid://b0wb5v5jvd2e4" path="res://assets/menus/MM_QUIT.png" id="7_m0ubd"]
+[ext_resource type="Texture2D" uid="uid://jc87qhvrwh1r" path="res://assets/menus/MM_SETTINGS.png" id="8_627ab"]
+[ext_resource type="Script" uid="uid://bgq5xbh03k4s0" path="res://scenes/menus/main_menu/main_menu_handler.gd" id="9_627ab"]
+[ext_resource type="BitMap" uid="uid://cylfhft6ygoxo" path="res://assets/menus/3_panels/panel_0_bit.png" id="11_qwqm5"]
+[ext_resource type="BitMap" uid="uid://ba4v6hemecsr" path="res://assets/menus/3_panels/panel_1_bit.png" id="12_88r3n"]
+[ext_resource type="BitMap" uid="uid://bs2ir61swe1n7" path="res://assets/menus/3_panels/panel_2_bit.png" id="14_3nv00"]
 
 [sub_resource type="Animation" id="Animation_peecx"]
 length = 0.001
@@ -41,13 +49,49 @@ _data = {
 &"new_animation": SubResource("Animation_ub2bi")
 }
 
-[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper", "music_player", "color_rect", "play_button", "sign_in_google_button")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ubd"]
+atlas = ExtResource("6_0jpat")
+region = Rect2(0, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_627ab"]
+atlas = ExtResource("6_0jpat")
+region = Rect2(240, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j6ce"]
+atlas = ExtResource("6_0jpat")
+region = Rect2(480, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwqm5"]
+atlas = ExtResource("6_0jpat")
+region = Rect2(720, 0, 240, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyu8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ubd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_627ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j6ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwqm5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper", "music_player", "color_rect", "sign_in_google_button", "main_menu_holder")]
 script = ExtResource("1_kx65a")
 screen_wiper = NodePath("ScreenWiper")
 music_player = NodePath("AudioStreamPlayer")
 color_rect = NodePath("CanvasLayer2/ColorRect")
-play_button = NodePath("CanvasLayer/Button")
 sign_in_google_button = NodePath("CanvasLayer/SignInWithGoogle")
+main_menu_holder = NodePath("MainMenuHandler")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1395212831]
 layer = 1000
@@ -61,27 +105,6 @@ color = Color(0, 0, 0, 1)
 layer = 999
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=587174126]
-
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=1345538472]
-offset_left = 542.0
-offset_top = 247.0
-offset_right = 583.0
-offset_bottom = 278.0
-text = "Play"
-
-[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1946921667]
-offset_left = 542.0
-offset_top = 288.0
-offset_right = 612.0
-offset_bottom = 319.0
-text = "Options"
-
-[node name="Button3" type="Button" parent="CanvasLayer" unique_id=324487065]
-offset_left = 542.0
-offset_top = 332.0
-offset_right = 584.0
-offset_bottom = 363.0
-text = "Quit"
 
 [node name="SignInWithGoogle" parent="CanvasLayer" unique_id=1340730178 instance=ExtResource("3_gm7d7")]
 anchors_preset = 3
@@ -100,3 +123,54 @@ bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=142817275]
 libraries/ = SubResource("AnimationLibrary_x31ro")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=804853422]
+position = Vector2(576, 328)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_wyu8n")
+
+[node name="MmPlay" type="Sprite2D" parent="." unique_id=555916721]
+position = Vector2(475, 187)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_x31ro")
+
+[node name="MmQuit" type="Sprite2D" parent="." unique_id=1958001136]
+position = Vector2(498, 464)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_m0ubd")
+
+[node name="MmSettings" type="Sprite2D" parent="." unique_id=1206222774]
+position = Vector2(643, 325)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_627ab")
+
+[node name="MainMenuHandler" type="Node" parent="." unique_id=451710675 node_paths=PackedStringArray("anim_sprite", "play_button", "setting_button", "quit_button")]
+script = ExtResource("9_627ab")
+anim_sprite = NodePath("../AnimatedSprite2D")
+play_button = NodePath("../PlayButton")
+setting_button = NodePath("../SettingButton")
+quit_button = NodePath("../QuitButton")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=2006967154]
+offset_left = 87.0
+offset_top = 1.0
+offset_right = 1591.7999
+offset_bottom = 661.0
+texture_click_mask = ExtResource("11_qwqm5")
+stretch_mode = 4
+
+[node name="SettingButton" type="TextureButton" parent="." unique_id=278208951]
+offset_left = 72.0
+offset_top = -3.0
+offset_right = 1576.7999
+offset_bottom = 657.0
+texture_click_mask = ExtResource("12_88r3n")
+stretch_mode = 4
+
+[node name="QuitButton" type="TextureButton" parent="." unique_id=378655302]
+offset_left = 86.0
+offset_top = -6.0
+offset_right = 1590.7999
+offset_bottom = 654.0
+texture_click_mask = ExtResource("14_3nv00")
+stretch_mode = 4
