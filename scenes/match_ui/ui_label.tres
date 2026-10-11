@@ -1,4 +1,9 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://hm62et4vsdwk"]
 
+[ext_resource type="FontFile" uid="uid://dlsvmwlkxxxb0" path="res://assets/font/RaseBasic.otf" id="1_3qdt7"]
+
 [resource]
+font = ExtResource("1_3qdt7")
 font_size = 50
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)

@@ -2,50 +2,140 @@
 
 [ext_resource type="Script" uid="uid://dnxwqqo6xyrbb" path="res://scenes/match_ui/score.gd" id="1_fg2du"]
 [ext_resource type="LabelSettings" uid="uid://hm62et4vsdwk" path="res://scenes/match_ui/ui_label.tres" id="2_p3dxx"]
+[ext_resource type="Texture2D" uid="uid://uu53j8q4uq2g" path="res://assets/score/WhiteScore.png" id="3_5kcn2"]
 [ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_p3dxx"]
+[ext_resource type="Texture2D" uid="uid://crcw7pfs1gf3c" path="res://assets/score/RedScore.png" id="4_8kcgv"]
+[ext_resource type="Texture2D" uid="uid://b28igiserdqkh" path="res://assets/score/YellowScore.png" id="5_ya4cr"]
+[ext_resource type="Texture2D" uid="uid://duv77mi0p7qtj" path="res://assets/score/PurpleScore.png" id="6_r73p0"]
+[ext_resource type="Texture2D" uid="uid://c2knq7xo50vg5" path="res://assets/score/BlueScore.png" id="7_jeij6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml86q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5kcn2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6u41o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8kcgv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duu7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ya4cr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srqph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_r73p0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_piuvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jeij6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Score" type="CanvasLayer" unique_id=2013812686]
 script = ExtResource("1_fg2du")
 
 [node name="White" type="Label" parent="." unique_id=1070441593]
-offset_left = 639.0
-offset_top = 152.0
-offset_right = 783.0
-offset_bottom = 221.0
+offset_left = 555.0
+offset_top = 33.0
+offset_right = 588.0
+offset_bottom = 153.0
 text = "0"
 label_settings = ExtResource("2_p3dxx")
+
+[node name="WhiteBG" type="AnimatedSprite2D" parent="White" unique_id=450284729]
+show_behind_parent = true
+position = Vector2(18, 55)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_ml86q")
 
 [node name="Red" type="Label" parent="." unique_id=2052426249]
-offset_left = 751.0
-offset_top = 66.0
-offset_right = 861.0
-offset_bottom = 135.0
+offset_left = 695.0
+offset_top = 33.0
+offset_right = 805.0
+offset_bottom = 102.0
 text = "0"
 label_settings = ExtResource("2_p3dxx")
+
+[node name="RedBG" type="AnimatedSprite2D" parent="Red" unique_id=2072327168]
+show_behind_parent = true
+position = Vector2(18, 55)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_6u41o")
 
 [node name="Yellow" type="Label" parent="." unique_id=1528835917]
-offset_left = 874.0
-offset_top = 50.0
-offset_right = 984.0
-offset_bottom = 106.0
+offset_left = 835.0
+offset_top = 33.0
+offset_right = 945.0
+offset_bottom = 102.0
 text = "0"
 label_settings = ExtResource("2_p3dxx")
+
+[node name="YellowBG" type="AnimatedSprite2D" parent="Yellow" unique_id=1471514434]
+show_behind_parent = true
+position = Vector2(18, 55)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_duu7b")
 
 [node name="Purple" type="Label" parent="." unique_id=1258152551]
-offset_left = 548.0
-offset_top = 64.0
-offset_right = 658.0
-offset_bottom = 133.0
+offset_left = 415.0
+offset_top = 33.0
+offset_right = 525.0
+offset_bottom = 102.0
 text = "0"
 label_settings = ExtResource("2_p3dxx")
 
+[node name="PurpleBG" type="AnimatedSprite2D" parent="Purple" unique_id=824416403]
+show_behind_parent = true
+position = Vector2(18, 55)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_srqph")
+
 [node name="Blue" type="Label" parent="." unique_id=713494935]
-offset_left = 371.0
+offset_left = 275.0
 offset_top = 33.0
-offset_right = 481.0
-offset_bottom = 89.0
+offset_right = 385.0
+offset_bottom = 102.0
 text = "0"
 label_settings = ExtResource("2_p3dxx")
+
+[node name="BlueBG" type="AnimatedSprite2D" parent="Blue" unique_id=2028623578]
+show_behind_parent = true
+position = Vector2(18, 55)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_piuvd")
 
 [node name="PropertySynchronizer3" type="Node" parent="." unique_id=2094980732]
 script = ExtResource("3_p3dxx")
