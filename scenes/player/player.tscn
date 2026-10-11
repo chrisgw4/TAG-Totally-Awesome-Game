@@ -164,6 +164,7 @@ height = 60.0
 size = Vector2(19, 5.75)
 
 [node name="Player" type="CharacterBody2D" unique_id=1121984624 node_paths=PackedStringArray("camera", "anim_sprite", "input_component", "movement_component", "jump_component", "gravity_component")]
+z_index = 4
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_onrkg")
@@ -216,6 +217,7 @@ charcter_body = NodePath("..")
 jump_speed = 400.0
 
 [node name="MovementComponent" parent="." unique_id=1356125417 node_paths=PackedStringArray("parent") instance=ExtResource("7_n7ghd")]
+accel = 200.0
 parent = NodePath("..")
 
 [node name="InputComponent" parent="." unique_id=757733135 instance=ExtResource("8_nvl01")]
