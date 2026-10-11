@@ -8,8 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="6_5cda3"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="7_cp0g4"]
 [ext_resource type="PackedScene" uid="uid://cgknoxj5hgvp5" path="res://scenes/graffiti/graffiti.tscn" id="8_fb61o"]
+[ext_resource type="AudioStream" uid="uid://bkt2xvsk4w754" path="res://assets/music/game/Hideki Naganuma x Bomb Rush Cyberfunk x Sonic Rush Type Beat- Kickflip [prod Hydraa & @Tokyocsupo].mp3" id="8_ncms2"]
+[ext_resource type="AudioStream" uid="uid://cpltn47yaaa46" path="res://assets/music/game/Hideki Naganuma x Mariko Nanba x Sonic Rush x DnB Type Beat - Smooth Operator (prod. Hydraa) - Hydraa (128k).mp3" id="9_278yd"]
 [ext_resource type="PackedScene" uid="uid://giu2s63h8hil" path="res://scenes/match_ui/score.tscn" id="9_wh3gv"]
+[ext_resource type="AudioStream" uid="uid://c3t06cdxd3xy6" path="res://assets/music/game/Hideki Naganuma x Tomoya Ohtani x SA2 Knuckles Type Beat - Patterns (prod. Hydraa & @prodwebster).mp3" id="10_3qy7k"]
 [ext_resource type="Texture2D" uid="uid://b5kmknp1h7u0e" path="res://assets/level_bg.png" id="10_6gdmk"]
+[ext_resource type="AudioStream" uid="uid://ybjcdqycod6d" path="res://assets/music/game/hydraa x hideki naganuma x kohta takahashi x y2k dnb type beat pinpoint ( + @glumboy ) - Hydraa (128k).mp3" id="11_qrxf6"]
+[ext_resource type="AudioStream" uid="uid://ds8on20u4f5n" path="res://assets/music/game/hydraa x hideki naganuma x mariko nanba x sonic rush type beat- Smooth Operator (Blazy Mix).mp3" id="12_aqfbc"]
+[ext_resource type="AudioStream" uid="uid://4jbks1siywkq" path="res://assets/music/game/hydraa x hideki naganuma x sonic dnb type beat - wasted (+ @JerezCookin ) - Hydraa (128k).mp3" id="13_ylwb8"]
+[ext_resource type="AudioStream" uid="uid://dvs7sx7vkmjhv" path="res://assets/music/game/hydraa x hideki naganuma x tomoya ohtani x uk garage x sa2 rouge jazz type beat espionage.mp3" id="14_gaio3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aisgp"]
 animations = [{
@@ -88,6 +95,9 @@ offset_bottom = 839.0
 color = Color(0, 0, 0, 1)
 
 [node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("7_cp0g4")]
+song_streams = Array[AudioStream]([ExtResource("8_ncms2"), ExtResource("9_278yd"), ExtResource("10_3qy7k"), ExtResource("11_qrxf6"), ExtResource("12_aqfbc"), ExtResource("13_ylwb8"), ExtResource("14_gaio3")])
+song_names = Array[String](["KickFlip", "Smooth Operator", "Patterns", "Pinpoint", "Smooth Operator(Blazy Mix)", "Wasted", "Espionage"])
+song_artists = Array[String](["Hydraa", "Hydraa", "Hydraa", "Hydraa", "Hydraa", "Hydraa", "Hydraa"])
 
 [node name="Graffiti" parent="." unique_id=1716229077 instance=ExtResource("8_fb61o")]
 position = Vector2(207, -57)
