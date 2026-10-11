@@ -18,7 +18,7 @@ func _ready() -> void:
 	GDSync.connect_gdsync_owner_changed(self, owner_changed)
 	owner_changed(GDSync.get_gdsync_owner(self)) # apply the current owner immediately
 	
-	anim_sprite.play_synced("idle")
+	anim_sprite.play_synced(team+"idle")
 	
 	input_component.movement_inputs.connect(movement_component._accelerate_in_direction)
 	input_component.grinding_inputs.connect(movement_component._accelerate_in_direction_with_accel)
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		was_in_air = true
 	elif was_in_air and is_on_floor():
 		was_in_air = false
-		anim_sprite.play_synced("land")
+		anim_sprite.play_synced(team+"land")
 		
 		
 	
@@ -71,13 +71,13 @@ func _physics_process(delta: float) -> void:
 	elif abs(velocity.x) > 0.2 and input_component.grinding == true:
 		anim_sprite.play_synced(team+"grind")
 	elif abs(velocity.x) > 0.2 and is_on_floor():
-		if anim_sprite.animation == team+"land" :
+		if anim_sprite.animation == (team+"land") :
 			await anim_sprite.animation_finished
 		if not(Input.is_action_pressed("game_move_right") || Input.is_action_pressed("game_move_left")):
 			anim_sprite.play_synced(team+"idle")
 		else: #not move key pressed
 			anim_sprite.play_synced(team+"run")
-	elif is_on_floor() and anim_sprite.animation == team+"land":
+	elif is_on_floor() and anim_sprite.animation == (team+"land"):
 		await anim_sprite.animation_finished
 		anim_sprite.play_synced(team+"idle")
 	elif is_on_floor():

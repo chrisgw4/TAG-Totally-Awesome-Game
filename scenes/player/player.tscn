@@ -374,7 +374,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_vo27k")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Purpleland",
 "speed": 5.0
 }, {
@@ -460,7 +460,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_ds1xl")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Redland",
 "speed": 5.0
 }, {
@@ -546,7 +546,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_upxxc")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Yellowland",
 "speed": 5.0
 }, {
@@ -603,9 +603,9 @@ gravity_component = NodePath("GravityComponent")
 shape = SubResource("CapsuleShape2D_ugbui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2038606627]
-position = Vector2(-6.7762636e-21, 2.3841858e-07)
+position = Vector2(-6.7762636e-21, -0.99999976)
 sprite_frames = SubResource("SpriteFrames_88vfu")
-animation = &"Yellowrun"
+animation = &"Yellowland"
 script = ExtResource("3_hqtel")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
