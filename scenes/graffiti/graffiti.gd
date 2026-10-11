@@ -11,10 +11,11 @@ func _ready() -> void:
 	ui_element.play_synced(color)
 	e_key.play("default")
 
-var blue_spray_paint_scene:PackedScene = preload("res://scenes/spray_paint_particles/blue_spray_paint.tscn")
-var yellow_spray_paint_scene:PackedScene = preload("res://scenes/spray_paint_particles/yellow_spray_paint.tscn")
-var red_spray_paint_scene:PackedScene = preload("res://scenes/spray_paint_particles/red_spray_paint.tscn")
-var purple_spray_paint_scene:PackedScene = preload("res://scenes/spray_paint_particles/purple_spray_paint.tscn")
+@onready var blue_spray_paint_particles = $BlueSprayPaint
+@onready var red_spray_paint_particles = $RedSprayPaint
+@onready var yellow_spray_paint_particles = $YellowSprayPaint
+@onready var purple_spray_paint_particles = $PurpleSprayPaint
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,23 +33,29 @@ func is_tagable(state: bool):
 	tagable = state
 	
 func tag(is_pressed: bool):
-	if is_pressed:
+	if is_pressed and color != parent.team:
 		graffiti_image.animation = "tags"
 		graffiti_image.frame = randi_range(0, graffiti_image.sprite_frames.get_frame_count("tags"))
 		$SprayStream.play_synced()
 		color = parent.team
 		if color == "Blue":
-			var score = parent.get_node("Score").get_node("Blue").text.to_int() + 1
-			parent.get_node("Score").get_node("Blue").text = str(score)
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
+			get_parent().get_node("Score").get_node("Blue").text = str(score)
+			GDSync.player_set_data("score", score)
 		elif color == "Red":
-			var score = parent.get_node("Score").get_node("Red").text.to_int() + 1
-			parent.get_node("Score").get_node("Red").text = str(score)
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
+			get_parent().get_node("Score").get_node("Red").text = str(score)
+			GDSync.player_set_data("score", score)
 		elif color == "Purple":
-			var score = parent.get_node("Score").get_node("Purple").text.to_int() + 1
-			parent.get_node("Score").get_node("Purple").text = str(score)
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
+			get_parent().get_node("Score").get_node("Purple").text = str(score)
+			GDSync.player_set_data("score", score)
 		else:
-			var score = parent.get_node("Score").get_node("Purple").text.to_int() + 1
-			parent.get_node("Score").Purple.text = str(score)
+			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
+			get_parent().get_node("Score").get_node("Purple").text = str(score)
+			GDSync.player_set_data("score", score)
+		print("Score: ",GDSync.player_get_data(GDSync.get_client_id(), 'score', 0))
+		#GDSync.lobby_get_all_clients()
 		e_key.play("default")
 		ui_element.play_synced(color)
 		_spawn_particles(parent.team)
@@ -56,15 +63,19 @@ func tag(is_pressed: bool):
 func _spawn_particles(team:String) -> void:
 	var particles:GPUParticles2D = null
 	if team == "Blue":
-		particles = blue_spray_paint_scene.instantiate()
+		particles = blue_spray_paint_particles
+		#particles = blue_spray_paint_scene.instantiate()
 	elif team == "Yellow":
-		particles = yellow_spray_paint_scene.instantiate()
+		particles = yellow_spray_paint_particles
+		#particles = yellow_spray_paint_scene.instantiate()
 	elif team == "Red":
-		particles = red_spray_paint_scene.instantiate()
+		particles = red_spray_paint_particles
+		#particles = red_spray_paint_scene.instantiate()
 	elif team == "Purple":
-		particles = purple_spray_paint_scene.instantiate()
+		particles = purple_spray_paint_particles
+		#particles = purple_spray_paint_scene.instantiate()
 	
-	add_child(particles)
+	#add_child(particles)
 	particles.emitting = true
 
 

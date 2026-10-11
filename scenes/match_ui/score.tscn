@@ -49,6 +49,7 @@ label_settings = ExtResource("2_p3dxx")
 
 [node name="PropertySynchronizer3" type="Node" parent="." unique_id=2094980732]
 script = ExtResource("3_p3dxx")
+broadcast = 5
 node_path = NodePath("../Yellow")
 properties = PackedStringArray("text")
 interpolated = false
@@ -60,6 +61,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer2" type="Node" parent="." unique_id=181022927]
 script = ExtResource("3_p3dxx")
+broadcast = 5
 node_path = NodePath("../Red")
 properties = PackedStringArray("text")
 interpolated = false
@@ -71,6 +73,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer" type="Node" parent="." unique_id=1725964556]
 script = ExtResource("3_p3dxx")
+broadcast = 5
 node_path = NodePath("../White")
 properties = PackedStringArray("text")
 interpolated = false
@@ -82,6 +85,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer5" type="Node" parent="." unique_id=1963779840]
 script = ExtResource("3_p3dxx")
+broadcast = 5
 node_path = NodePath("../Purple")
 properties = PackedStringArray("text")
 interpolated = false
@@ -93,6 +97,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer4" type="Node" parent="." unique_id=350220399]
 script = ExtResource("3_p3dxx")
+broadcast = 5
 node_path = NodePath("../Blue")
 properties = PackedStringArray("text")
 interpolated = false

@@ -27,6 +27,8 @@ func _sort_lobbies(lobbies:Array) -> void:
 	var sorted_lobby_array:Array
 	for lobby in lobbies:
 		# Skip closed or started lobbies
+		if lobby.get("PlayerCount") == 0:
+			continue
 		if lobby.get("Open", true) == false:
 			continue
 		if lobby.get("Tags", {}).get("started", false):

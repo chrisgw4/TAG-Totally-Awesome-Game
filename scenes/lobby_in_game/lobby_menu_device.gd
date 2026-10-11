@@ -72,6 +72,7 @@ func _start_game() -> void:
 		screen_wiper.wipe_screen()
 		
 		await screen_wiper.start_loading
+		GDSync.lobby_set_tag("started", true)
 		
 		#SceneHolder.start_game_for_all.emit()
 		
