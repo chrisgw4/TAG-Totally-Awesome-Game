@@ -295,6 +295,7 @@ sprite_frames = SubResource("SpriteFrames_aayd5")
 [node name="PropertySynchronizer" type="Node" parent="." unique_id=1242356054]
 script = ExtResource("6_q702q")
 broadcast = 5
+refresh_rate = 10
 node_path = NodePath("..")
 properties = PackedStringArray("color", "has_been_tagged")
 interpolated = false
@@ -307,6 +308,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 [node name="PropertySynchronizer2" type="Node" parent="." unique_id=1481281810]
 script = ExtResource("6_q702q")
 broadcast = 5
+refresh_rate = 10
 node_path = NodePath("../Graffiti_Image")
 properties = PackedStringArray("frame", "animation")
 interpolated = false

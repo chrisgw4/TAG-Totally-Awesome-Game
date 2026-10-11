@@ -7,11 +7,11 @@ var tagable = false
 var parent
 var color = "noteam"
 
-var has_been_tagged:bool = false:
-	set(new_value):
-		if has_been_tagged == false and new_value == true:
-			has_been_tagged = new_value
-			GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)
+var has_been_tagged:bool = false
+	#set(new_value):
+		#if has_been_tagged == false and new_value == true:
+			#has_been_tagged = new_value
+			#GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", -1) - 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
