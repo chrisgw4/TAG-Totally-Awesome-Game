@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dx313xh3fc06e"]
+
+[ext_resource type="Texture2D" uid="uid://cxcrvddcqa2ig" path="res://assets/FX001_01.png" id="1_1ro7j"]
+
+[sub_resource type="Curve" id="Curve_vn051"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7228572, 0.47955394), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_q702q"]
+curve = SubResource("Curve_vn051")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_4rnek"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wyu8n"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(50, 40, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -89.99999
+angle_max = 90.000015
+direction = Vector3(1, 1, 0)
+directional_velocity_min = -50.0
+directional_velocity_max = 50.0
+directional_velocity_curve = SubResource("CurveXYZTexture_4rnek")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 1.4
+color = Color(0.23921569, 0.7764706, 1, 1)
+alpha_curve = SubResource("CurveTexture_q702q")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.009999977
+
+[node name="BlueSprayPaint" type="GPUParticles2D" unique_id=622472690]
+emitting = false
+amount = 156
+texture = ExtResource("1_1ro7j")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.7
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wyu8n")

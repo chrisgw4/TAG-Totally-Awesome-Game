@@ -70,7 +70,7 @@ animations = [{
 "frames": [],
 "loop": 1,
 "name": &"nograf",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -117,7 +117,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"tags",
-"speed": 5.0
+"speed": 0.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aisgp"]

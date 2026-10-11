@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://c85x2w7jqsm4x" path="res://assets/player/YellowPlayer/frame-0005.png" id="28_upxxc"]
 [ext_resource type="Texture2D" uid="uid://fk04oxgv71qn" path="res://assets/player/YellowPlayer/frame-0007.png" id="29_ln3h3"]
 [ext_resource type="PackedScene" uid="uid://yqaf7nh5glhe" path="res://scenes/in_game_settings/in_game_settings.tscn" id="37_8qxvo"]
+[ext_resource type="PackedScene" uid="uid://giu2s63h8hil" path="res://scenes/match_ui/score.tscn" id="42_genst"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugbui"]
 radius = 16.0
@@ -694,6 +695,8 @@ script = ExtResource("15_fcs02")
 metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 
 [node name="InGameSettings" parent="." unique_id=546195525 instance=ExtResource("37_8qxvo")]
+
+[node name="Score" parent="." unique_id=2013812686 instance=ExtResource("42_genst")]
 
 [connection signal="jump" from="JumpComponent" to="." method="_on_jump_component_jump"]
 [connection signal="body_entered" from="GrindDetector" to="InputComponent" method="_on_grind_detector_body_entered"]
