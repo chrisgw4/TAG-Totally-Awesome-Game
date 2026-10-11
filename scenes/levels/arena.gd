@@ -42,19 +42,32 @@ func _recount_graffiti() -> void:
 	
 	if count == 0 and not stop:
 		stop = true
-		print("GAME")
-		_disable_player_movements()
-		$AudioPlayer.pitch_scale = 0.2
-		Engine.time_scale = 0.2
-		var tween = create_tween()
-		tween.tween_property($AudioPlayer as AudioPlayer, "volume_db", -100, 1)
-		tween.play()
-		
-		#await get_tree().create_timer(0.1).timeout
-		$EndGame._play_game_end()
+		$SynchronizedAnimationPlayer.play_synced("sync_win")
+		#print("GAME")
+		#_disable_player_movements()
+		#$AudioPlayer.pitch_scale = 0.2
+		#Engine.time_scale = 0.2
+		#var tween = create_tween()
+		#tween.tween_property($AudioPlayer as AudioPlayer, "volume_db", -100, 1)
+		#tween.play()
+		#
+		##await get_tree().create_timer(0.1).timeout
+		#$EndGame._play_game_end()
 	else:
 		$Timer.start()
 
+
+func _win() -> void:
+	print("GAME")
+	_disable_player_movements()
+	$AudioPlayer.pitch_scale = 0.2
+	Engine.time_scale = 0.2
+	var tween = create_tween()
+	tween.tween_property($AudioPlayer as AudioPlayer, "volume_db", -100, 1)
+	tween.play()
+	
+	#await get_tree().create_timer(0.1).timeout
+	$EndGame._play_game_end()
 
 #func _update_count() -> void:
 	#count -= clamp(1, 0, 100)

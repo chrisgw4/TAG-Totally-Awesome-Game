@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://do56b3tm88lvk" path="res://scenes/match_ui/match_countdown.tscn" id="18_278yd"]
 [ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="19_3qy7k"]
 [ext_resource type="PackedScene" uid="uid://ba1gjrkrceats" path="res://scenes/match_ui/end_game.tscn" id="20_qrxf6"]
+[ext_resource type="Script" uid="uid://cofugv2v6ssv5" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimationPlayer.gd" id="21_aqfbc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aisgp"]
 animations = [{
@@ -105,6 +106,28 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_278yd"),
 &"move_camera": SubResource("Animation_3qy7k")
+}
+
+[sub_resource type="Animation" id="Animation_aqfbc"]
+resource_name = "sync_win"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_win"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylwb8"]
+_data = {
+&"sync_win": SubResource("Animation_aqfbc")
 }
 
 [node name="Arena" type="CanvasLayer" unique_id=172168782 node_paths=PackedStringArray("match_countdown", "player_spawner")]
@@ -263,3 +286,8 @@ max_extrapolation_time = 0.2
 metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="EndGame" parent="." unique_id=1809330347 instance=ExtResource("20_qrxf6")]
+
+[node name="SynchronizedAnimationPlayer" type="AnimationPlayer" parent="." unique_id=855061637]
+libraries/ = SubResource("AnimationLibrary_ylwb8")
+script = ExtResource("21_aqfbc")
+metadata/_custom_type_script = "uid://cofugv2v6ssv5"
