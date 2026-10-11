@@ -32,10 +32,15 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	parent = area.get_parent() as Player
+	if not GDSync.is_gdsync_owner(parent):
+		e_key.hide()
+		return
+	
 	if parent.team != color:
 		is_tagable(true)
 		parent.input_component.tag_input.connect(tag)
 		e_key.play("key")
+		e_key.show()
 	
 func is_tagable(state: bool):
 	tagable = state
@@ -103,3 +108,4 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if parent.input_component.tag_input.is_connected(tag):
 		parent.input_component.tag_input.disconnect(tag)
 	ui_element.play_synced(color)
+	e_key.hide()

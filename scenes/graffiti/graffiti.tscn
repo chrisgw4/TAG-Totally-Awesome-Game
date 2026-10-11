@@ -288,7 +288,7 @@ script = ExtResource("4_q702q")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
 [node name="E_key" type="AnimatedSprite2D" parent="." unique_id=267159969]
-position = Vector2(0, -37)
+position = Vector2(0, -38)
 scale = Vector2(0.935, 0.935)
 sprite_frames = SubResource("SpriteFrames_aayd5")
 
