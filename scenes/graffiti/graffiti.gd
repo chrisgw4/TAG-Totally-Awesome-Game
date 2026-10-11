@@ -48,7 +48,7 @@ func tag(is_pressed: bool):
 			parent.get_node("Score").get_node("Purple").text = str(score)
 		else:
 			var score = parent.get_node("Score").get_node("Purple").text.to_int() + 1
-			parent.get_node("Score").Purple.text = str(score)
+			parent.get_node("Score").get_node("Purple").text = str(score)
 		e_key.play("default")
 		ui_element.play_synced(color)
 		_spawn_particles(parent.team)
