@@ -7,9 +7,10 @@
 [ext_resource type="TileSet" uid="uid://cj82b1h6e8jn" path="res://scenes/levels/city.tres" id="3_7lh35"]
 [ext_resource type="Texture2D" uid="uid://b13h72ecswi4" path="res://assets/houses3.png" id="3_eqecj"]
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="5_ao73u"]
-[ext_resource type="Texture2D" uid="uid://w7b5rvtdwtvb" path="res://assets/menus/ipod146.png" id="6_kciln"]
 [ext_resource type="PackedScene" uid="uid://cjwx0w7k0bk30" path="res://scenes/lobby_in_game/lobby_menu_device.tscn" id="8_r4pfh"]
 [ext_resource type="AudioStream" uid="uid://bbc24c1aknghu" path="res://assets/music/lobby/fresh game 3 2.wav" id="8_vp5r7"]
+[ext_resource type="Texture2D" uid="uid://d26g8g08c51hp" path="res://assets/menus/menudevice.png" id="9_pw88w"]
+[ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="11_eqecj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyu8n"]
 size = Vector2(22, 828)
@@ -22,7 +23,7 @@ script = ExtResource("1_6rjt2")
 screen_wiper = NodePath("ScreenWiper")
 color_rect = NodePath("ColorRect")
 lobby_menu_device = NodePath("ScrollContainer/LobbyMenuDevice")
-music_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("AudioPlayer")
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=1141581053]
 position = Vector2(590.6666, 337.75)
@@ -78,19 +79,13 @@ layout_mode = 2
 z_index = 5
 position = Vector2(965, 628)
 scale = Vector2(6.24, 6.24)
-texture = ExtResource("6_kciln")
+texture = ExtResource("9_pw88w")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1798577836]
-visible = false
 custom_minimum_size = Vector2(100, 100)
 offset_right = 1187.0
 offset_bottom = 658.0
 color = Color(0, 0, 0, 1)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=248731483]
-stream = ExtResource("8_vp5r7")
-volume_db = 4.0
-bus = &"Music"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1980151912]
 
@@ -109,3 +104,9 @@ shape = SubResource("RectangleShape2D_wyu8n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=61839320]
 position = Vector2(787, 437.75)
 shape = SubResource("RectangleShape2D_anvxc")
+
+[node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("11_eqecj")]
+stream = ExtResource("8_vp5r7")
+song_streams = Array[AudioStream]([ExtResource("8_vp5r7")])
+song_names = Array[String](["fresh game (lobby mix)"])
+song_artists = Array[String](["meldawg4real"])

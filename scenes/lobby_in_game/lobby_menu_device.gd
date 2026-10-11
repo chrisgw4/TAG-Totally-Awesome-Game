@@ -43,7 +43,7 @@ func _show_options() -> void:
 
 func _remove_players() -> void:
 	for child in get_children():
-		print("NAME ", child.name)
+		#print("NAME ", child.name)
 		if "remove" in child.name:
 			child.queue_free()
 	_show_options()
@@ -71,16 +71,16 @@ func _add_client(client_id:int) -> void:
 	if client_id in current_players:
 		return
 	current_players.append(client_id)
-	print(current_players)
-	print(GDSync.player_get_username(client_id, "Guest2"))
+	#print(current_players)
+	#print(GDSync.player_get_username(client_id, "Guest2"))
 
 func _remove_client(client_id:int) -> void:
 	if client_id in current_players:
 		current_players.erase(client_id)
 		
 		
-	print(current_players)
-	print(GDSync.player_get_username(client_id, "Guest2"))
+	#print(current_players)
+	#print(GDSync.player_get_username(client_id, "Guest2"))
 
 func _on_lobby_joined(_lobby_name: String) -> void:
 	_refresh_players()

@@ -6,7 +6,7 @@ signal change_scene_to(scene:PackedScene, object)
 @export var color_rect:ColorRect
 @export var screen_wiper:ScreenWiper
 
-@export var music_player:AudioStreamPlayer
+@export var music_player:AudioPlayer
 
 func _ready() -> void:
 	change_scene_to.connect(_change_scene)
@@ -46,15 +46,13 @@ func _clear_scene_tree(_lobby_name:String) -> void:
 
 
 func _change_scene(scene:PackedScene, object) -> void:
-	
-	print(scene)
 	box_container.add_child(scene.instantiate())
 	object.queue_free()
 	
 
 
 func fade_audio_in() -> void:
-	music_player.play()
+	music_player._replay_song()
 	
 	var tween = create_tween()
 	tween.tween_property(music_player, "volume_linear", 1, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)

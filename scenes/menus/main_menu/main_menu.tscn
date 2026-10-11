@@ -13,6 +13,7 @@
 [ext_resource type="BitMap" uid="uid://ba4v6hemecsr" path="res://assets/menus/3_panels/panel_1_bit.png" id="12_88r3n"]
 [ext_resource type="Texture2D" uid="uid://16h331bcrh7a" path="res://assets/City3.png" id="13_88r3n"]
 [ext_resource type="BitMap" uid="uid://bs2ir61swe1n7" path="res://assets/menus/3_panels/panel_2_bit.png" id="14_3nv00"]
+[ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="14_dc6ug"]
 
 [sub_resource type="Animation" id="Animation_peecx"]
 length = 0.001
@@ -89,7 +90,7 @@ animations = [{
 [node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper", "music_player", "color_rect", "sign_in_google_button", "main_menu_holder")]
 script = ExtResource("1_kx65a")
 screen_wiper = NodePath("ScreenWiper")
-music_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("AudioPlayer")
 color_rect = NodePath("CanvasLayer2/ColorRect")
 sign_in_google_button = NodePath("CanvasLayer/SignInWithGoogle")
 main_menu_holder = NodePath("MainMenuHandler")
@@ -184,3 +185,9 @@ offset_right = 1590.7999
 offset_bottom = 654.0
 texture_click_mask = ExtResource("14_3nv00")
 stretch_mode = 4
+
+[node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("14_dc6ug")]
+stream = ExtResource("4_peecx")
+song_streams = Array[AudioStream]([ExtResource("4_peecx")])
+song_names = Array[String](["JUST A DREAM"])
+song_artists = Array[String](["Prod. Ramsey V and Stellxr Beats"])

@@ -32,6 +32,7 @@ Conductor="*uid://c5rvmkaorxynb"
 UserGlobalValues="*uid://b05emiupr7un7"
 LobbyGatherer="*uid://dab7oc4b0pjbo"
 LobbyJoiner="*uid://vgmwjol426m7"
+MusicDisplayDevice="*uid://p4quy0th7lnv"
 
 [display]
 

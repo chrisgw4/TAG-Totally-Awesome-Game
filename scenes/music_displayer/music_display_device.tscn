@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://p4quy0th7lnv"]
+
+[ext_resource type="Script" uid="uid://dl33wtvkpl7ys" path="res://scenes/music_displayer/music_display_device.gd" id="1_7g4u5"]
+[ext_resource type="Texture2D" uid="uid://d26g8g08c51hp" path="res://assets/menus/menudevice.png" id="1_kx7yj"]
+[ext_resource type="FontFile" uid="uid://j3xukc1ievi8" path="res://assets/font/pixChicago.ttf" id="2_dqw4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx7yj"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="MusicDisplayDevice" type="CanvasLayer" unique_id=1737597019]
+script = ExtResource("1_7g4u5")
+
+[node name="Menudevice" type="Sprite2D" parent="." unique_id=1377077324]
+position = Vector2(72, 659)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kx7yj")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=428716954]
+offset_left = 24.0
+offset_top = 571.0
+offset_right = 120.0
+offset_bottom = 635.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kx7yj")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=921775765]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1091679653]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=162127543]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=468748481]
+custom_minimum_size = Vector2(16, 24)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_dqw4p")
+theme_override_font_sizes/normal_font_size = 4
+bbcode_enabled = true
+text = "[img=16 color=black]res://assets/menus/icons/Microphone.svg[/img] "
+scroll_active = false
+
+[node name="SongName" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=134952366]
+custom_minimum_size = Vector2(16, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_dqw4p")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=917813427]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=757323390]
+custom_minimum_size = Vector2(16, 24)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_dqw4p")
+theme_override_font_sizes/normal_font_size = 4
+bbcode_enabled = true
+text = "[img=16 color=black]res://assets/menus/icons/Music-0.svg[/img]"
+
+[node name="ArtistName" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=883265315]
+custom_minimum_size = Vector2(16, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_dqw4p")
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+scroll_active = false
+vertical_alignment = 1

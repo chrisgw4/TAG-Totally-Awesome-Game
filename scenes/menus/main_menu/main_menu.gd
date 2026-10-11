@@ -3,7 +3,7 @@ class_name MainMenu
 
 @export var screen_wiper:ScreenWiper
 
-@export var music_player:AudioStreamPlayer
+@export var music_player:AudioPlayer
 
 @export var color_rect:ColorRect
 
@@ -72,7 +72,7 @@ func _setting_pressed() -> void:
 
 
 func fade_audio_in() -> void:
-	music_player.play()
+	music_player._replay_song()
 	
 	var tween = create_tween()
 	tween.tween_property(music_player, "volume_linear", 1, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
