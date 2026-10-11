@@ -196,6 +196,7 @@ offset_left = -85.0
 offset_top = -744.0
 offset_right = 2044.0
 offset_bottom = 839.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("7_cp0g4")]

@@ -523,6 +523,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="CenterContainer" unique_id=552219324]
 layout_mode = 2
@@ -549,6 +550,7 @@ texture = ExtResource("5_3etag")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1266795016]
 offset_right = 1190.5396
 offset_bottom = 666.0
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1844578795]
