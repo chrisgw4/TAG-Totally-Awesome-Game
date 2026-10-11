@@ -67,25 +67,25 @@ func _physics_process(delta: float) -> void:
 		anim_sprite.flip_h = false
 	
 	if get_collision_mask_value(3) != true and is_on_floor() == false:
-			anim_sprite.play_synced("hurt")
+			anim_sprite.play_synced(team +"hurt")
 	elif abs(velocity.x) > 0.2 and input_component.grinding == true:
-		anim_sprite.play_synced("grind")
+		anim_sprite.play_synced(team+"grind")
 	elif abs(velocity.x) > 0.2 and is_on_floor():
-		if anim_sprite.animation == "land" :
+		if anim_sprite.animation == team+"land" :
 			await anim_sprite.animation_finished
 		if not(Input.is_action_pressed("game_move_right") || Input.is_action_pressed("game_move_left")):
-			anim_sprite.play_synced("idle")
+			anim_sprite.play_synced(team+"idle")
 		else: #not move key pressed
-			anim_sprite.play_synced("run")
-	elif is_on_floor() and anim_sprite.animation == "land":
+			anim_sprite.play_synced(team+"run")
+	elif is_on_floor() and anim_sprite.animation == team+"land":
 		await anim_sprite.animation_finished
-		anim_sprite.play_synced("idle")
+		anim_sprite.play_synced(team+"idle")
 	elif is_on_floor():
-		anim_sprite.play_synced("idle")
+		anim_sprite.play_synced(team+"idle")
 	elif velocity.y < 0 and is_on_floor()==false:
-		anim_sprite.play_synced("jump")
+		anim_sprite.play_synced(team+"jump")
 	else:
-		anim_sprite.play_synced("fall")
+		anim_sprite.play_synced(team+"fall")
 	
 	
 	#move_and_slide()
