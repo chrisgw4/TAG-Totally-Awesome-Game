@@ -347,7 +347,7 @@ metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 [node name="PropertySynchronizer3" type="Node" parent="." unique_id=1907920672]
 script = ExtResource("6_q702q")
 broadcast = 5
-refresh_rate = 10
+refresh_rate = 5
 node_path = NodePath("../RedSprayPaint")
 properties = PackedStringArray("emitting")
 interpolated = false
@@ -360,7 +360,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 [node name="PropertySynchronizer4" type="Node" parent="." unique_id=876138343]
 script = ExtResource("6_q702q")
 broadcast = 5
-refresh_rate = 10
+refresh_rate = 5
 node_path = NodePath("../BlueSprayPaint")
 properties = PackedStringArray("emitting")
 interpolated = false
@@ -373,7 +373,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 [node name="PropertySynchronizer5" type="Node" parent="." unique_id=737758855]
 script = ExtResource("6_q702q")
 broadcast = 5
-refresh_rate = 10
+refresh_rate = 5
 node_path = NodePath("../PurpleSprayPaint")
 properties = PackedStringArray("emitting")
 interpolated = false
@@ -386,7 +386,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 [node name="PropertySynchronizer6" type="Node" parent="." unique_id=1481074130]
 script = ExtResource("6_q702q")
 broadcast = 5
-refresh_rate = 10
+refresh_rate = 5
 node_path = NodePath("../YellowSprayPaint")
 properties = PackedStringArray("emitting")
 interpolated = false
@@ -399,6 +399,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 [node name="PropertySynchronizer7" type="Node" parent="." unique_id=609249672]
 script = ExtResource("6_q702q")
 broadcast = 5
+refresh_rate = 5
 node_path = NodePath("../Ui_Element")
 properties = PackedStringArray("animation")
 interpolated = false

@@ -58,7 +58,7 @@ func tag(is_pressed: bool):
 	if is_pressed and color != parent.team:
 		graffiti_image.animation = "tags"
 		e_key.hide()
-		if GDSync.is_host() and not has_been_tagged:
+		if not has_been_tagged:
 			has_been_tagged = true
 			emit_signal("tagged_first_time")
 			#GDSync.lobby_set_data("Graffiti_Count", GDSync.lobby_get_data("Graffiti_Count", 0) - 1)
