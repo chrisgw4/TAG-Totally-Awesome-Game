@@ -19,6 +19,8 @@ var team:String = "Blue"
 var was_in_air = false
 
 func _ready() -> void:
+	if not GDSync.is_host():
+		$Score.hide()
 	GDSync.connect_gdsync_owner_changed(self, owner_changed)
 	owner_changed(GDSync.get_gdsync_owner(self)) # apply the current owner immediately
 	
