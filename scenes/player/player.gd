@@ -70,7 +70,10 @@ func _physics_process(delta: float) -> void:
 	elif abs(velocity.x) > 0.2 and is_on_floor():
 		if anim_sprite.animation == "land" :
 			await anim_sprite.animation_finished
-		anim_sprite.play_synced("run")
+		if not(Input.is_action_pressed("game_move_right") || Input.is_action_pressed("game_move_left")):
+			anim_sprite.play_synced("idle")
+		else: #not move key pressed
+			anim_sprite.play_synced("run")
 	elif is_on_floor() and anim_sprite.animation == "land":
 		await anim_sprite.animation_finished
 		anim_sprite.play_synced("idle")
