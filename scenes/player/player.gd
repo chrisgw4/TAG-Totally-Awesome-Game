@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name player
+class_name Player
 
 
 @export var camera:Camera2D
@@ -9,6 +9,8 @@ class_name player
 @export var movement_component:MovementComponent
 @export var jump_component:JumpComponent
 @export var gravity_component:GravityComponent
+
+var team:String = ""
 
 var was_in_air = false
 

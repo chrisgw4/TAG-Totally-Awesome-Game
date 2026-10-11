@@ -3,6 +3,8 @@ extends Node2D
 # Do not forget to assign the player scene in the inspector
 @export var player_scene : PackedScene
 
+@export var player_teams:Array[String] = ["Blue", "Red", "Yellow", "Purple"]
+
 func _ready() -> void:
 	(get_tree().current_scene as CanvasLayer).follow_viewport_enabled = true
 	# Still listen for changes after the game has started
@@ -27,7 +29,10 @@ func spawn_player(client_id : int) -> void:
 	if has_node(str(client_id)):
 		return
 	
-	var player : Node2D = player_scene.instantiate()
+	var player : Player = player_scene.instantiate()
+	var team = GDSync.player_get_data(client_id, "team", "")
+	print("TEAM, ", team)
+	player.team = team
 	player.name = str(client_id)
 	add_child(player)
 	player.global_position = global_position
