@@ -41,7 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://c85x2w7jqsm4x" path="res://assets/player/YellowPlayer/frame-0005.png" id="28_upxxc"]
 [ext_resource type="Texture2D" uid="uid://fk04oxgv71qn" path="res://assets/player/YellowPlayer/frame-0007.png" id="29_ln3h3"]
 [ext_resource type="PackedScene" uid="uid://yqaf7nh5glhe" path="res://scenes/in_game_settings/in_game_settings.tscn" id="37_8qxvo"]
-[ext_resource type="LabelSettings" uid="uid://hm62et4vsdwk" path="res://scenes/match_ui/ui_label.tres" id="42_genst"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugbui"]
 radius = 16.0
@@ -695,111 +694,6 @@ script = ExtResource("15_fcs02")
 metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 
 [node name="InGameSettings" parent="." unique_id=546195525 instance=ExtResource("37_8qxvo")]
-
-[node name="White" type="Label" parent="." unique_id=310325831]
-z_index = 10
-offset_left = 639.0
-offset_top = 229.0
-offset_right = 783.0
-offset_bottom = 298.0
-text = "0"
-label_settings = ExtResource("42_genst")
-
-[node name="Red" type="Label" parent="." unique_id=1249300692]
-z_index = 10
-offset_left = 751.0
-offset_top = 143.0
-offset_right = 861.0
-offset_bottom = 212.0
-text = "0"
-label_settings = ExtResource("42_genst")
-
-[node name="Yellow" type="Label" parent="." unique_id=1641683886]
-z_index = 10
-offset_left = 874.0
-offset_top = 127.0
-offset_right = 984.0
-offset_bottom = 196.0
-text = "0"
-label_settings = ExtResource("42_genst")
-
-[node name="Purple" type="Label" parent="." unique_id=939656946]
-z_index = 10
-offset_left = 548.0
-offset_top = 141.0
-offset_right = 658.0
-offset_bottom = 210.0
-text = "0"
-label_settings = ExtResource("42_genst")
-
-[node name="Blue" type="Label" parent="." unique_id=243929652]
-z_index = 10
-offset_left = 371.0
-offset_top = 110.0
-offset_right = 481.0
-offset_bottom = 179.0
-text = "0"
-label_settings = ExtResource("42_genst")
-
-[node name="PropertySynchronizer3" type="Node" parent="." unique_id=383031198]
-script = ExtResource("3_i3pqv")
-broadcast = 5
-node_path = NodePath("../Yellow")
-properties = PackedStringArray("text")
-interpolated = false
-interpolation_speed = 1.0
-extrapolation = null
-extrapolated = false
-max_extrapolation_time = 0.2
-metadata/_custom_type_script = "uid://fcoih1ax5dcs"
-
-[node name="PropertySynchronizer2" type="Node" parent="." unique_id=520230076]
-script = ExtResource("3_i3pqv")
-broadcast = 5
-node_path = NodePath("../Red")
-properties = PackedStringArray("text")
-interpolated = false
-interpolation_speed = 1.0
-extrapolation = null
-extrapolated = false
-max_extrapolation_time = 0.2
-metadata/_custom_type_script = "uid://fcoih1ax5dcs"
-
-[node name="PropertySynchronizer4" type="Node" parent="." unique_id=579636972]
-script = ExtResource("3_i3pqv")
-broadcast = 5
-node_path = NodePath("../White")
-properties = PackedStringArray("text")
-interpolated = false
-interpolation_speed = 1.0
-extrapolation = null
-extrapolated = false
-max_extrapolation_time = 0.2
-metadata/_custom_type_script = "uid://fcoih1ax5dcs"
-
-[node name="PropertySynchronizer5" type="Node" parent="." unique_id=1454547441]
-script = ExtResource("3_i3pqv")
-broadcast = 5
-node_path = NodePath("../Purple")
-properties = PackedStringArray("text")
-interpolated = false
-interpolation_speed = 1.0
-extrapolation = null
-extrapolated = false
-max_extrapolation_time = 0.2
-metadata/_custom_type_script = "uid://fcoih1ax5dcs"
-
-[node name="PropertySynchronizer6" type="Node" parent="." unique_id=1696783397]
-script = ExtResource("3_i3pqv")
-broadcast = 5
-node_path = NodePath("../Blue")
-properties = PackedStringArray("text")
-interpolated = false
-interpolation_speed = 1.0
-extrapolation = null
-extrapolated = false
-max_extrapolation_time = 0.2
-metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [connection signal="jump" from="JumpComponent" to="." method="_on_jump_component_jump"]
 [connection signal="body_entered" from="GrindDetector" to="InputComponent" method="_on_grind_detector_body_entered"]

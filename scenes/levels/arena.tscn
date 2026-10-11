@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="6_5cda3"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="7_cp0g4"]
 [ext_resource type="PackedScene" uid="uid://cgknoxj5hgvp5" path="res://scenes/graffiti/graffiti.tscn" id="8_fb61o"]
+[ext_resource type="PackedScene" uid="uid://giu2s63h8hil" path="res://scenes/match_ui/score.tscn" id="9_wh3gv"]
 
 [node name="Arena" type="CanvasLayer" unique_id=172168782]
 follow_viewport_enabled = true
@@ -78,3 +79,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="Graffiti" parent="." unique_id=1716229077 instance=ExtResource("8_fb61o")]
 position = Vector2(207, -57)
+
+[node name="Score" parent="." unique_id=2013812686 instance=ExtResource("9_wh3gv")]
