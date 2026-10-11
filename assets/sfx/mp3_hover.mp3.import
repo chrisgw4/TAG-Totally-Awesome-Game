@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mp3_hover.mp3-5e7e61736d8c481e0cbbfc4b2fb8f48
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

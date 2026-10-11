@@ -43,6 +43,7 @@ func _loop_music_player() -> void:
 
 
 func _fade_to_change_scene() -> void:
+	$ClickStream.play()
 	screen_wiper.wipe_screen()
 	screen_wiper.start_loading.connect(_start_sync)
 

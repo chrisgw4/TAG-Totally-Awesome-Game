@@ -40,6 +40,7 @@ func _play_pressed() -> void:
 		sign_in_google_button._sign_in_anonymously()
 		await Firebase.Auth.login_succeeded
 	
+	$ClickStream.play()
 	screen_wiper.wipe_screen()
 	
 	var tween = create_tween()
@@ -58,6 +59,7 @@ func _setting_pressed() -> void:
 		sign_in_google_button._sign_in_anonymously()
 		await Firebase.Auth.login_succeeded
 	
+	$ClickStream.play()
 	screen_wiper.wipe_screen()
 	
 	var tween = create_tween()

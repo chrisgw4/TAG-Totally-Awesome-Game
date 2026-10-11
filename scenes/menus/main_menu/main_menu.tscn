@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://16h331bcrh7a" path="res://assets/City3.png" id="13_88r3n"]
 [ext_resource type="BitMap" uid="uid://bs2ir61swe1n7" path="res://assets/menus/3_panels/panel_2_bit.png" id="14_3nv00"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="14_dc6ug"]
+[ext_resource type="AudioStream" uid="uid://ds6ui3f2t43td" path="res://assets/sfx/v2 vinyl.wav" id="15_3nv00"]
 
 [sub_resource type="Animation" id="Animation_peecx"]
 length = 0.001
@@ -191,3 +192,6 @@ stream = ExtResource("4_peecx")
 song_streams = Array[AudioStream]([ExtResource("4_peecx")])
 song_names = Array[String](["JUST A DREAM"])
 song_artists = Array[String](["Prod. Ramsey V and Stellxr Beats"])
+
+[node name="ClickStream" type="AudioStreamPlayer" parent="." unique_id=2141585415]
+stream = ExtResource("15_3nv00")
