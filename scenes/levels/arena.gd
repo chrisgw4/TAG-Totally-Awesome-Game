@@ -8,8 +8,9 @@ func _ready() -> void:
 	
 	$AnimationPlayer.play("move_camera")
 	
-	var graffiti_count: int = get_children().filter(func(n): return n is Graffiti).size()
-	GDSync.lobby_set_data("Graffiti_Count", graffiti_count)
+	if GDSync.is_host():
+		var graffiti_count: int = get_children().filter(func(n): return n is Graffiti).size()
+		GDSync.lobby_set_data("Graffiti_Count", graffiti_count)
 	
 	match_countdown.countdown_finished.connect(_enable_player_movements)
 	
