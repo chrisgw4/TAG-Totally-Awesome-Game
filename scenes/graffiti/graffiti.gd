@@ -32,7 +32,7 @@ func is_tagable(state: bool):
 	tagable = state
 	
 func tag(is_pressed: bool):
-	if is_pressed:
+	if is_pressed and color != parent.team:
 		graffiti_image.animation = "tags"
 		graffiti_image.frame = randi_range(0, graffiti_image.sprite_frames.get_frame_count("tags"))
 		$SprayStream.play_synced()
