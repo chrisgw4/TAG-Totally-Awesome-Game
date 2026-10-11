@@ -9,11 +9,17 @@ var lobby_menu_option_scene:PackedScene = preload("res://scenes/lobby_menu/lobby
 @export var none_option:LobbyMenuOption
 @export var start_game_option:LobbyMenuOption
 
+@export var match_scene:PackedScene
+
+@export var screen_wiper:ScreenWiper
+
 signal leave_lobby()
 
 var current_lobby:String = ""
 
 var current_players:Array[int] = []
+
+signal start_game(scene:PackedScene)
 
 func _ready() -> void:
 	GDSync.lobby_joined.connect(_update_host)
@@ -30,6 +36,49 @@ func _ready() -> void:
 	current_lobby = GDSync.lobby_get_name()
 	
 	none_option.label_text = "Lobby: " + current_lobby
+	
+	start_game_option.clicked.connect(_start_game)
+	
+	GDSync.change_scene_called.connect(_remove_everything)
+	
+	
+	GDSync.expose_func(_load_level)
+
+func _remove_everything(scene_path:String) -> void:
+	print("REMOVING EVERYTHING")
+	get_parent().get_parent().queue_free()
+
+
+# Call this from anywhere (e.g. a button) to change level for everyone
+func change_level_for_all(path : String) -> void:
+	if not GDSync.is_host():
+		return # only the host triggers it, so clients don't fight
+	GDSync.call_func(_load_level, path) # all other clients
+	_load_level(path)                     # and ourselves
+
+
+func _load_level(path : String) -> void:
+	_remove_everything("")
+	#await get_tree().process_frame # let old nodes (and their names) actually leave
+	
+	var level : Node = load(path).instantiate()
+	get_tree().current_scene.add_child(level)
+
+
+func _start_game() -> void:
+	start_game.emit(match_scene)
+	if GDSync.is_host():
+		
+		screen_wiper.wipe_screen()
+		
+		await screen_wiper.start_loading
+		
+		#SceneHolder.start_game_for_all.emit()
+		
+		#GDSync.change_scene("res://scenes/levels/arena.tscn")
+		change_level_for_all("res://scenes/levels/arena.tscn")
+		
+		#SceneHolder.change_scene_for_all.emit("res://scenes/levels/arena.tscn", get_parent().get_parent())
 
 
 func _hide_options() -> void:

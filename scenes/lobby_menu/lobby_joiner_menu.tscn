@@ -134,3 +134,4 @@ theme_override_fonts/font = ExtResource("1_ce60e")
 text = "Join"
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("2_7uxim")]
+layer = 2000

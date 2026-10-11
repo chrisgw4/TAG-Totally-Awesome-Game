@@ -24,6 +24,7 @@ func _ready() -> void:
 	jump_component.change_gravity_scale.connect(gravity_component._change_gravity_scale)
 	jump_component.jump.connect(movement_component.force_velocity_y)
 	
+	
 
 
 # This function is called whenever the owner of this node changes

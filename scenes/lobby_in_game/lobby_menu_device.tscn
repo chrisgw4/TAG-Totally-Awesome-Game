@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bnag7jxojv424" path="res://scenes/lobby_menu/lobby_menu_option.tscn" id="1_r81v6"]
 [ext_resource type="Script" uid="uid://cna300s7vk5d3" path="res://scenes/lobby_in_game/lobby_menu_device.gd" id="1_wugyn"]
+[ext_resource type="PackedScene" uid="uid://dw07bys3ncik4" path="res://scenes/levels/arena.tscn" id="2_u1nfb"]
+[ext_resource type="PackedScene" uid="uid://dcxp6qsnfybvo" path="res://scenes/menus/screen_wiper.tscn" id="4_ob05h"]
 
-[node name="LobbyMenuDevice" type="VBoxContainer" unique_id=566977133 node_paths=PackedStringArray("lobby_menu_options", "leave_lobby_option", "view_players_option", "none_option", "start_game_option")]
+[node name="LobbyMenuDevice" type="VBoxContainer" unique_id=566977133 node_paths=PackedStringArray("lobby_menu_options", "leave_lobby_option", "view_players_option", "none_option", "start_game_option", "screen_wiper")]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
@@ -13,6 +15,8 @@ leave_lobby_option = NodePath("Leave")
 view_players_option = NodePath("Player")
 none_option = NodePath("None")
 start_game_option = NodePath("Start")
+match_scene = ExtResource("2_u1nfb")
+screen_wiper = NodePath("ScreenWiper")
 
 [node name="Leave" parent="." unique_id=841211064 instance=ExtResource("1_r81v6")]
 layout_mode = 2
@@ -29,3 +33,5 @@ hide_arrow = true
 [node name="Start" parent="." unique_id=534068480 instance=ExtResource("1_r81v6")]
 layout_mode = 2
 label_text = "Start Game"
+
+[node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("4_ob05h")]
