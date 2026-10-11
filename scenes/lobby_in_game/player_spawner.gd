@@ -7,10 +7,20 @@ func _ready() -> void:
 	# Still listen for changes after the game has started
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
+	GDSync.client_joined.connect(_on_client_joined)
 	
 	# Everyone is already in the lobby, so spawn a player for each of them
 	for client_id in GDSync.lobby_get_all_clients():
 		spawn_player(client_id)
+
+
+func _on_client_joined(client_id: int) -> void:
+	if not GDSync.is_gdsync_owner(self):
+		return
+	GDSync.call_func_on(client_id, _set_state, [global_position])
+
+func _set_state(pos: Vector2) -> void:
+	global_position = pos
 
 
 func client_joined(client_id : int) -> void:

@@ -6,7 +6,6 @@ var username:String = "Guest":
 		_update_database_with_username()
 		
 		if GDSync.is_active():
-			print("set username")
 			GDSync.player_set_username(username)
 			
 
@@ -24,6 +23,4 @@ func _update_database_with_username() -> void:
 	if _doc_exists(doc):
 		doc.add_or_update_field("display_name", username)
 		
-		var updated = await users.update(doc)
-		print(updated)
-		
+		var _updated = await users.update(doc)

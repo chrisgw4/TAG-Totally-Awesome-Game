@@ -63,7 +63,7 @@ func _request_view_player_list() -> void:
 		var temp = lobby_menu_option_scene.instantiate()
 		temp.label_text = str(GDSync.player_get_username(i, "Guest2"))
 		add_child(temp)
-		temp.name = "remove"
+		temp.name = "remove " + str(i)
 		temp.hide_arrow = true
 
 
@@ -77,6 +77,8 @@ func _add_client(client_id:int) -> void:
 func _remove_client(client_id:int) -> void:
 	if client_id in current_players:
 		current_players.erase(client_id)
+		
+		
 	print(current_players)
 	print(GDSync.player_get_username(client_id, "Guest2"))
 
@@ -91,11 +93,14 @@ func _refresh_players() -> void:
 func _request_leave_lobby() -> void:
 	leave_lobby.emit()
 
+
 func _update_host(_var) -> void:
 	if GDSync.is_host():
-		print("YES HOST")
+		start_game_option.modulate = Color("#FFFFFF")
 	else:
 		start_game_option.modulate = Color("#5e5e5e")
+	_refresh_players()
+	_remove_players()
 
 
 func _show_players() -> void:
