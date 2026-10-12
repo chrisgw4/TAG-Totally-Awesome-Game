@@ -78,20 +78,20 @@ libraries/ = SubResource("AnimationLibrary_emi7i")
 
 [node name="Three" type="AudioStreamPlayer" parent="." unique_id=820176771]
 stream = ExtResource("4_emi7i")
-volume_db = 15.0
+volume_db = -14.0
 bus = &"SFX"
 
 [node name="Two" type="AudioStreamPlayer" parent="." unique_id=748712964]
 stream = ExtResource("5_gesol")
-volume_db = 15.0
+volume_db = -14.0
 bus = &"SFX"
 
 [node name="One" type="AudioStreamPlayer" parent="." unique_id=466872442]
 stream = ExtResource("6_c78nd")
-volume_db = 15.0
+volume_db = -14.0
 bus = &"SFX"
 
 [node name="TAG" type="AudioStreamPlayer" parent="." unique_id=1252041335]
 stream = ExtResource("7_ly3py")
-volume_db = 15.0
+volume_db = -14.0
 bus = &"SFX"

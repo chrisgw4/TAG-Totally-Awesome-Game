@@ -138,3 +138,4 @@ text = "Create"
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=1559977020]
 stream = ExtResource("4_0bwho")
+bus = &"SFX"

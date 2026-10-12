@@ -39,6 +39,7 @@ button = NodePath("Button")
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 50.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_kxjff")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_aedco")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8tkyk")
@@ -67,5 +68,5 @@ vertical_alignment = 1
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=1395422655]
 stream = ExtResource("3_tuolc")
-volume_db = 11.0
+volume_db = -10.0
 bus = &"SFX"

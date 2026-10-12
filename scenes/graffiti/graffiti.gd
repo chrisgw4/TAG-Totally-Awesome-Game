@@ -6,6 +6,7 @@ class_name Graffiti
 var tagable = false
 var parent
 var color = "noteam"
+var old_client:int = -1
 
 var has_been_tagged:bool = false
 	#set(new_value):
@@ -47,6 +48,8 @@ func _roll_graffiti_frame(team:String, client_id:int) -> void:
 	print("TEAM: ", team)
 	print("CLIENT ID: ", client_id)
 	
+	var old_color:String = color
+	
 	if not has_been_tagged:
 		has_been_tagged = true
 	
@@ -67,7 +70,6 @@ func _roll_graffiti_frame(team:String, client_id:int) -> void:
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Blue").text = str(score)
 		GDSync.call_func_on(client_id, _update_clients_player_data, score)
-		
 	elif color == "Red":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Red").text = str(score)
@@ -80,6 +82,17 @@ func _roll_graffiti_frame(team:String, client_id:int) -> void:
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Yellow").text = str(score)
 		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+		
+	if old_client != -1 and old_color != "noteam":
+		print("Old Client: ", old_client)
+		print(GDSync.player_get_data(old_client, "team"))
+		print(GDSync.player_get_data(old_client, "team") == old_color)
+		var score2 = get_parent().get_node("Score").get_node(old_color).text.to_int() - 1
+		print("NEW SCORE 2: ", score2)
+		get_parent().get_node("Score").get_node(old_color).text = str(score2)
+		GDSync.call_func_on(old_client, _update_clients_player_data, score2)
+	
+	old_client = client_id
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

@@ -91,10 +91,6 @@ placeholder_text = "insert name"
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("9_61g84")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1679016157]
-stream = ExtResource("10_skl6q")
-bus = &"Music"
-
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1644118027]
 offset_left = -41.0
 offset_top = 347.00003
@@ -121,6 +117,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=238862941]
 stream = ExtResource("13_xv57m")
+volume_db = -22.0
+bus = &"SFX"
 
 [connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="EffectsSlider" to="." method="_on_effects_slider_value_changed"]

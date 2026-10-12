@@ -50,8 +50,9 @@ func _play_game_end() -> void:
 			best_player["username"] = data["Username"]
 			best_player["team"] = data["team"]
 	
-	$Node2D/Label.text = (best_player['username'] as String).to_lower()
-	$AnimationPlayer4.play((best_player['team'] as String).to_lower())
+	if not best_player.is_empty():
+		$Node2D/Label.text = (best_player['username'] as String).to_lower()
+		$AnimationPlayer4.play((best_player['team'] as String).to_lower())
 	
 	await $AnimationPlayer2.animation_finished
 	

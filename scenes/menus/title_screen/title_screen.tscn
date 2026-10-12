@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dx313xh3fc06e" path="res://scenes/spray_paint_particles/blue_spray_paint.tscn" id="13_ktm0l"]
 [ext_resource type="PackedScene" uid="uid://14mioddb0oun" path="res://scenes/spray_paint_particles/purple_spray_paint.tscn" id="14_oj4r7"]
 [ext_resource type="PackedScene" uid="uid://bwyb3mv63dd4n" path="res://scenes/spray_paint_particles/yellow_spray_paint.tscn" id="15_bx0d7"]
+[ext_resource type="AudioStream" uid="uid://dbo7mkrqkmlk" path="res://assets/sfx/freesound_community-to-hell-with-vinyl-6410.mp3" id="16_ktm0l"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1961741829 node_paths=PackedStringArray("start_button", "multiplayer_connector", "toast_canvas", "screen_wiper", "music_player", "bouncing_title")]
 script = ExtResource("1_8ff8e")
@@ -87,3 +88,8 @@ position = Vector2(507, 313)
 
 [node name="YellowSprayPaint" parent="." unique_id=928599233 instance=ExtResource("15_bx0d7")]
 position = Vector2(507, 313)
+
+[node name="ClickStream2" type="AudioStreamPlayer" parent="." unique_id=1038494810]
+stream = ExtResource("16_ktm0l")
+volume_db = -22.0
+bus = &"SFX"

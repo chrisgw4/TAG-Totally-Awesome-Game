@@ -14,15 +14,10 @@ class_name MainMenu
 @export var multiplayer_connector:MultiplayerConnector
 @export var toast_canvas:ToastCanvas
 
-
 signal gdsync_not_connected()
 
 func _ready() -> void:
 	gdsync_not_connected.connect(_reconnect_gdsync)
-	
-	if not GDSync.is_active():
-		print("not activated")
-		gdsync_not_connected.emit()
 	
 	
 	fade_audio_in()
@@ -36,7 +31,14 @@ func _ready() -> void:
 	main_menu_holder.play_pressed.connect(_play_pressed)
 	main_menu_holder.setting_pressed.connect(_setting_pressed)
 	main_menu_holder.quit_pressed.connect(_quit_game)
-
+	
+	#await get_tree().create_timer(1).timeout
+	#if not GDSync.is_active():
+		#print("not activated")
+		#gdsync_not_connected.emit()
+	MultiplayerConnectorGlobal.connecting_to_gdsync.connect(_reconnect_gdsync)
+	MultiplayerConnectorGlobal.check_connected_to_gdsync()
+	
 
 
 func _disable_buttons() -> void:
@@ -54,15 +56,18 @@ func _reconnect_gdsync() -> void:
 	_start_sync()
 
 func _start_sync() -> void:
-	if not multiplayer_connector:
-		return
 	
 	_disable_buttons()
-	multiplayer_connector._connect_to_gdsync()
+	#multiplayer_connector._connect_to_gdsync()
 	toast_canvas.show_toast("Connecting to Multiplayer...")
-	multiplayer_connector.gdsync_connection_success.connect(toast_canvas._hide_toast)
-	multiplayer_connector.gdsync_connection_success.connect(_enable_buttons)
+	MultiplayerConnectorGlobal.gdsync_connection_success.connect(toast_canvas._hide_toast)
+	MultiplayerConnectorGlobal.gdsync_connection_success.connect(_enable_buttons)
+	MultiplayerConnectorGlobal.gdsync_connection_failed.connect(_failed_connect)
 
+
+func _failed_connect() -> void:
+	toast_canvas.show_toast("Failed to connect to Multiplayer.")
+	pass
 
 
 func _quit_game() -> void:
@@ -79,7 +84,7 @@ func _loop_music() -> void:
 func _play_pressed() -> void:
 	if not GDSync.is_active():
 		print("not active")
-		_start_sync()
+		MultiplayerConnectorGlobal.check_connected_to_gdsync()
 		return
 	
 	if not sign_in_google_button.logged_in:
@@ -103,7 +108,7 @@ func _play_pressed() -> void:
 func _setting_pressed() -> void:
 	if not GDSync.is_active():
 		print("not active")
-		_start_sync()
+		MultiplayerConnectorGlobal.check_connected_to_gdsync()
 		return
 	
 	if not sign_in_google_button.logged_in:
@@ -128,7 +133,7 @@ func fade_audio_in() -> void:
 	music_player._replay_song()
 	
 	var tween = create_tween()
-	tween.tween_property(music_player, "volume_linear", 1, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(music_player, "volume_linear", 0.11, 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
 
 

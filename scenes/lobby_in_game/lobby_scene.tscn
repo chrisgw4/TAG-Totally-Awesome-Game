@@ -75,9 +75,6 @@ horizontal_scroll_mode = 0
 [node name="LobbyMenuDevice" parent="ScrollContainer" unique_id=566977133 instance=ExtResource("8_r4pfh")]
 layout_mode = 2
 
-[node name="ClickPlayer" type="AudioStreamPlayer" parent="ScrollContainer/LobbyMenuDevice" unique_id=1257267651]
-stream = ExtResource("12_tisi5")
-
 [node name="Ipod146" type="Sprite2D" parent="." unique_id=536887957]
 z_index = 5
 position = Vector2(965, 627.00006)
@@ -120,6 +117,7 @@ song_artists = Array[String](["meldawg4real"])
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="." unique_id=907779159]
 stream = ExtResource("12_tisi5")
+bus = &"SFX"
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
 layer = 100000

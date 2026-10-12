@@ -115,7 +115,8 @@ func turn_vector_into_8_directions(vec:Vector2) -> Vector2:
 func _on_grind_detector_body_entered(body: Node2D) -> void:
 	if get_parent().velocity.y >= 0:
 		grinding = true
-		get_parent().hoponrail_stream.play_synced()
+		if GDSync.is_gdsync_owner(get_parent()):
+			get_parent().hoponrail_stream.play_synced()
 		apply_grind_boost = true
 
 

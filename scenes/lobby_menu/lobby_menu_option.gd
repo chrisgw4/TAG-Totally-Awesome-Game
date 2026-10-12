@@ -31,6 +31,8 @@ func _ready() -> void:
 
 func _clicked() -> void:
 	$ClickPlayer.play()
+	await $ClickPlayer.finished
+	
 	clicked.emit()
 
 func _change_blue() -> void:

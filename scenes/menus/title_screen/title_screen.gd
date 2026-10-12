@@ -20,9 +20,10 @@ func _ready() -> void:
 	
 	Conductor.set_song(music_player.stream, 114)
 	Conductor.beat.connect(_beat)
-	Conductor.play()
 	Conductor.finished.connect(_loop_music_player)
 	Conductor.bus = "Music"
+	Conductor.volume_db = -22
+	Conductor.play()
 	start_button.mouse_entered.connect(_button_grow)
 	start_button.mouse_exited.connect(_button_shrink)
 
@@ -40,10 +41,11 @@ func _button_shrink() -> void:
 
 func _loop_music_player() -> void:
 	music_player.play()
+	Conductor.play()
 
 
 func _fade_to_change_scene() -> void:
-	$ClickStream.play()
+	$ClickStream2.play()
 	screen_wiper.wipe_screen()
 	screen_wiper.start_loading.connect(_start_sync)
 

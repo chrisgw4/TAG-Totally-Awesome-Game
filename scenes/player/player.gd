@@ -85,8 +85,8 @@ func _physics_process(delta: float) -> void:
 			anim_sprite.play_synced(team +"hurt")
 	elif abs(velocity.x) > 0.2 and input_component.grinding == true:
 		anim_sprite.play_synced(team+"grind")
-		if !$GrindStream.is_playing():
-			$GrindStream.play()
+		if !$GrindStream.is_playing() and GDSync.is_gdsync_owner(self):
+			$GrindStream.play_synced()
 	elif abs(velocity.x) > 0.2 and is_on_floor():
 		if anim_sprite.animation == (team+"land") :
 			await anim_sprite.animation_finished

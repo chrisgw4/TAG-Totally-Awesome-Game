@@ -199,6 +199,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("7_cp0g4")]
+volume_db = -30.0
 song_streams = Array[AudioStream]([ExtResource("8_ncms2"), ExtResource("9_278yd"), ExtResource("10_3qy7k"), ExtResource("11_qrxf6"), ExtResource("12_aqfbc"), ExtResource("13_ylwb8"), ExtResource("14_gaio3")])
 song_names = Array[String](["KickFlip", "Smooth Operator", "Patterns", "Pinpoint", "Smooth Operator (Blazy Mix)", "Wasted", "Espionage"])
 song_artists = Array[String](["prod. Hydraa & Txkyocsupo", "prod. Hydraa", "prod. Hydraa & webster", "prod. Hydraa", "prod. Hydraa", "prod. Hydraa", "prod. Hydraa"])

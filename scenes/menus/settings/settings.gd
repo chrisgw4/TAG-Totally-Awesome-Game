@@ -19,11 +19,10 @@ func _ready() -> void:
 	
 	var tween = create_tween()
 	music_player.volume_linear = 0
-	tween.tween_property(music_player, "volume_linear", 1, 1)
+	tween.tween_property(music_player, "volume_linear", 0.11, 1)
 	
 	await get_tree().create_timer(0.2).timeout
 	$CanvasLayer.queue_free()
-	
 	
 	
 	$MusicSlider.value = AudioServer.get_bus_volume_linear(music_index)

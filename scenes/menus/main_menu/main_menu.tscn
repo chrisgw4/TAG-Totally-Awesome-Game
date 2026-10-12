@@ -193,12 +193,15 @@ stretch_mode = 4
 
 [node name="AudioPlayer" parent="." unique_id=2121411607 instance=ExtResource("14_dc6ug")]
 stream = ExtResource("4_peecx")
+volume_db = -5.0
 song_streams = Array[AudioStream]([ExtResource("4_peecx")])
 song_names = Array[String](["JUST A DREAM"])
 song_artists = Array[String](["Prod. Ramsey V and Stellxr Beats"])
 
 [node name="ClickStream" type="AudioStreamPlayer" parent="." unique_id=2141585415]
 stream = ExtResource("15_3nv00")
+volume_db = -22.0
+bus = &"SFX"
 
 [node name="MultiplayerConnector" parent="." unique_id=517243958 instance=ExtResource("17_7ufuu")]
 
