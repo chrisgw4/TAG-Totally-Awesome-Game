@@ -137,10 +137,11 @@ position = Vector2(18, 55)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_piuvd")
 
-[node name="PropertySynchronizer3" type="Node" parent="." unique_id=2094980732]
+[node name="PropertySynchronizer2" type="Node" parent="." unique_id=181022927]
 script = ExtResource("3_p3dxx")
-broadcast = 5
-node_path = NodePath("../Yellow")
+process = 1
+refresh_rate = 10
+node_path = NodePath("../Red")
 properties = PackedStringArray("text")
 interpolated = false
 interpolation_speed = 1.0
@@ -149,10 +150,11 @@ extrapolated = false
 max_extrapolation_time = 0.2
 metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
-[node name="PropertySynchronizer2" type="Node" parent="." unique_id=181022927]
+[node name="PropertySynchronizer3" type="Node" parent="." unique_id=2094980732]
 script = ExtResource("3_p3dxx")
-broadcast = 5
-node_path = NodePath("../Red")
+process = 1
+refresh_rate = 10
+node_path = NodePath("../Yellow")
 properties = PackedStringArray("text")
 interpolated = false
 interpolation_speed = 1.0
@@ -163,19 +165,9 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer" type="Node" parent="." unique_id=1725964556]
 script = ExtResource("3_p3dxx")
+process = 1
+refresh_rate = 10
 node_path = NodePath("../White")
-properties = PackedStringArray("text")
-interpolated = false
-interpolation_speed = 1.0
-extrapolation = null
-extrapolated = false
-max_extrapolation_time = 0.2
-metadata/_custom_type_script = "uid://fcoih1ax5dcs"
-
-[node name="PropertySynchronizer5" type="Node" parent="." unique_id=1963779840]
-script = ExtResource("3_p3dxx")
-broadcast = 5
-node_path = NodePath("../Purple")
 properties = PackedStringArray("text")
 interpolated = false
 interpolation_speed = 1.0
@@ -186,8 +178,22 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="PropertySynchronizer4" type="Node" parent="." unique_id=350220399]
 script = ExtResource("3_p3dxx")
-broadcast = 5
+process = 1
+refresh_rate = 10
 node_path = NodePath("../Blue")
+properties = PackedStringArray("text")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"
+
+[node name="PropertySynchronizer5" type="Node" parent="." unique_id=1963779840]
+script = ExtResource("3_p3dxx")
+process = 1
+refresh_rate = 10
+node_path = NodePath("../Purple")
 properties = PackedStringArray("text")
 interpolated = false
 interpolation_speed = 1.0

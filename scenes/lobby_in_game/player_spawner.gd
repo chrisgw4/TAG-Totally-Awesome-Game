@@ -6,6 +6,7 @@ extends Node2D
 @export var player_teams:Array[String] = ["Blue", "Red", "Yellow", "Purple"]
 
 signal players_spawned()
+signal player_spawned(player:Player)
 
 func _ready() -> void:
 	(get_tree().current_scene as CanvasLayer).follow_viewport_enabled = true
@@ -42,6 +43,7 @@ func spawn_player(client_id : int) -> void:
 	# Every client sets ownership for every player, so ownership is
 	# consistent everywhere
 	GDSync.set_gdsync_owner(player, client_id)
+	player_spawned.emit(player)
 	
 	players_spawned.emit()
 

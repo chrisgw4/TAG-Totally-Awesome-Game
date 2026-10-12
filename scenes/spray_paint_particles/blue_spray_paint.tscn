@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dx313xh3fc06e"]
 
 [ext_resource type="Texture2D" uid="uid://cxcrvddcqa2ig" path="res://assets/FX001_01.png" id="1_1ro7j"]
-[ext_resource type="Script" uid="uid://cla81vxh3ep7b" path="res://addons/GD-Sync/Scripts/Types/SynchronizedGPUParticles2D.gd" id="2_7of1i"]
 
 [sub_resource type="Curve" id="Curve_vn051"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7228572, 0.47955394), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -32,7 +31,7 @@ alpha_curve = SubResource("CurveTexture_q702q")
 hue_variation_min = -0.010000022
 hue_variation_max = 0.009999977
 
-[node name="BlueSprayPaint" type="GPUParticles2D" unique_id=2023427927]
+[node name="BlueSprayPaint" type="GPUParticles2D" unique_id=476489933]
 emitting = false
 amount = 156
 texture = ExtResource("1_1ro7j")
@@ -41,5 +40,3 @@ one_shot = true
 explosiveness = 0.7
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_wyu8n")
-script = ExtResource("2_7of1i")
-metadata/_custom_type_script = "uid://cla81vxh3ep7b"

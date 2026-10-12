@@ -18,9 +18,12 @@ func _ready() -> void:
 	if GDSync.is_host():
 		pass
 		#graffiti_image.play_synced("nograf")
+		await get_tree().create_timer(0.2).timeout
 		ui_element.play_synced(color)
 		#e_key.play("default")
 	GDSync.expose_func(_roll_graffiti_frame)
+	GDSync.expose_func(_update_clients_player_data)
+	
 	pass
 
 @onready var blue_spray_paint_particles = $BlueSprayPaint
@@ -29,8 +32,16 @@ func _ready() -> void:
 @onready var purple_spray_paint_particles = $PurpleSprayPaint
 
 
-func _roll_graffiti_frame(team:String) -> void:
+# Host will call this function on the client's game
+# This will update their player data since score is now handled in host's game
+func _update_clients_player_data(new_score:int) -> void:
+	print("UPDAING SCORE TO: ", new_score)
+	GDSync.player_set_data("score", new_score)
+
+
+func _roll_graffiti_frame(team:String, client_id:int) -> void:
 	print("TEAM: ", team)
+	print("CLIENT ID: ", client_id)
 	
 	if not has_been_tagged:
 		has_been_tagged = true
@@ -43,6 +54,25 @@ func _roll_graffiti_frame(team:String) -> void:
 	#graffiti_image.frame = temp_array.pick_random()
 	color = team
 	ui_element.play_synced(color)
+	
+	# Update Scores
+	if color == "Blue":
+		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
+		get_parent().get_node("Score").get_node("Blue").text = str(score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+		
+	elif color == "Red":
+		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
+		get_parent().get_node("Score").get_node("Red").text = str(score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+	elif color == "Purple":
+		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
+		get_parent().get_node("Score").get_node("Purple").text = str(score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+	else:
+		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
+		get_parent().get_node("Score").get_node("Yellow").text = str(score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -77,36 +107,19 @@ func tag(is_pressed: bool):
 		e_key.hide()
 		
 		if not GDSync.is_host():
-			GDSync.call_func_on(GDSync.get_host(), _roll_graffiti_frame, parent.team)
+			GDSync.call_func_on(GDSync.get_host(), _roll_graffiti_frame, parent.team, GDSync.get_client_id())
 		else:
-			_roll_graffiti_frame(parent.team)
+			_roll_graffiti_frame(parent.team, GDSync.get_client_id())
 		color = parent.team
 		$SprayStream.play_synced()
-		if color == "Blue":
-			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
-			get_parent().get_node("Score").get_node("Blue").text = str(score)
-			GDSync.player_set_data("score", score)
-		elif color == "Red":
-			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
-			get_parent().get_node("Score").get_node("Red").text = str(score)
-			GDSync.player_set_data("score", score)
-		elif color == "Purple":
-			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
-			get_parent().get_node("Score").get_node("Purple").text = str(score)
-			GDSync.player_set_data("score", score)
-		else:
-			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
-			get_parent().get_node("Score").get_node("Yellow").text = str(score)
-			GDSync.player_set_data("score", score)
-		print("Score: ",GDSync.player_get_data(GDSync.get_client_id(), 'score', 0))
-		#GDSync.lobby_get_all_clients()
+		
 		if GDSync.is_gdsync_owner(parent):
 			e_key.play("default")
 		#ui_element.play_synced(color)
 		_spawn_particles(parent.team)
 
 func _spawn_particles(team:String) -> void:
-	var particles:SynchronizedGPUParticles2D = null
+	var particles:GPUParticles2D = null
 	if team == "Blue":
 		particles = blue_spray_paint_particles
 		#particles = blue_spray_paint_scene.instantiate()
@@ -122,7 +135,7 @@ func _spawn_particles(team:String) -> void:
 	
 	#add_child(particles)
 	#if particles.emitting:
-	particles.restart_synced()
+	particles.restart()
 	#particles.emitting = true
 
 

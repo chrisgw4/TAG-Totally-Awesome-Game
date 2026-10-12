@@ -10,6 +10,8 @@ func _ready() -> void:
 	
 	$AnimationPlayer.play("move_camera")
 	
+	#player_spawner.player_spawned.connect($Score._assign_ownership)
+	
 	if GDSync.is_host():
 		var graffiti_count: int = get_children().filter(func(n): return n is Graffiti).size()
 		GDSync.lobby_set_data("Graffiti_Count", graffiti_count)

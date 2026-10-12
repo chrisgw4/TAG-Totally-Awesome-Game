@@ -15,6 +15,13 @@ func _update_white(_key, _value) -> void:
 	#$White.text = str(GDSync.lobby_get_data("Graffiti_Count", -1))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _assign_ownership(player:Player) -> void:
+	print("PLAYEr:", player)
+	if player.team == "Red":
+		GDSync.set_gdsync_owner($Red, player.name.to_int())
+	elif player.team == "Yellow":
+		GDSync.set_gdsync_owner($Yellow, player.name.to_int())
+	elif player.team == "Purple":
+		GDSync.set_gdsync_owner($Purple, player.name.to_int())
+	elif player.team == "Blue":
+		GDSync.set_gdsync_owner($Blue, player.name.to_int())
