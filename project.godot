@@ -75,7 +75,7 @@ options={
 
 [network]
 
-limits/packet_peer_stream/max_buffer_po2=19
+limits/packet_peer_stream/max_buffer_po2=20
 
 [physics]
 

@@ -11,9 +11,19 @@ class_name MainMenu
 
 @export var main_menu_holder:MainMenuHandler
 
+@export var multiplayer_connector:MultiplayerConnector
+@export var toast_canvas:ToastCanvas
+
+
+signal gdsync_not_connected()
+
 func _ready() -> void:
+	gdsync_not_connected.connect(_reconnect_gdsync)
+	
 	if not GDSync.is_active():
 		print("not activated")
+		gdsync_not_connected.emit()
+	
 	
 	fade_audio_in()
 	music_player.volume_linear = 0
@@ -28,14 +38,50 @@ func _ready() -> void:
 	main_menu_holder.quit_pressed.connect(_quit_game)
 
 
+
+func _disable_buttons() -> void:
+	main_menu_holder.play_pressed.disconnect(_play_pressed)
+	main_menu_holder.setting_pressed.disconnect(_setting_pressed)
+	main_menu_holder.quit_pressed.disconnect(_quit_game)
+
+func _enable_buttons() -> void:
+	main_menu_holder.play_pressed.connect(_play_pressed)
+	main_menu_holder.setting_pressed.connect(_setting_pressed)
+	main_menu_holder.quit_pressed.connect(_quit_game)
+
+func _reconnect_gdsync() -> void:
+	print("Reconnecting")
+	_start_sync()
+
+func _start_sync() -> void:
+	if not multiplayer_connector:
+		return
+	
+	_disable_buttons()
+	multiplayer_connector._connect_to_gdsync()
+	toast_canvas.show_toast("Connecting to Multiplayer...")
+	multiplayer_connector.gdsync_connection_success.connect(toast_canvas._hide_toast)
+	multiplayer_connector.gdsync_connection_success.connect(_enable_buttons)
+
+
+
 func _quit_game() -> void:
-	GDSync.quit()
+	if OS.has_feature("web"):
+		pass
+	else:
+		GDSync.quit()
+
 
 func _loop_music() -> void:
 	music_player.play()
 
 
 func _play_pressed() -> void:
+	if not GDSync.is_active():
+		print("not active")
+		_start_sync()
+		return
+	
 	if not sign_in_google_button.logged_in:
 		sign_in_google_button._sign_in_anonymously()
 		await Firebase.Auth.login_succeeded
@@ -55,6 +101,11 @@ func _play_pressed() -> void:
 
 
 func _setting_pressed() -> void:
+	if not GDSync.is_active():
+		print("not active")
+		_start_sync()
+		return
+	
 	if not sign_in_google_button.logged_in:
 		sign_in_google_button._sign_in_anonymously()
 		await Firebase.Auth.login_succeeded

@@ -15,6 +15,8 @@
 [ext_resource type="BitMap" uid="uid://bs2ir61swe1n7" path="res://assets/menus/3_panels/panel_2_bit.png" id="14_3nv00"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="14_dc6ug"]
 [ext_resource type="AudioStream" uid="uid://ds6ui3f2t43td" path="res://assets/sfx/v2 vinyl.wav" id="15_3nv00"]
+[ext_resource type="PackedScene" uid="uid://6alm51n0vmt7" path="res://scenes/menus/toast_canvas.tscn" id="16_8xfgt"]
+[ext_resource type="PackedScene" uid="uid://idx5h20qk3x" path="res://scenes/gdsync_components/multiplayer_connector.tscn" id="17_7ufuu"]
 
 [sub_resource type="Animation" id="Animation_peecx"]
 length = 0.001
@@ -88,13 +90,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper", "music_player", "color_rect", "sign_in_google_button", "main_menu_holder")]
+[node name="MainMenu" type="Node2D" unique_id=1812160348 node_paths=PackedStringArray("screen_wiper", "music_player", "color_rect", "sign_in_google_button", "main_menu_holder", "multiplayer_connector", "toast_canvas")]
 script = ExtResource("1_kx65a")
 screen_wiper = NodePath("ScreenWiper")
 music_player = NodePath("AudioPlayer")
 color_rect = NodePath("CanvasLayer2/ColorRect")
 sign_in_google_button = NodePath("CanvasLayer/SignInWithGoogle")
 main_menu_holder = NodePath("MainMenuHandler")
+multiplayer_connector = NodePath("MultiplayerConnector")
+toast_canvas = NodePath("ToastCanvas")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=475773947]
 repeat_size = Vector2(1155, 0)
@@ -195,3 +199,7 @@ song_artists = Array[String](["Prod. Ramsey V and Stellxr Beats"])
 
 [node name="ClickStream" type="AudioStreamPlayer" parent="." unique_id=2141585415]
 stream = ExtResource("15_3nv00")
+
+[node name="MultiplayerConnector" parent="." unique_id=517243958 instance=ExtResource("17_7ufuu")]
+
+[node name="ToastCanvas" parent="." unique_id=1780600741 instance=ExtResource("16_8xfgt")]
