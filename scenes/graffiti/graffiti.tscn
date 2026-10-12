@@ -9,9 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://c2pwkufamf2m6" path="res://assets/sfx/spray.wav" id="7_84xwv"]
 [ext_resource type="Script" uid="uid://bktq6dqr2x8j5" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAudioStreamPlayer2D.gd" id="8_kk4mk"]
 [ext_resource type="PackedScene" uid="uid://crj0vfeqf5yim" path="res://scenes/spray_paint_particles/red_spray_paint.tscn" id="9_kk13u"]
-[ext_resource type="PackedScene" uid="uid://dx313xh3fc06e" path="res://scenes/spray_paint_particles/blue_spray_paint.tscn" id="10_681nv"]
-[ext_resource type="PackedScene" uid="uid://14mioddb0oun" path="res://scenes/spray_paint_particles/purple_spray_paint.tscn" id="11_3q3oh"]
-[ext_resource type="PackedScene" uid="uid://bwyb3mv63dd4n" path="res://scenes/spray_paint_particles/yellow_spray_paint.tscn" id="12_8askd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk4mk"]
 atlas = ExtResource("2_aayd5")
@@ -307,8 +304,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 
 [node name="SyncGrafSprite" type="Node" parent="." unique_id=1481281810]
 script = ExtResource("6_q702q")
-process = 1
-refresh_rate = 10
+refresh_rate = 40
 node_path = NodePath("../Graffiti_Image")
 properties = PackedStringArray("animation", "frame")
 interpolated = false
@@ -325,12 +321,6 @@ script = ExtResource("8_kk4mk")
 metadata/_custom_type_script = "uid://bktq6dqr2x8j5"
 
 [node name="RedSprayPaint" parent="." unique_id=622472690 instance=ExtResource("9_kk13u")]
-
-[node name="BlueSprayPaint" parent="." unique_id=1152387347 instance=ExtResource("10_681nv")]
-
-[node name="PurpleSprayPaint" parent="." unique_id=257114612 instance=ExtResource("11_3q3oh")]
-
-[node name="YellowSprayPaint" parent="." unique_id=858712197 instance=ExtResource("12_8askd")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

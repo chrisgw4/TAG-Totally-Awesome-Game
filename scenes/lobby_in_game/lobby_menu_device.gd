@@ -49,15 +49,17 @@ func _remove_everything(scene_path:String) -> void:
 	get_parent().get_parent().queue_free()
 
 
-# Call this from anywhere (e.g. a button) to change level for everyone
+
 func change_level_for_all(path : String) -> void:
 	if not GDSync.is_host():
-		return # only the host triggers it, so clients don't fight
-	GDSync.call_func(_load_level, path) # all other clients
-	_load_level(path)                     # and ourselves
+		return 
+	GDSync.call_func(_load_level, path)
+	_load_level(path)
 
 
 func _load_level(path : String) -> void:
+	screen_wiper.wipe_screen()
+	await screen_wiper.start_loading
 	_remove_everything("")
 	#await get_tree().process_frame # let old nodes (and their names) actually leave
 	
@@ -69,9 +71,9 @@ func _start_game() -> void:
 	start_game.emit(match_scene)
 	if GDSync.is_host():
 		
-		screen_wiper.wipe_screen()
-		
-		await screen_wiper.start_loading
+		#screen_wiper.wipe_screen()
+		#
+		#await screen_wiper.start_loading
 		GDSync.lobby_set_tag("started", true)
 		
 		#SceneHolder.start_game_for_all.emit()

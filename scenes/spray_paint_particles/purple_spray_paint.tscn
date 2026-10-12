@@ -1,37 +1,9 @@
 [gd_scene format=3 uid="uid://14mioddb0oun"]
 
 [ext_resource type="Texture2D" uid="uid://cxcrvddcqa2ig" path="res://assets/FX001_01.png" id="1_dllyy"]
+[ext_resource type="Material" uid="uid://b5okqe1a0god2" path="res://scenes/spray_paint_particles/purple_spray_paint_particles.tres" id="2_34tyk"]
 
-[sub_resource type="Curve" id="Curve_vn051"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7228572, 0.47955394), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_dllyy"]
-curve = SubResource("Curve_vn051")
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_34tyk"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1m6n"]
-lifetime_randomness = 0.2
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(50, 40, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angle_min = -89.99999
-angle_max = 90.000015
-direction = Vector3(1, 1, 0)
-directional_velocity_min = -50.0
-directional_velocity_max = 50.0
-directional_velocity_curve = SubResource("CurveXYZTexture_34tyk")
-gravity = Vector3(0, 0, 0)
-scale_min = 0.79999995
-scale_max = 1.4
-color = Color(0.8641319, 0.006654964, 1.0987726, 1)
-alpha_curve = SubResource("CurveTexture_dllyy")
-hue_variation_min = -0.010000022
-hue_variation_max = 0.009999977
-
-[node name="PurpleSprayPaint" type="GPUParticles2D" unique_id=717280551]
+[node name="PurpleSprayPaint" type="GPUParticles2D" unique_id=532312845]
 emitting = false
 amount = 156
 texture = ExtResource("1_dllyy")
@@ -39,4 +11,4 @@ lifetime = 2.0
 one_shot = true
 explosiveness = 0.7
 fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_k1m6n")
+process_material = ExtResource("2_34tyk")

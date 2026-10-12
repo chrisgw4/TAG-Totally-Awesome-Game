@@ -30,7 +30,7 @@ func _ready() -> void:
 	GDSync.connect_gdsync_owner_changed(self, owner_changed)
 	owner_changed(GDSync.get_gdsync_owner(self)) # apply the current owner immediately
 	
-	anim_sprite.play_synced(team+"idle")
+	anim_sprite.play(team+"idle")
 	
 	
 	
