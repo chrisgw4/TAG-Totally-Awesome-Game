@@ -16,9 +16,11 @@ var has_been_tagged:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if GDSync.is_host():
-		graffiti_image.play_synced("nograf")
+		pass
+		#graffiti_image.play_synced("nograf")
 		ui_element.play_synced(color)
-		e_key.play("default")
+		#e_key.play("default")
+	GDSync.expose_func(_roll_graffiti_frame)
 	pass
 
 @onready var blue_spray_paint_particles = $BlueSprayPaint
@@ -27,14 +29,31 @@ func _ready() -> void:
 @onready var purple_spray_paint_particles = $PurpleSprayPaint
 
 
+func _roll_graffiti_frame(team:String) -> void:
+	print("TEAM: ", team)
+	
+	if not has_been_tagged:
+		has_been_tagged = true
+	
+	var temp_array = team_tags[team].duplicate()
+	if temp_array.has(graffiti_image.frame):
+		temp_array.erase(graffiti_image.frame)
+	graffiti_image.animation = "tags"
+	graffiti_image.set_frame_and_progress_synced(temp_array.pick_random(), 0)
+	#graffiti_image.frame = temp_array.pick_random()
+	color = team
+	ui_element.play_synced(color)
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	parent = area.get_parent() as Player
-	if not GDSync.is_gdsync_owner(parent):
-		e_key.hide()
+	var temp_parent = area.get_parent() as Player
+	
+	if GDSync.is_gdsync_owner(temp_parent):
+		parent = temp_parent
+	else:
 		return
 	
-	if parent.team != color:
+	if parent.team != color and GDSync.is_gdsync_owner(parent):
 		is_tagable(true)
 		parent.input_component.tag_input.connect(tag)
 		e_key.play("key")
@@ -54,17 +73,15 @@ var team_tags:Dictionary[String, Array] = {
 
 
 func tag(is_pressed: bool):
-	if is_pressed and color != parent.team:
-		graffiti_image.animation = "tags"
+	if is_pressed and color != parent.team and e_key.visible:
 		e_key.hide()
-		if not has_been_tagged:
-			has_been_tagged = true
-		var temp_array = team_tags[parent.team].duplicate()
-		if temp_array.has(graffiti_image.frame):
-			temp_array.erase(graffiti_image.frame)
-		graffiti_image.frame = temp_array.pick_random()
-		$SprayStream.play_synced()
+		
+		if not GDSync.is_host():
+			GDSync.call_func_on(GDSync.get_host(), _roll_graffiti_frame, parent.team)
+		else:
+			_roll_graffiti_frame(parent.team)
 		color = parent.team
+		$SprayStream.play_synced()
 		if color == "Blue":
 			var score = GDSync.player_get_data(GDSync.get_client_id(), 'score', 0) + 1
 			get_parent().get_node("Score").get_node("Blue").text = str(score)
@@ -83,12 +100,13 @@ func tag(is_pressed: bool):
 			GDSync.player_set_data("score", score)
 		print("Score: ",GDSync.player_get_data(GDSync.get_client_id(), 'score', 0))
 		#GDSync.lobby_get_all_clients()
-		e_key.play("default")
-		ui_element.play_synced(color)
+		if GDSync.is_gdsync_owner(parent):
+			e_key.play("default")
+		#ui_element.play_synced(color)
 		_spawn_particles(parent.team)
 
 func _spawn_particles(team:String) -> void:
-	var particles:GPUParticles2D = null
+	var particles:SynchronizedGPUParticles2D = null
 	if team == "Blue":
 		particles = blue_spray_paint_particles
 		#particles = blue_spray_paint_scene.instantiate()
@@ -103,13 +121,16 @@ func _spawn_particles(team:String) -> void:
 		#particles = purple_spray_paint_scene.instantiate()
 	
 	#add_child(particles)
-	particles.emitting = true
+	#if particles.emitting:
+	particles.restart_synced()
+	#particles.emitting = true
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	var parent = area.get_parent() as Player
-	is_tagable(false)
-	if parent.input_component.tag_input.is_connected(tag):
-		parent.input_component.tag_input.disconnect(tag)
-	ui_element.play_synced(color)
-	e_key.hide()
+	if GDSync.is_gdsync_owner(parent):
+		is_tagable(false)
+		if parent.input_component.tag_input.is_connected(tag):
+			parent.input_component.tag_input.disconnect(tag)
+		
+		e_key.hide()

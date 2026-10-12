@@ -73,10 +73,6 @@ options={
 ]
 }
 
-[network]
-
-limits/packet_peer_stream/max_buffer_po2=19
-
 [physics]
 
 3d/physics_engine="Jolt Physics"

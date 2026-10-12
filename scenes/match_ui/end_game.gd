@@ -14,13 +14,13 @@ func _ready() -> void:
 
 
 func _load_main_menu() -> void:
+	GDSync.lobby_leave()
 	var screen_wiper:ScreenWiper = $ScreenWiper
 	screen_wiper.wipe_screen()
 	
-	GDSync.lobby_leave()
 	await screen_wiper.start_loading
 	
-	SceneHolder.change_scene_to.emit(load("res://scenes/menus/main_menu/main_menu.tscn"), get_parent().get_parent())
+	SceneHolder.change_scene_to.emit(load("res://scenes/menus/main_menu/main_menu.tscn"), get_parent())
 
 
 func _back_button_grow() -> void:

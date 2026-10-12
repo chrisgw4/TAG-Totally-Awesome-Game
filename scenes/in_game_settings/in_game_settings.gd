@@ -37,8 +37,7 @@ func _leave_game() -> void:
 	else:
 		await screen_wiper.start_loading
 	
-	
-	
+	MusicDisplayDevice.show_device.emit()
 	
 	SceneHolder.change_scene_to.emit(load("res://scenes/menus/main_menu/main_menu.tscn"), get_parent().get_parent().get_parent())
 	
