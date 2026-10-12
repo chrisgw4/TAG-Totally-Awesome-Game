@@ -13,6 +13,9 @@ class_name Player
 @export var land_stream:SynchronizedAudioStreamPlayer2D
 @export var grind_stream:SynchronizedAudioStreamPlayer2D
 @export var hoponrail_stream:SynchronizedAudioStreamPlayer2D
+@export var prop_sync:PropertySynchronizer
+
+
 
 var team:String = "Blue":
 	set(new_value):
@@ -28,6 +31,8 @@ func _ready() -> void:
 	owner_changed(GDSync.get_gdsync_owner(self)) # apply the current owner immediately
 	
 	anim_sprite.play_synced(team+"idle")
+	
+	
 	
 	input_component.movement_inputs.connect(movement_component._accelerate_in_direction)
 	input_component.grinding_inputs.connect(movement_component._accelerate_in_direction_with_accel)

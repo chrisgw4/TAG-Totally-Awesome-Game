@@ -14,6 +14,7 @@ var main_menu_scene:PackedScene = load("res://scenes/menus/main_menu/main_menu.t
 @export var lobby_data:Dictionary = {}
 
 signal client_joined(client_id:int)
+signal client_loaded_in()
 signal updated_lobby_data()
 
 func _ready() -> void:
@@ -39,6 +40,9 @@ func _ready() -> void:
 	GDSync.expose_func(_client_assign_team)
 	
 	GDSync.expose_signal(client_joined)
+	GDSync.expose_signal(client_loaded_in)
+	
+	client_loaded_in.connect(_sync_players)
 	
 	#$PlayerSpawner.player_spawned.connect(_update_player)
 	client_joined.connect(_update_player)
@@ -47,6 +51,8 @@ func _ready() -> void:
 	
 	if not GDSync.is_host():
 		GDSync.emit_signal_remote_on(GDSync.get_host(), client_joined, GDSync.get_client_id())
+	
+	GDSync.emit_signal_remote_all(client_loaded_in)
 	
 	await get_tree().create_timer(0.2).timeout
 	color_rect.hide()
@@ -57,6 +63,10 @@ func _recount_teams(is_host:bool, new_host_id:int) -> void:
 	lobby_data = {"Yellow":-1, "Red":-1, "Blue":-1, "Purple":-1}
 	for child:Player in $PlayerSpawner.get_children():
 		lobby_data[child.team] = child.name.to_int()
+
+
+func _sync_players() -> void:
+	($PlayerSpawner.get_node(str(GDSync.get_client_id())).prop_sync as PropertySynchronizer).synchronize(true)
 
 
 func _update_player(client_id:int) -> void:
