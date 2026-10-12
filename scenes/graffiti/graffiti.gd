@@ -22,11 +22,8 @@ func _ready() -> void:
 		ui_element.play_synced(color)
 		#e_key.play("default")
 	GDSync.player_set_data("score", 0)
-	await get_tree().create_timer(1).timeout
 	GDSync.expose_func(_roll_graffiti_frame)
-	await get_tree().create_timer(1).timeout
 	GDSync.expose_func(_update_clients_player_data)
-	await get_tree().create_timer(1).timeout
 	GDSync.expose_func(_update_particle_process_materials)
 	pass
 
@@ -39,9 +36,11 @@ func _ready() -> void:
 
 # Host will call this function on the client's game
 # This will update their player data since score is now handled in host's game
-func _update_clients_player_data(new_score:int) -> void:
+func _update_clients_player_data(new_score:int, frame:int) -> void:
 	print("UPDAING SCORE TO: ", new_score)
 	GDSync.player_set_data("score", new_score)
+	#graffiti_image.visible = true
+	#graffiti_image.set_frame_and_progress_synced(frame, 0)
 
 
 func _roll_graffiti_frame(team:String, client_id:int) -> void:
@@ -54,8 +53,10 @@ func _roll_graffiti_frame(team:String, client_id:int) -> void:
 	var temp_array = team_tags[team].duplicate()
 	if temp_array.has(graffiti_image.frame):
 		temp_array.erase(graffiti_image.frame)
-	graffiti_image.animation = "tags"
-	graffiti_image.set_frame_and_progress_synced(temp_array.pick_random(), 0)
+	
+	var frame:int = temp_array.pick_random()
+	graffiti_image.visible = true
+	graffiti_image.set_frame_and_progress_synced(frame, 0)
 	#graffiti_image.frame = temp_array.pick_random()
 	color = team
 	ui_element.play_synced(color)
@@ -64,20 +65,20 @@ func _roll_graffiti_frame(team:String, client_id:int) -> void:
 	if color == "Blue":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Blue").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
 		
 	elif color == "Red":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Red").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
 	elif color == "Purple":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Purple").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
 	else:
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Yellow").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

@@ -64,7 +64,10 @@ func _start_sync() -> void:
 	multiplayer_connector._connect_to_gdsync()
 	toast_canvas.show_toast("Connecting to Multiplayer...")
 	multiplayer_connector.gdsync_connection_success.connect(toast_canvas._hide_toast)
-	
+	$RedSprayPaint.emitting = true
+	$BlueSprayPaint.emitting = true
+	$YellowSprayPaint.emitting = true
+	$PurpleSprayPaint.emitting = true
 	var tween = create_tween()
 	tween.tween_property(Conductor, "volume_linear", 0, 2.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished

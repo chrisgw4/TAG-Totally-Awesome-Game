@@ -262,10 +262,11 @@ graffiti_image = NodePath("Graffiti_Image")
 e_key = NodePath("E_key")
 
 [node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1863995746]
+visible = false
 position = Vector2(0, 1)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_gd63a")
-animation = &"nograf"
+animation = &"tags"
 script = ExtResource("4_q702q")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
@@ -306,7 +307,7 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 script = ExtResource("6_q702q")
 refresh_rate = 40
 node_path = NodePath("../Graffiti_Image")
-properties = PackedStringArray("animation", "frame")
+properties = PackedStringArray("animation", "frame", "visible")
 interpolated = false
 interpolation_speed = 1.0
 extrapolation = null
