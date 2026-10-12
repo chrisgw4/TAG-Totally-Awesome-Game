@@ -14,7 +14,12 @@ class_name Player
 @export var grind_stream:SynchronizedAudioStreamPlayer2D
 @export var hoponrail_stream:SynchronizedAudioStreamPlayer2D
 
-var team:String = "Blue"
+var team:String = "Blue":
+	set(new_value):
+		team = new_value
+		
+		if is_node_ready():
+			anim_sprite.play_synced(team+"idle")
 
 var was_in_air = false
 

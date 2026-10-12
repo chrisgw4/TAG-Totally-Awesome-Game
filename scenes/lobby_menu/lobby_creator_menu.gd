@@ -42,4 +42,4 @@ func _create() -> void:
 	if lobby_line_edit.text.length() <= 3:
 		return
 	
-	GDSync.lobby_create(lobby_line_edit.text, password_line_edit.text, true, 4, {},{"Blue":false, "Red":false, "Yellow":false, "Purple":false})
+	GDSync.lobby_create(lobby_line_edit.text, password_line_edit.text, true, 4, {},{"Blue":-1, "Red":-1, "Yellow":-1, "Purple":-1})

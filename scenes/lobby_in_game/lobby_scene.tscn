@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d26g8g08c51hp" path="res://assets/menus/menudevice.png" id="9_pw88w"]
 [ext_resource type="PackedScene" uid="uid://cpp2fimr3j25f" path="res://scenes/music_displayer/audio_player.tscn" id="11_eqecj"]
 [ext_resource type="AudioStream" uid="uid://b8ei2br7u887h" path="res://assets/sfx/mp3_hover.mp3" id="12_tisi5"]
+[ext_resource type="Script" uid="uid://fcoih1ax5dcs" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="13_hvvql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyu8n"]
 size = Vector2(22, 828)
@@ -122,3 +123,14 @@ stream = ExtResource("12_tisi5")
 
 [node name="ScreenWiper" parent="." unique_id=2142754851 instance=ExtResource("5_ao73u")]
 layer = 100000
+
+[node name="PropertySynchronizer" type="Node" parent="." unique_id=1671878736]
+script = ExtResource("13_hvvql")
+node_path = NodePath("..")
+properties = PackedStringArray("lobby_data")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://fcoih1ax5dcs"

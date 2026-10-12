@@ -6,13 +6,15 @@ extends Node2D
 @export var player_teams:Array[String] = ["Blue", "Red", "Yellow", "Purple"]
 
 signal players_spawned()
-signal player_spawned(player:Player)
+signal player_spawned(player:Player, client_id:int)
 
 func _ready() -> void:
 	(get_tree().current_scene as CanvasLayer).follow_viewport_enabled = true
 	# Still listen for changes after the game has started
 	GDSync.client_joined.connect(client_joined)
 	GDSync.client_left.connect(client_left)
+	
+	GDSync.player_data_changed.connect(_update_player_data)
 	
 	# Everyone is already in the lobby, so spawn a player for each of them
 	for client_id in GDSync.lobby_get_all_clients():
@@ -33,8 +35,10 @@ func spawn_player(client_id : int) -> void:
 		return
 	
 	var player : Player = player_scene.instantiate()
-	var team = GDSync.player_get_data(client_id, "team", "")
+	var team = GDSync.player_get_data(client_id, "team", "Blue")
 	print("TEAM, ", team)
+	
+	
 	player.team = team
 	player.name = str(client_id)
 	add_child(player)
@@ -43,9 +47,15 @@ func spawn_player(client_id : int) -> void:
 	# Every client sets ownership for every player, so ownership is
 	# consistent everywhere
 	GDSync.set_gdsync_owner(player, client_id)
-	player_spawned.emit(player)
+	player_spawned.emit(player, client_id)
 	
 	players_spawned.emit()
+
+func _update_player_data(client_id:int, key:String, value:Variant) -> void:
+	if key == 'team':
+		var player = get_node(str(client_id)) as Player
+		player.team = value
+		print("UPDATED PLAYER TEAM")
 
 
 func client_left(client_id : int) -> void:
