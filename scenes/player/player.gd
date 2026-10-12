@@ -22,7 +22,7 @@ var team:String = "Blue":
 		team = new_value
 		
 		if is_node_ready():
-			anim_sprite.play_synced(team+"idle")
+			anim_sprite.play(team+"idle")
 
 var was_in_air = false
 

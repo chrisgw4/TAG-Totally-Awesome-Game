@@ -66,6 +66,10 @@ region = Rect2(1152, 0, 95, 96)
 atlas = ExtResource("2_aayd5")
 region = Rect2(1248, 0, 95, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6irws"]
+atlas = ExtResource("2_aayd5")
+region = Rect2(172, 7, 43, 7)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gd63a"]
 animations = [{
 "frames": [],
@@ -115,6 +119,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eccku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6irws")
 }],
 "loop": 1,
 "name": &"tags",
@@ -262,11 +269,11 @@ graffiti_image = NodePath("Graffiti_Image")
 e_key = NodePath("E_key")
 
 [node name="Graffiti_Image" type="AnimatedSprite2D" parent="." unique_id=1863995746]
-visible = false
 position = Vector2(0, 1)
 scale = Vector2(0.79, 0.79)
 sprite_frames = SubResource("SpriteFrames_gd63a")
 animation = &"tags"
+frame = 14
 script = ExtResource("4_q702q")
 metadata/_custom_type_script = "uid://dqpkvnosbpdvd"
 
@@ -292,9 +299,9 @@ sprite_frames = SubResource("SpriteFrames_aayd5")
 
 [node name="SyncGraffiti" type="Node" parent="." unique_id=1242356054]
 script = ExtResource("6_q702q")
-process = 1
 refresh_rate = 5
 node_path = NodePath("..")
+reliable = true
 properties = PackedStringArray("color", "has_been_tagged")
 interpolated = false
 interpolation_speed = 1.0
@@ -307,7 +314,8 @@ metadata/_custom_type_script = "uid://fcoih1ax5dcs"
 script = ExtResource("6_q702q")
 refresh_rate = 40
 node_path = NodePath("../Graffiti_Image")
-properties = PackedStringArray("animation", "frame", "visible")
+reliable = true
+properties = PackedStringArray("frame")
 interpolated = false
 interpolation_speed = 1.0
 extrapolation = null

@@ -53,6 +53,7 @@ func _ready() -> void:
 		GDSync.emit_signal_remote_on(GDSync.get_host(), client_joined, GDSync.get_client_id())
 	
 	GDSync.emit_signal_remote_all(client_loaded_in)
+	GDSync.player_set_data("score", 0)
 	
 	await get_tree().create_timer(0.2).timeout
 	color_rect.hide()

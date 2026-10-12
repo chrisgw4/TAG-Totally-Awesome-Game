@@ -18,10 +18,11 @@ func _ready() -> void:
 	if GDSync.is_host():
 		pass
 		#graffiti_image.play_synced("nograf")
-		await get_tree().create_timer(0.2).timeout
-		ui_element.play_synced(color)
+		#await get_tree().create_timer(0.2).timeout
+		
 		#e_key.play("default")
-	GDSync.player_set_data("score", 0)
+	ui_element.play(color)
+	await get_tree().create_timer(2).timeout
 	GDSync.expose_func(_roll_graffiti_frame)
 	GDSync.expose_func(_update_clients_player_data)
 	GDSync.expose_func(_update_particle_process_materials)
@@ -36,11 +37,10 @@ func _ready() -> void:
 
 # Host will call this function on the client's game
 # This will update their player data since score is now handled in host's game
-func _update_clients_player_data(new_score:int, frame:int) -> void:
+func _update_clients_player_data(new_score:int) -> void:
 	print("UPDAING SCORE TO: ", new_score)
 	GDSync.player_set_data("score", new_score)
-	#graffiti_image.visible = true
-	#graffiti_image.set_frame_and_progress_synced(frame, 0)
+
 
 
 func _roll_graffiti_frame(team:String, client_id:int) -> void:
@@ -60,25 +60,26 @@ func _roll_graffiti_frame(team:String, client_id:int) -> void:
 	#graffiti_image.frame = temp_array.pick_random()
 	color = team
 	ui_element.play_synced(color)
+	$SyncGraffiti.synchronize(true)
 	
 	# Update Scores
 	if color == "Blue":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Blue").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
 		
 	elif color == "Red":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Red").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
 	elif color == "Purple":
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Purple").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
 	else:
 		var score = GDSync.player_get_data(client_id, 'score', 0) + 1
 		get_parent().get_node("Score").get_node("Yellow").text = str(score)
-		GDSync.call_func_on(client_id, _update_clients_player_data, score, frame)
+		GDSync.call_func_on(client_id, _update_clients_player_data, score)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -89,12 +90,15 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	else:
 		return
 	
+	print("Data for Entering: ", color, " tagable: ", tagable)
+	
 	if parent.team != color and GDSync.is_gdsync_owner(parent):
 		is_tagable(true)
 		parent.input_component.tag_input.connect(tag)
 		e_key.play("key")
 		e_key.show()
-	
+
+
 func is_tagable(state: bool):
 	tagable = state
 
@@ -139,38 +143,21 @@ func _update_particle_process_materials(team:String) -> void:
 	
 	particles.restart()
 
+
 func _spawn_particles(team:String) -> void:
-	var particles:GPUParticles2D = red_spray_paint_particles
+	#var particles:GPUParticles2D = red_spray_paint_particles
 	
 	GDSync.call_func_all(_update_particle_process_materials, team)
-	
-	
-	
-	#if team == "Blue":
-		#particles = blue_spray_paint_particles
-		#particles.restart()
-		##particles = blue_spray_paint_scene.instantiate()
-	#elif team == "Yellow":
-		#particles = yellow_spray_paint_particles
-		#particles.restart()
-		##particles = yellow_spray_paint_scene.instantiate()
-	#elif team == "Red":
-		#particles = red_spray_paint_particles
-		#particles.restart_synced()
-		##particles = red_spray_paint_scene.instantiate()
-	#elif team == "Purple":
-		#particles = purple_spray_paint_particles
-		#particles.restart()
-		##particles = purple_spray_paint_scene.instantiate()
-	#
-	##add_child(particles)
-	##if particles.emitting:
-	#particles.restart()
-	#particles.emitting = true
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	var parent = area.get_parent() as Player
+	var temp_parent = area.get_parent() as Player
+	
+	if GDSync.is_gdsync_owner(temp_parent):
+		parent = temp_parent
+	else:
+		return
+	
 	if GDSync.is_gdsync_owner(parent):
 		is_tagable(false)
 		if parent.input_component.tag_input.is_connected(tag):
